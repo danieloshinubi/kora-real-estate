@@ -1,3 +1,4 @@
+![Logo for landing page kora](https://github.com/user-attachments/assets/9e33d7cc-4973-499d-8db6-57e25500ac1f)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

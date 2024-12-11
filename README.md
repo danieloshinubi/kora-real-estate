@@ -1,80 +1,101 @@
 ![Logo for landing page kora](https://github.com/user-attachments/assets/9e33d7cc-4973-499d-8db6-57e25500ac1f)
 # KORA REAL ESTATE APP
 
-Objective:
+**Objective:**
 To create a real estate app tailored for the Nigerian market, combining ease of use, advanced filters, and secure blockchain-based smart contracts for property transactions.
-User Experience Flow
-1. Sign-Up/Onboarding:
-o Sign-Up Page: Users create an account using their email, phone number, or social media (Google/Facebook). Multi-factor authentication (via OTP or email verification) is implemented for security.
-o Onboarding Questionnaire: After signing up, users answer a series of preference-based questions to personalize their experience. Questions include:
- Preferred location(s).
- Price range.
- Property type (e.g., apartment, house, shared living).
- Number of bedrooms.
- Features such as pets allowed, parking availability, and furnished/unfurnished options.
-2. Home Page (Find Homes):
-o Map View: Upon logging in, users land on a map displaying properties matching their preferences as pins. Clicking a pin displays a mini-popup with property details and a link to the full property page.
-o Search Bar: A persistent search bar at the top allows users to update or refine filters (e.g., change location, adjust price range).
-o Navbar Options:
- Find Homes: Current page with the map and search functionality.
- Feed: Personalized home suggestions based on filters and user behavior.
- Favorites: Properties the user has saved (starred).
- My Kora: A user dashboard with personal settings and activity logs.
-3. Feed (Recommended Homes):
-o Automatically populated with properties based on:
- Filter preferences from the onboarding questionnaire.
- Properties the user has favorited or viewed.
- Similar listings to recently interacted homes.
-4. Favorites:
-o Displays all user-saved properties in a list or grid view.
-o Includes actions like sharing the listing, scheduling a viewing, or contacting the seller.
-5. My Kora (Profile Page):
-o A hub for managing personal activity and settings, including:
- Recently Viewed Homes: Quick access to previously explored properties.
- Saved Searches: Users can save filter combinations for quick reuse.
- Favorites: A consolidated list of saved properties.
- Payment History: Details of completed transactions via blockchain smart contracts.
- Scheduled Viewings: Upcoming property viewings and meeting schedules.
- Profile Settings:
- Personal information (name, email, phone number).
- Linked blockchain wallet for transactions.
- Notification preferences (email, SMS, app notifications).
- Login & security settings (password reset, two-factor authentication).
-Functional Requirements
-Sign-Up/Onboarding
- Users must provide email, phone number, or social media credentials.
- Multi-factor authentication to enhance security.
- Capture user preferences during onboarding to personalize the experience.
-Home Page
- Display properties on an interactive map view.
- Allow users to search and refine properties using the search bar and filters.
- Provide filter options:
-o Location.
-o Price range.
-o Property type.
-o Bedrooms.
-o Features like pets allowed, parking, furnished status.
-Feed
- Dynamically populate recommended homes based on user activity:
-o Filters selected during onboarding or updated via the search bar.
-o History of viewed or favorited properties.
-o Algorithmic suggestions (e.g., “If you liked X property, you might like Y”).
-Favorites
- Users can "star" properties to save them to their favorites.
- Allow users to view, share, and schedule viewings for saved properties.
-My Kora (Profile)
- Recently Viewed Homes: Display a chronological list of recently explored properties.
- Saved Searches: Provide a mechanism for users to save and manage their search preferences.
- Payment History: Show completed transactions, including timestamps and property details, leveraging blockchain for immutability.
- Linked Blockchain Wallet:
-o Connect to Ethereum or Binance Smart Chain wallets for seamless transactions.
-o Enable smart contract-based escrow payments for buying, renting, and mortgage processing.
- Scheduled Viewings: Display upcoming appointments with property agents or sellers.
- Profile Settings:
-o Update personal details.
-o Link or unlink blockchain wallets.
-o Manage communication preferences (e.g., email notifications, SMS alerts).
-o Adjust login and security settings.
+
+**User Experience Flow**
+
+**1. Sign-Up/Onboarding:**
+
+**Sign-Up Page:** Users create an account using their email, phone number, or social media (Google/Facebook). Multi-factor authentication (via OTP or email verification) is implemented for security.
+
+**Onboarding Questionnaire:** After signing up, users answer a series of preference-based questions to personalize their experience. 
+
+Questions include:
+
+1. Preferred location(s).
+2. Price range.
+3. Property type (e.g., apartment, house, shared living).
+4. Number of bedrooms.
+5. Features such as pets allowed, parking availability, and furnished/unfurnished options.
+
+**2. Home Page (Find Homes):**
+   **Map View:** Upon logging in, users land on a map displaying properties matching their preferences as pins. Clicking a pin displays a mini-popup with property details and a link to the full property page.
+   
+   **Search Bar:** A persistent search bar at the top allows users to update or refine filters (e.g., change location, adjust price range).
+   
+   **Navbar Options:**
+   1. Find Homes: Current page with the map and search functionality.
+   2. Feed: Personalized home suggestions based on filters and user behavior.
+   3. Favorites: Properties the user has saved (starred).
+   4. My Kora: A user dashboard with personal settings and activity logs.
+
+**3. Feed (Recommended Homes):**
+   Automatically populated with properties based on:
+   1. Filter preferences from the onboarding questionnaire.
+   2. Properties the user has favorited or viewed.
+   3. Similar listings to recently interacted homes.
+
+**4. Favorites:**
+
+   1. Displays all user-saved properties in a list or grid view.
+   2. Includes actions like sharing the listing, scheduling a viewing, or contacting the seller.
+      
+**5. My Kora (Profile Page):**
+   A hub for managing personal activity and settings, including:
+      **Recently Viewed Homes:** Quick access to previously explored properties.
+      **Saved Searches:** Users can save filter combinations for quick reuse.
+      **Favorites:** A consolidated list of saved properties.
+      **Payment History:** Details of completed transactions via blockchain smart contracts.
+      **Scheduled Viewings:** Upcoming property viewings and meeting schedules.
+      **Profile Settings:**
+         1. Personal information (name, email, phone number).
+         2. Linked blockchain wallet for transactions.
+         3. Notification preferences (email, SMS, app notifications).
+         4. Login & security settings (password reset, two-factor authentication).
+         
+**Functional Requirements**
+
+**Sign-Up/Onboarding**
+   1. Users must provide email, phone number, or social media credentials.
+   2. Multi-factor authentication to enhance security.
+   3. Capture user preferences during onboarding to personalize the experience.
+      
+**Home Page**
+   1. Display properties on an interactive map view.
+   2. Allow users to search and refine properties using the search bar and filters.
+   3. Provide filter options:
+      o Location.
+      o Price range.
+      o Property type.
+      o Bedrooms.
+      o Features like pets allowed, parking, furnished status.
+      
+**Feed**
+   1. Dynamically populate recommended homes based on user activity:
+      o Filters selected during onboarding or updated via the search bar.
+      o History of viewed or favorited properties.
+      o Algorithmic suggestions (e.g., “If you liked X property, you might like Y”).
+      
+**Favorites**
+   1. Users can "star" properties to save them to their favorites.
+   2. Allow users to view, share, and schedule viewings for saved properties.
+      
+**My Kora (Profile)**
+   1. **Recently Viewed Homes:** Display a chronological list of recently explored properties.
+   2. **Saved Searches:** Provide a mechanism for users to save and manage their search preferences.
+   3. **Payment History:** Show completed transactions, including timestamps and property details, leveraging blockchain for immutability.
+   4. **Linked Blockchain Wallet:**
+      o Connect to Ethereum or Binance Smart Chain wallets for seamless transactions.
+      
+      o Enable smart contract-based escrow payments for buying, renting, and mortgage processing.
+   5. **Scheduled Viewings:** Display upcoming appointments with property agents or sellers.
+   6. **Profile Settings:**
+      o Update personal details.
+      o Link or unlink blockchain wallets.
+      o Manage communication preferences (e.g., email notifications, SMS alerts).
+      o Adjust login and security settings.
 
 
 **Additional Functional Details**

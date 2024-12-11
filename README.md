@@ -75,24 +75,31 @@ o Update personal details.
 o Link or unlink blockchain wallets.
 o Manage communication preferences (e.g., email notifications, SMS alerts).
 o Adjust login and security settings.
-Additional Functional Details
-1. Smart Contracts for Payment:
-o Implement smart contracts to handle transactions securely.
-o Users can view the transaction status in their My Kora dashboard (e.g., "Payment Pending," "Escrow Released").
-o Automatically trigger contract milestones such as property verification or document transfer.
-2. Search Functionality:
-o Filters should be dynamic and customizable at any point.
-o Filters to include:
- Keywords (e.g., "sea view," "balcony").
- Nearby landmarks or areas of interest (e.g., schools, markets).
-3. Notifications:
-o Notify users when:
- New properties matching their preferences are listed.
- A seller responds to their inquiry or schedules a meeting.
- Payment milestones are met.
-4. Agent/Seller Features:
-o Easy listing upload, including verification and property stats.
-o Communication tools for responding to inquiries or scheduling viewings.
+
+
+**Additional Functional Details**
+
+**1. Smart Contracts for Payment:**
+   Implement smart contracts to handle transactions securely.
+   Users can view the transaction status in their My Kora dashboard (e.g., "Payment Pending," "Escrow Released").
+   Automatically trigger contract milestones such as property verification or document transfer.
+
+**2. Search Functionality:**
+   Filters should be dynamic and customizable at any point.
+   **Filters to include:**
+   Keywords (e.g., "sea view," "balcony").
+   Nearby landmarks or areas of interest (e.g., schools, markets).
+
+**3. Notifications:**
+   **Notify users when:**
+   New properties matching their preferences are listed.
+   A seller responds to their inquiry or schedules a meeting.
+   Payment milestones are met.
+   
+**4. Agent/Seller Features:**
+   Easy listing upload, including verification and property stats.
+   Communication tools for responding to inquiries or scheduling viewings.
+
 
 
 

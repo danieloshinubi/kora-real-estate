@@ -9,7 +9,7 @@ export default function SignUpPage() {
   const nextStep = () => setStep((prev) => prev + 1);
   const prevStep = () => setStep((prev) => prev - 1);
   return (
-      <div className="w-2/3 p-5">
+      <div className="w-full p-5">
         {/* Progress Indicator */}
         <ul className="steps w-full mb-4">
           <li className={`step ${step >= 1 && "step-primary"}`}>Step 1</li>

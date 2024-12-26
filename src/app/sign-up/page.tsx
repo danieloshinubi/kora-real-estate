@@ -49,14 +49,19 @@ export default function SignUpPage() {
               </div>
 
               <input
-                type='text'
-                placeholder='Name'
-                className='input input-bordered w-full mb-3'
-              />
-              <input
                 type='email'
                 placeholder='Email'
-                className='input input-bordered w-full'
+                className='input p-[12px] border-[1px] border-[#BAC7D5] w-full mb-3'
+              />
+              <input
+                type="number"
+                placeholder='Phone Number'
+                className='input p-[12px] border-[1px] border-[#BAC7D5] w-full mb-3'
+              />
+              <input
+                type='password'
+                placeholder='Password'
+                className='input p-[12px] border-[1px] border-[#BAC7D5] w-full'
               />
               <button
                 onClick={nextStep}
@@ -73,12 +78,12 @@ export default function SignUpPage() {
             <input
               type='text'
               placeholder='Address'
-              className='input input-bordered w-full mb-3'
+              className='input p-[12px] border-[1px] border-[#BAC7D5] w-full mb-3'
             />
             <input
               type='text'
               placeholder='City'
-              className='input input-bordered w-full'
+              className='input p-[12px] border-[1px] border-[#BAC7D5] w-full'
             />
             <button
                 onClick={nextStep}

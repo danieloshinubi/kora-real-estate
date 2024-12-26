@@ -2,19 +2,17 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { cabin } from "../ui/fonts";
+import SignupForm from "../ui/SignUpForm";
 
 export default function SignUpPage() {
   const [step, setStep] = useState(1);
-
-  const nextStep = () => setStep((prev) => prev + 1);
   const prevStep = () => setStep((prev) => prev - 1);
   return (
     <div className='w-full p-5'>
       {/* Navigation Buttons */}
-      <div className='mt-4 flex justify-between'>
+      <div className='flex justify-between'>
         {step > 1 ? (
-          <div className='flex justify-between w-full'>
+          <div className='flex absolute top-0 justify-between w-full'>
             <button className='btn btn-outline' onClick={prevStep}>
               {"< Back"}
             </button>
@@ -37,75 +35,7 @@ export default function SignUpPage() {
         )}
       </div>
       {/* Step Content */}
-      <div>
-        {step === 1 && (
-          <div className='w-full flex text-center'>
-            <div className='mx-auto max-w-[414px] flex flex-col gap-4'>
-              <div className='text-left'>
-                <h2 className='text-[28px] font-[500]'>Create Your Account</h2>
-                <p className={`${cabin.className} leading-[19px] text-[#6C7275]`}>
-                  We recommend using your school email for the best experience.
-                </p>
-              </div>
-
-              <input
-                type='email'
-                placeholder='Email'
-                className='input p-[12px] border-[1px] border-[#BAC7D5] w-full mb-3'
-              />
-              <input
-                type="number"
-                placeholder='Phone Number'
-                className='input p-[12px] border-[1px] border-[#BAC7D5] w-full mb-3'
-              />
-              <input
-                type='password'
-                placeholder='Password'
-                className='input p-[12px] border-[1px] border-[#BAC7D5] w-full'
-              />
-              <button
-                onClick={nextStep}
-                className={`bg-[#D2691E] ${cabin.className} text-white w-full py-[10px] px-[18px] rounded-[6px]`}
-              >
-                Create Account
-              </button>
-            </div>
-          </div>
-        )}
-        {step === 2 && (
-          <div>
-            <h2 className='text-xl font-semibold'>Step 2: Address</h2>
-            <input
-              type='text'
-              placeholder='Address'
-              className='input p-[12px] border-[1px] border-[#BAC7D5] w-full mb-3'
-            />
-            <input
-              type='text'
-              placeholder='City'
-              className='input p-[12px] border-[1px] border-[#BAC7D5] w-full'
-            />
-            <button
-                onClick={nextStep}
-                className={`bg-[#D2691E] ${cabin.className} text-white w-full py-[10px] px-[18px] rounded-[6px]`}
-              >
-                Next
-              </button>
-          </div>
-        )}
-        {step === 3 && (
-          <div>
-            <h2 className='text-xl font-semibold'>Step 3: Confirmation</h2>
-            <p>Review your details before submission.</p>
-            <button
-                onClick={nextStep}
-                className={`bg-[#D2691E] ${cabin.className} text-white w-full py-[10px] px-[18px] rounded-[6px]`}
-              >
-                Next
-              </button>
-          </div>
-        )}
-      </div>
+      <SignupForm step={step} setStep={setStep} />
     </div>
   );
 }

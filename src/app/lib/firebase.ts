@@ -1,7 +1,12 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth } from "firebase/auth";
+import {
+  getAuth,
+  connectAuthEmulator,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -14,10 +19,26 @@ const firebaseConfig = {
   storageBucket: "kora-real-estate.firebasestorage.app",
   messagingSenderId: "78168920530",
   appId: "1:78168920530:web:f0a93472e56b4596f6380b",
-  measurementId: "G-TWC7E8RS17"
+  measurementId: "G-TWC7E8RS17",
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
-export const analytics = getAnalytics(app);
-export const auth = getAuth(app);
+export const firebaseApp = initializeApp(firebaseConfig);
+export const analytics = getAnalytics(firebaseApp);
+
+export const auth = getAuth(firebaseApp);
+connectAuthEmulator(auth, "http://localhost:9099");
+
+export const loginWithEmailPassword = async (email: string, password: string) => {
+  try {
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    const user = userCredential.user;
+    console.log(user);
+  } catch (error) {
+    console.error(error);
+  }
+};

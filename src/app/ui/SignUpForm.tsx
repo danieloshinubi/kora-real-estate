@@ -2,16 +2,18 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { cabin } from "./fonts";
 import { inknutAntiqua } from "./fonts";
+import { loginWithEmailPassword } from "../lib/firebase";
 
 type SignupFormProps = {
   step: number;
   setStep: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const SignupForm: React.FC<SignupFormProps> = ({step, setStep}) => {
+const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>("");
 
   const nextStep = () => setStep((prev) => prev + 1);
 
@@ -27,8 +29,13 @@ const SignupForm: React.FC<SignupFormProps> = ({step, setStep}) => {
 
   const passwordValidation = validatePassword(password);
 
+  const handleSignUp = () => {
+    nextStep();
+    loginWithEmailPassword(email, password);
+  }
+  
   return (
-    <div className="overflow-y-scroll max-h-[80vh]"> 
+    <div className='overflow-y-scroll max-h-[80vh]'>
       {step === 1 && (
         <div className={`max-w-md mx-auto ${cabin.className}`}>
           <h1
@@ -71,6 +78,7 @@ const SignupForm: React.FC<SignupFormProps> = ({step, setStep}) => {
             type='email'
             placeholder='Email Address'
             className='w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring focus:ring-orange-300'
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           {/* Phone Number */}
@@ -107,7 +115,9 @@ const SignupForm: React.FC<SignupFormProps> = ({step, setStep}) => {
             <div
               className={`grid grid-cols-4 text-gray-600 text-[13px] leading-[16px] ${cabin.className}`}
             >
-              <span className={passwordValidation.length ? "text-green-600" : ""}>
+              <span
+                className={passwordValidation.length ? "text-green-600" : ""}
+              >
                 8 characters
               </span>
               <span
@@ -127,7 +137,9 @@ const SignupForm: React.FC<SignupFormProps> = ({step, setStep}) => {
               >
                 A special character
               </span>
-              <span className={passwordValidation.number ? "text-green-600" : ""}>
+              <span
+                className={passwordValidation.number ? "text-green-600" : ""}
+              >
                 A number
               </span>
             </div>
@@ -152,7 +164,7 @@ const SignupForm: React.FC<SignupFormProps> = ({step, setStep}) => {
           </div>
 
           {/* Submit Button */}
-          <button className='w-full py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600'>
+          <button className='w-full py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600' onClick={handleSignUp}>
             Create Account
           </button>
 

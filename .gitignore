@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+#firebase
+dataconnect
+dataconnect-generated
+functions
+/src/app/lib/firebase.ts

@@ -2,20 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: "Joker";
+  src:
+    url("/fonts/joker.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --font-inknut-antiqua: "Inknut Antiqua", serif;
+  --font-joker: "Joker", cursive;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inknut-antiqua), serif;
+}
+
+.joker-font {
+  font-family: var(--font-joker);
+}
+
+/* Webkit-based browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #575b61;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #EDF2F7;
 }

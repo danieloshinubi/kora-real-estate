@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { cabin } from "./fonts";
 import { inknutAntiqua } from "./fonts";
-import { loginWithEmailPassword } from "../lib/firebase";
+import { userSignUp } from "../lib/firebase";
 
 type SignupFormProps = {
   step: number;
@@ -31,7 +31,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
 
   const handleSignUp = () => {
     nextStep();
-    loginWithEmailPassword(email, password);
+    userSignUp(email, password);
   }
   
   return (

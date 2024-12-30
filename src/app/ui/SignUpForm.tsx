@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { cabin } from "./fonts";
 import { inknutAntiqua } from "./fonts";
-import { userSignUp } from "../lib/firebase";
 
 type SignupFormProps = {
   step: number;
@@ -13,7 +12,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [email, setEmail] = useState<string>("");
+  // const [email, setEmail] = useState<string>("");
 
   const nextStep = () => setStep((prev) => prev + 1);
 
@@ -31,7 +30,6 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
 
   const handleSignUp = () => {
     nextStep();
-    userSignUp(email, password);
   }
   
   return (
@@ -78,7 +76,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
             type='email'
             placeholder='Email Address'
             className='w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring focus:ring-orange-300'
-            onChange={(e) => setEmail(e.target.value)}
+            // onChange={(e) => setEmail(e.target.value)}
           />
 
           {/* Phone Number */}

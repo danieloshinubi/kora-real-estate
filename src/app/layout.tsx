@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { inknutAntiqua } from "@/app/ui/fonts";
+import { Providers } from "./lib/Provider";
 
 import "./globals.css";
 
@@ -14,9 +15,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <body className={`${inknutAntiqua.variable} antialiased`}>
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

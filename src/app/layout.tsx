@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { inknutAntiqua } from "@/app/ui/fonts";
-import { Providers } from "./lib/Provider";
+import { Providers } from "./utils/Providers";
 
 import "./globals.css";
 

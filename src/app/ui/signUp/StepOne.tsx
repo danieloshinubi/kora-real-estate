@@ -51,7 +51,7 @@ const StepOne = ({ nextStep, setEmail, setPassword, password }: Props) => {
   return (
     <div className={`max-w-md mx-auto ${cabin.className}`}>
       <h1
-        className={`text-2xl font-semibold text-center mb-2 ${inknutAntiqua.className}`}
+        className={`text-2xl font-semibold text-center ${inknutAntiqua.className}`}
       >
         Create Your Account
       </h1>

@@ -8,7 +8,7 @@ export default function SignUpPage() {
   const [step, setStep] = useState(1);
   const prevStep = () => setStep((prev) => prev - 1);
   return (
-    <div className='w-full p-5'>
+    <div className='w-full h-full'>
       {/* Navigation Buttons */}
       <div className='flex justify-between'>
         {step > 1 ? (
@@ -27,8 +27,8 @@ export default function SignUpPage() {
           <div className='flex justify-end w-full'>
             <Image
               src='/kora-logo.png'
-              height={200}
-              width={150}
+              height={52}
+              width={151}
               alt='kora logo'
             />
           </div>

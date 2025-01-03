@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import SignupForm from "../ui/SignUpForm";
+import SignupForm from "../ui/signUp/SignUpForm";
 
 export default function SignUpPage() {
   const [step, setStep] = useState(1);

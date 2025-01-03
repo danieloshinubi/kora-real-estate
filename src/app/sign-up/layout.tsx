@@ -1,4 +1,4 @@
-import SignUpSidePane from "@/app/ui/SignUpSidePane";
+import SignUpSidePane from "@/app/ui/signUp/SignUpSidePane";
 import Image from "next/image";
 
 export default function Layout({ children }: { children: React.ReactNode }) {

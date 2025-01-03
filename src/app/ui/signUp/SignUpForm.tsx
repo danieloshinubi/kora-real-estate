@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-// import Image from "next/image";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import StepThree from "./StepThree";
+import StepFour from "./StepFour";
+import FinalStep from "./FinalStep";
 
 import { useSignUpMutation } from "../../utils/services/api";
 
@@ -21,10 +22,10 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
 
   const nextStep = async () => setStep((prev) => prev + 1);
 
-  // const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSignUp = async () => {
-    // setIsLoading(true);
+    setIsLoading(true);
 
     try {
       await signUp({ username: email, password, email });
@@ -33,7 +34,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
       alert("Signup failed. Try again.");
       console.log(error);
     } finally {
-      // setIsLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -49,6 +50,10 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
       )}
       {step === 2 && <StepTwo nextStep={nextStep} />}
       {step === 3 && <StepThree nextStep={nextStep} />}
+      {step === 4 && <StepFour nextStep={nextStep} />}
+      {step === 5 && (
+        <FinalStep handleSignUp={handleSignUp} isLoading={isLoading} />
+      )}
     </div>
   );
 };

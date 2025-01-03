@@ -97,7 +97,7 @@ const LoginForm: React.FC = () => {
 
         {/*Forgot Password Button */}
         <button className='w-full text-[#DB1E13] text-right rounded-lg mb-8'>
-          <a href='/forgot-password' className='text-[#DB1E13] hover:underline'>
+          <a href='/auth/forgot-password' className='text-[#DB1E13] hover:underline'>
             Forgot Password?
           </a>
         </button>
@@ -113,7 +113,7 @@ const LoginForm: React.FC = () => {
 
         <p className='text-center mt-4 text-sm text-gray-500'>
           Don&apos;t have an account?{" "}
-          <a href='/sign-up' className='text-orange-500 hover:underline'>
+          <a href='/auth/sign-up' className='text-orange-500 hover:underline'>
             Sign Up
           </a>
         </p>

@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import SignupForm from "../ui/signUp/SignUpForm";
+import ForgotPasswordForm from "../../ui/forgot-password/ForgotPasswordForm";
 
-export default function SignUpPage() {
+export default function ForgotPasswordPage() {
   const [step, setStep] = useState(1);
   const prevStep = () => setStep((prev) => prev - 1);
   return (
@@ -34,8 +34,9 @@ export default function SignUpPage() {
           </div>
         )}
       </div>
-      {/* Step Content */}
-      <SignupForm step={step} setStep={setStep} />
+      
+      {/* Login Form */}
+      <ForgotPasswordForm/>
     </div>
   );
 }

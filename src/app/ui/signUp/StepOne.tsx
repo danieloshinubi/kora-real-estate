@@ -183,7 +183,7 @@ const StepOne = ({ nextStep, setEmail, setPassword, password }: Props) => {
 
       <p className='text-center mt-4 text-sm text-gray-500'>
         Already have an account?{" "}
-        <a href='/login' className='text-orange-500 hover:underline'>
+        <a href='/auth/login' className='text-orange-500 hover:underline'>
           Login
         </a>
       </p>

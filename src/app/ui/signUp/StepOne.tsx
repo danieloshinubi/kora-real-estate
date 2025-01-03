@@ -4,6 +4,7 @@ import Image from "next/image";
 import { inknutAntiqua } from "../fonts";
 import { cabin } from "../fonts";
 import { useState } from "react";
+// import PhoneField from "./PhoneField";
 
 type Props = {
   nextStep: () => void;
@@ -51,7 +52,7 @@ const StepOne = ({ nextStep, setEmail, setPassword, password }: Props) => {
   return (
     <div className={`max-w-md mx-auto h-full ${cabin.className}`}>
       <h1
-        className={`text-2xl font-semibold text-center ${inknutAntiqua.className}`}
+        className={`text-2xl font-semibold ${inknutAntiqua.className}`}
       >
         Create Your Account
       </h1>
@@ -107,6 +108,7 @@ const StepOne = ({ nextStep, setEmail, setPassword, password }: Props) => {
           className='flex-grow px-4 py-2 border rounded-r-lg focus:outline-none focus:ring focus:ring-orange-300'
         />
       </div>
+      {/* <PhoneField/> */}
 
       {/* Password */}
       <div className='mb-4 relative'>

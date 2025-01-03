@@ -30,9 +30,11 @@ const LoginForm: React.FC = () => {
 
   return (
     <div className='overflow-y-scroll flex items-center h-[calc(100%-52px)]'>
-      <div className={`max-w-md mx-auto h-full flex flex-col justify-center ${cabin.className}`}>
+      <div
+        className={`max-w-md mx-auto h-full flex flex-col justify-center ${cabin.className}`}
+      >
         <h1
-          className={`text-2xl font-semibold text-center ${inknutAntiqua.className}`}
+          className={`text-2xl font-semibold ${inknutAntiqua.className}`}
         >
           Welcome Back, User
         </h1>
@@ -92,11 +94,12 @@ const LoginForm: React.FC = () => {
             {showPassword ? "🙈" : "👁️"}
           </button>
         </div>
+
         {/*Forgot Password Button */}
-        <button
-          className='w-full text-[#DB1E13] text-right rounded-lg mb-8'
-        >
-          Forgot Password?
+        <button className='w-full text-[#DB1E13] text-right rounded-lg mb-8'>
+          <a href='/forgot-password' className='text-[#DB1E13] hover:underline'>
+            Forgot Password?
+          </a>
         </button>
 
         {/* Submit Button */}

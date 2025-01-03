@@ -39,7 +39,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
   };
 
   return (
-    <div className='overflow-y-scroll flex items-center max-h-[85vh]'>
+    <div className='overflow-y-scroll flex items-center h-[calc(100%-52px)]'>
       {step === 1 && (
         <StepOne
           nextStep={nextStep}

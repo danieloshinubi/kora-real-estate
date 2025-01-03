@@ -5,19 +5,13 @@ import Image from "next/image";
 export default function SignUpSidePane() {
   return (
     <div className='w-[40%] max-w-[540px] px-6 py-6 rounded-2xl flex flex-col justify-between bg-[#2f4f4f] items-center'>
-          <div className='w-72 h-72 bg-[#f5deb3] rounded-full flex flex-col items-center justify-center mt-16'>
+          <div className='mt-4'>
             <Image
-              src='/signUpHome.png'
+              src='/signUpHomeWbg.png'
               width={360}
               height={243}
               alt='sign up home picture'
             />
-            {/* <Image
-              src='/indicator1.png'
-              width={35}
-              height={34}
-              alt='sign up picture'
-            /> */}
           </div>
           <div className="leading-[24px] text-white text-center">
             <h1 className='text-[20px]  mb-4'>

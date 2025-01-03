@@ -6,7 +6,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className='flex items-center justify-center h-screen'>
       <div className='w-full h-full flex p-6'>
         <SignUpSidePane />
-        <div className='w-[60%] px-6 rounded-2xl flex flex-col justify-between items-center'>
+        <div className='w-[60%] px-6 flex flex-col justify-between items-center'>
           {children}
         </div>
       </div>

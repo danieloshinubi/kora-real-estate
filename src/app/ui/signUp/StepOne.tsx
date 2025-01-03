@@ -49,7 +49,7 @@ const StepOne = ({ nextStep, setEmail, setPassword, password }: Props) => {
     nextStep();
   };
   return (
-    <div className={`max-w-md mx-auto ${cabin.className}`}>
+    <div className={`max-w-md mx-auto h-full ${cabin.className}`}>
       <h1
         className={`text-2xl font-semibold text-center ${inknutAntiqua.className}`}
       >

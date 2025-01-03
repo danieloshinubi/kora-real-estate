@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function SignUpSidePane() {
   return (
-    <div className='w-[40%] max-w-[540px] px-6 py-6 rounded-2xl flex flex-col justify-between bg-[#2f4f4f] items-center'>
+    <div className='w-[40%] max-w-[540px] hidden px-6 py-6 rounded-2xl lg:flex flex-col justify-between bg-[#2f4f4f] items-center'>
           <div className='mt-4'>
             <Image
               src='/signUpHomeWbg.png'

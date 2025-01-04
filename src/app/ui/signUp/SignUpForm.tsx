@@ -44,6 +44,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
         <StepOne
           nextStep={nextStep}
           setEmail={setEmail}
+          email={email}
           setPassword={setPassword}
           password={password}
         />

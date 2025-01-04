@@ -9,11 +9,18 @@ import { useState } from "react";
 type Props = {
   nextStep: () => void;
   setEmail: (email: string) => void;
+  email: string;
   setPassword: (password: string) => void;
   password: string;
 };
 
-const StepOne = ({ nextStep, setEmail, setPassword, password }: Props) => {
+const StepOne = ({
+  nextStep,
+  setEmail,
+  setPassword,
+  password,
+  email,
+}: Props) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [confirmPassword, setConfirmPassword] = useState<string>("");
 
@@ -36,7 +43,15 @@ const StepOne = ({ nextStep, setEmail, setPassword, password }: Props) => {
   };
   const passwordValidation = validatePassword(password);
 
-  const checkPassword = () => {
+  const validateEmail = (email: string) => {
+    const validation = /[@]/.test(email);
+
+    return validation;
+  };
+
+  const emailValidation = validateEmail(email);
+
+  const checkInput = () => {
     if (password !== confirmPassword) {
       alert("Passwords do not match!");
       return;
@@ -47,13 +62,17 @@ const StepOne = ({ nextStep, setEmail, setPassword, password }: Props) => {
       return;
     }
 
+    if (!emailValidation) {
+      alert("enter a valid email address");
+      return;
+    }
+
     nextStep();
   };
+
   return (
     <div className={`max-w-md mx-auto h-full ${cabin.className}`}>
-      <h1
-        className={`text-2xl font-semibold ${inknutAntiqua.className}`}
-      >
+      <h1 className={`text-2xl font-semibold ${inknutAntiqua.className}`}>
         Create Your Account
       </h1>
       <p className='text-center text-gray-600 mb-6'>
@@ -92,7 +111,7 @@ const StepOne = ({ nextStep, setEmail, setPassword, password }: Props) => {
         placeholder='Email Address'
         className='w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring focus:ring-orange-300'
         onChange={(e) => setEmail(e.target.value)}
-        required
+        required={true}
       />
 
       {/* Phone Number */}
@@ -176,7 +195,7 @@ const StepOne = ({ nextStep, setEmail, setPassword, password }: Props) => {
       <button
         // disabled={isLoading}
         className='w-full py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600'
-        onClick={checkPassword}
+        onClick={checkInput}
       >
         Create Account
       </button>

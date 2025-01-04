@@ -1,4 +1,5 @@
 import { cabin } from "../fonts";
+import { inknutAntiqua } from "../fonts";
 
 type Props = {
     nextStep: () => void;
@@ -6,8 +7,15 @@ type Props = {
 
 const StepTwo = ({nextStep}: Props) => {
   return (
-    <div>
-      <h2 className='text-xl font-semibold'>Step 2: Address</h2>
+    <div className={`max-w-md mx-auto h-full ${cabin.className}`}>
+          <h1
+            className={`text-2xl font-semibold ${inknutAntiqua.className}`}
+          >
+            What Property Type Interests You
+          </h1>
+          <p className='text-center text-gray-600 mb-6'>
+            We recommend using your school email for the best experience.
+          </p>
       <input
         type='text'
         placeholder='Address'

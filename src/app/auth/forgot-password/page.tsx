@@ -15,7 +15,7 @@ export default function ForgotPasswordPage() {
       {/* Navigation Buttons */}
       <div className='flex justify-between'>
         {step > 1 ? (
-          <div className='flex absolute top-0 justify-between w-full'>
+          <div className='flex top-0 justify-between w-full'>
             <button className='btn btn-outline' onClick={prevStep}>
               {"< Back"}
             </button>

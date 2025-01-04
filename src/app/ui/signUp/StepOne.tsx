@@ -111,6 +111,7 @@ const StepOne = ({
         placeholder='Email Address'
         className='w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring focus:ring-orange-300'
         onChange={(e) => setEmail(e.target.value)}
+        value={email}
         required={true}
       />
 

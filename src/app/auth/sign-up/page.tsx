@@ -12,14 +12,14 @@ export default function SignUpPage() {
       {/* Navigation Buttons */}
       <div className='flex justify-between'>
         {step > 1 ? (
-          <div className='flex absolute top-0 justify-between w-full'>
+          <div className='flex justify-between top-0 w-full'>
             <button className='btn btn-outline' onClick={prevStep}>
               {"< Back"}
             </button>
             <Image
               src='/kora-logo.png'
-              height={100}
-              width={100}
+              height={52}
+              width={151}
               alt='kora logo'
             />
           </div>

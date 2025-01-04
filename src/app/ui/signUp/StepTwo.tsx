@@ -2,25 +2,34 @@ import { FaHouse } from "react-icons/fa6";
 import { cabin } from "../fonts";
 import { inknutAntiqua } from "../fonts";
 
-type Props = {
-  nextStep: () => void;
+type PropertyType = {
+  name: string;
+  id: string;
+  toggle: boolean;
 };
 
-const StepTwo = ({ nextStep }: Props) => {
-  const propertyTypes = [
-    "Apartment",
-    "House",
-    "Duplex",
-    "Terraced House",
-    "Detached House",
-    "Bungalow",
-    "Studio Apartment",
-    "Penthouse",
-    "House!",
-    "House!!",
-    "House!!!",
-    "House!!!!",
-  ];
+type StepTwoProps = {
+  nextStep: () => void;
+  propertyTypes: PropertyType[];
+  setPropertyTypes: React.Dispatch<React.SetStateAction<PropertyType[]>>;
+  setUserPropertyPreference: React.Dispatch<React.SetStateAction<object[]>>;
+};
+
+const StepTwo = ({
+  nextStep,
+  setUserPropertyPreference,
+  propertyTypes,
+  setPropertyTypes,
+}: StepTwoProps) => {
+
+  const handleSelect = (selectedName: string) => {
+    setPropertyTypes((prev) =>
+      prev.map((type) =>
+        type.name === selectedName ? { ...type, toggle: !type.toggle } : type
+      )
+    );
+    setUserPropertyPreference(propertyTypes);
+  };
 
   return (
     <div className={`max-w-md mx-auto h-full ${cabin.className}`}>
@@ -34,11 +43,15 @@ const StepTwo = ({ nextStep }: Props) => {
       <div className='grid grid-cols-3 gap-[10px]'>
         {propertyTypes.map((type) => (
           <button
-            key={type}
-            className={`border-[1px] h-[100px] border-gray-500 text-gray-500 font-medium hover:text-[#873D2F] hover:border-[#873D2F] py-[15px] px-[10px] rounded-[10px] ${cabin.className}`}
+            key={type.name}
+            value={type.name}
+            onClick={() => handleSelect(type.name)}
+            className={`border-[1px] h-[100px] border-gray-500 font-medium py-[15px] px-[10px] rounded-[10px] ${
+              type.toggle ? "text-[#873D2F] border-[#873D2F]" : "text-gray-500"
+            } hover:text-[#873D2F] hover:border-[#873D2F] ${cabin.className}`}
           >
             <FaHouse className='text-2xl mb-2' />
-            <p className="w-full text-left">{type}</p>
+            <p className='w-full text-left'>{type.name}</p>
           </button>
         ))}
       </div>

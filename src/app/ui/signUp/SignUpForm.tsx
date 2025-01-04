@@ -1,28 +1,81 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import StepThree from "./StepThree";
 import StepFour from "./StepFour";
 import FinalStep from "./FinalStep";
 
-import { useSignUpMutation } from "../../utils/services/api";
+import {
+  useSignUpMutation,
+  useGetPropertyTypesQuery,
+} from "../../utils/services/api";
 
 type SignupFormProps = {
   step: number;
   setStep: React.Dispatch<React.SetStateAction<number>>;
 };
 
+type PropertyType = {
+  name: string;
+  id: string;
+  toggle: boolean;
+};
+
+type FetchedPropertyType = {
+  name: string;
+  id: string;
+};
+
 const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
-  const [password, setPassword] = useState<string>("");
-
-  const [signUp] = useSignUpMutation();
-  const [email, setEmail] = useState<string>("");
-
   const nextStep = async () => setStep((prev) => prev + 1);
 
+  // Form Step one states
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
+
+  //backend services
+  const [signUp] = useSignUpMutation();
+  const { data } = useGetPropertyTypesQuery();
+
+  // Form Step two
+  const [propertyTypes, setPropertyTypes] = useState<PropertyType[]>([]);
+
+  useEffect(() => {
+    if (data) {
+      const propertyTypesArray = data.propertyTypes.map(
+        (type: FetchedPropertyType) => ({
+          name: type.name,
+          id: type.id,
+          toggle: false,
+        })
+      );
+
+      setPropertyTypes(propertyTypesArray);
+    }
+  }, [data]);
+
+  //Final step loading for signup
   const [isLoading, setIsLoading] = useState(false);
+
+  const [userPropertyPreference, setUserPropertyPreference] = useState<
+    object[]
+  >([]);
+
+  // const userProfileInfo = {
+  //   user: "60d5f7c9d7a2c943bf0ef12d",
+  //   propertyType: ["60d5f7c9d7a2c943bf0ef13d"],
+  //   bedrooms: 3,
+  //   pets: 2,
+  //   minPrice: 100000,
+  //   maxPrice: 500000,
+  //   location: {
+  //     longitude: 12.9716,
+  //     latitude: 77.5946,
+  //   },
+  // };
 
   const handleSignUp = async () => {
     setIsLoading(true);
@@ -47,9 +100,18 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
           email={email}
           setPassword={setPassword}
           password={password}
+          confirmPassword={confirmPassword}
+          setConfirmPassword={setConfirmPassword}
         />
       )}
-      {step === 2 && <StepTwo nextStep={nextStep} />}
+      {step === 2 && (
+        <StepTwo
+          nextStep={nextStep}
+          propertyTypes={propertyTypes}
+          setPropertyTypes={setPropertyTypes}
+          setUserPropertyPreference={setUserPropertyPreference}
+        />
+      )}
       {step === 3 && <StepThree nextStep={nextStep} />}
       {step === 4 && <StepFour nextStep={nextStep} />}
       {step === 5 && (

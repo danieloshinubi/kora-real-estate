@@ -67,7 +67,7 @@ export const api = createApi({
     }),
 
     // PropertyType Endpoints
-    getPropertyTypes: builder.query<{ propertyTypes: JSON[] }, void>({
+    getPropertyTypes: builder.query<{ propertyTypes: [] }, void>({
       query: () => "/property-types",
     }),
 

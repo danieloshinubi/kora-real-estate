@@ -12,6 +12,8 @@ type Props = {
   email: string;
   setPassword: (password: string) => void;
   password: string;
+  confirmPassword: string;
+  setConfirmPassword: (confirmPassword: string) => void;
 };
 
 const StepOne = ({
@@ -20,9 +22,11 @@ const StepOne = ({
   setPassword,
   password,
   email,
+  confirmPassword,
+  setConfirmPassword,
 }: Props) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [confirmPassword, setConfirmPassword] = useState<string>("");
+  
 
   const validatePassword = (password: string) => {
     const validation = {

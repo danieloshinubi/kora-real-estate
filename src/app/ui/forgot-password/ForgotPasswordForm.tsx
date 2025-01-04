@@ -6,17 +6,22 @@ import { cabin } from "../fonts";
 
 import { useForgotPasswordMutation } from "../../utils/services/api";
 
-const ForgotPasswordForm: React.FC = () => {
-  const [email, setEmail] = useState<string>("");
+type ForgotPasswordFormProps = {
+  setStep: React.Dispatch<React.SetStateAction<number>>;
+  email: string;
+  setEmail: React.Dispatch<React.SetStateAction<string>>;
+};
+const ForgotPasswordForm = ({ setStep, email, setEmail }: ForgotPasswordFormProps) => {
+  
   const [forgotPassword] = useForgotPasswordMutation();
 
   const [isLoading, setIsLoading] = useState(false);
 
   const handleforgotPassword = async () => {
     setIsLoading(true);
-
     try {
       await forgotPassword({ email: email });
+      setStep(2);
     } catch (error) {
       alert("forgotPassword failed. Try again.");
       console.log(error);
@@ -52,7 +57,7 @@ const ForgotPasswordForm: React.FC = () => {
           className='w-full py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600'
           onClick={handleforgotPassword}
         >
-          {isLoading ? "Sending..." : "Send"}
+          Send
         </button>
 
         <p className='text-center mt-4 text-sm text-gray-500'>

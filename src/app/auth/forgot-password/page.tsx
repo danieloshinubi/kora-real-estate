@@ -3,10 +3,13 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import ForgotPasswordForm from "../../ui/forgot-password/ForgotPasswordForm";
+import ResetNewPasswordForm from "@/app/ui/forgot-password/ResetPasswordForm";
 
 export default function ForgotPasswordPage() {
   const [step, setStep] = useState(1);
+  const [email, setEmail] = useState<string>("");
   const prevStep = () => setStep((prev) => prev - 1);
+
   return (
     <div className='w-full h-full'>
       {/* Navigation Buttons */}
@@ -34,9 +37,10 @@ export default function ForgotPasswordPage() {
           </div>
         )}
       </div>
-      
+
       {/* Login Form */}
-      <ForgotPasswordForm/>
+      {step === 1 && <ForgotPasswordForm setStep={setStep} email={email} setEmail={setEmail} />}
+      {step === 2 && <ResetNewPasswordForm email={email}/>}
     </div>
   );
 }

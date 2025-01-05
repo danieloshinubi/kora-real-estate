@@ -19,13 +19,8 @@ type SignupFormProps = {
 
 type PropertyType = {
   name: string;
-  id: string;
+  _id: string;
   toggle: boolean;
-};
-
-type FetchedPropertyType = {
-  name: string;
-  id: string;
 };
 
 const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
@@ -45,14 +40,15 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
 
   useEffect(() => {
     if (data) {
-      const propertyTypesArray = data.propertyTypes.map(
-        (type: FetchedPropertyType) => ({
+      const propertyTypesArray = data?.propertyTypes?.map(
+        (type) => ({
           name: type.name,
-          id: type.id,
+          _id: type._id,
           toggle: false,
         })
       );
-
+      
+      console.log(propertyTypesArray)
       setPropertyTypes(propertyTypesArray);
     }
   }, [data]);
@@ -60,7 +56,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
   //Final step loading for signup
   const [isLoading, setIsLoading] = useState(false);
 
-  const [userPropertyPreference, setUserPropertyPreference] = useState<
+  export const [userPropertyPreference, setUserPropertyPreference] = useState<
     object[]
   >([]);
 

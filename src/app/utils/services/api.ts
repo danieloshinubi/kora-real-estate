@@ -1,5 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+export type FetchedPropertyType = {
+  name: string;
+  _id: string;
+};
+
 export const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl: "https://kora-service.onrender.com" }),
@@ -67,7 +72,7 @@ export const api = createApi({
     }),
 
     // PropertyType Endpoints
-    getPropertyTypes: builder.query<{ propertyTypes: [] }, void>({
+    getPropertyTypes: builder.query<{ propertyTypes: FetchedPropertyType[] }, void>({
       query: () => "/property-types",
     }),
 

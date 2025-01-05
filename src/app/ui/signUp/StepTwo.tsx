@@ -4,7 +4,7 @@ import { inknutAntiqua } from "../fonts";
 
 type PropertyType = {
   name: string;
-  id: string;
+  _id: string;
   toggle: boolean;
 };
 
@@ -30,7 +30,7 @@ const StepTwo = ({
     );
     setUserPropertyPreference(propertyTypes);
   };
-
+  
   return (
     <div className={`max-w-md mx-auto h-full ${cabin.className}`}>
       <h1 className={`text-2xl font-semibold ${inknutAntiqua.className}`}>

@@ -12,7 +12,7 @@ export const api = createApi({
     // Auth Endpoints
     signUp: builder.mutation<
       { message: string },
-      { username: string; password: string; email: string }
+      { email: string,  password: string, phoneNo: string; }
     >({
       query: (newUser) => ({
         url: "/auth/user/signup",

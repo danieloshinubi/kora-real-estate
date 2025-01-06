@@ -28,6 +28,7 @@ const StepTwo = ({
         type.name === selectedName ? { ...type, toggle: !type.toggle } : type
       )
     );
+    console.log(propertyTypes)
     setUserPropertyPreference(propertyTypes);
   };
   
@@ -41,7 +42,7 @@ const StepTwo = ({
         <span className='text-[#873D2F]'>KORA</span>
       </p>
       <div className='grid grid-cols-3 gap-[10px]'>
-        {propertyTypes.map((type) => (
+        {propertyTypes?.map((type) => (
           <button
             key={type.name}
             value={type.name}

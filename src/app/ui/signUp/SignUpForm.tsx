@@ -12,6 +12,8 @@ import {
   useGetPropertyTypesQuery,
 } from "../../utils/services/api";
 
+import { FetchedPropertyType } from "../../utils/services/api";
+
 type SignupFormProps = {
   step: number;
   setStep: React.Dispatch<React.SetStateAction<number>>;
@@ -30,6 +32,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const [phoneNo, setPhoneNo] = useState<string>("");
 
   //backend services
   const [signUp] = useSignUpMutation();
@@ -41,14 +44,13 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
   useEffect(() => {
     if (data) {
       const propertyTypesArray = data?.propertyTypes?.map(
-        (type) => ({
+        (type: FetchedPropertyType) => ({
           name: type.name,
           _id: type._id,
           toggle: false,
         })
       );
-      
-      console.log(propertyTypesArray)
+
       setPropertyTypes(propertyTypesArray);
     }
   }, [data]);
@@ -56,7 +58,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
   //Final step loading for signup
   const [isLoading, setIsLoading] = useState(false);
 
-  export const [userPropertyPreference, setUserPropertyPreference] = useState<
+  const [userPropertyPreference, setUserPropertyPreference] = useState<
     object[]
   >([]);
 
@@ -77,10 +79,13 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
     setIsLoading(true);
 
     try {
-      await signUp({ username: email, password, email });
+      const {data} = await signUp({ email: email, password: password, phoneNo: phoneNo });
+      if (data?.message){
+        console.log(data.message);
+      }
       nextStep();
     } catch (error) {
-      alert("Signup failed. Try again.");
+      console.log("Signup failed. Try again.");
       console.log(error);
     } finally {
       setIsLoading(false);
@@ -98,6 +103,8 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
           password={password}
           confirmPassword={confirmPassword}
           setConfirmPassword={setConfirmPassword}
+          handleSignUp={handleSignUp}
+          setPhoneNo={setPhoneNo}
         />
       )}
       {step === 2 && (

@@ -14,19 +14,21 @@ type Props = {
   password: string;
   confirmPassword: string;
   setConfirmPassword: (confirmPassword: string) => void;
+  setPhoneNo: (phoneNo: string) => void;
+  handleSignUp: () => void;
 };
 
 const StepOne = ({
-  nextStep,
   setEmail,
   setPassword,
   password,
   email,
   confirmPassword,
   setConfirmPassword,
+  handleSignUp,
+  setPhoneNo,
 }: Props) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  
 
   const validatePassword = (password: string) => {
     const validation = {
@@ -71,7 +73,14 @@ const StepOne = ({
       return;
     }
 
-    nextStep();
+    handleSignUp();
+  };
+
+  const updatePhoneNo = (index: number, number: string) => {
+    const numArr = ["234", ""];
+    numArr[index] = number;
+
+    setPhoneNo("+" + numArr[0] + numArr[1]);
   };
 
   return (
@@ -121,7 +130,10 @@ const StepOne = ({
 
       {/* Phone Number */}
       <div className='flex mb-4'>
-        <select className='border rounded-l-lg px-3 py-2 focus:outline-none'>
+        <select
+          className='border rounded-l-lg px-3 py-2 focus:outline-none'
+          onChange={(e) => updatePhoneNo(0, e.target.value)}
+        >
           <option value='+234'>🇳🇬 +234</option>
           <option value='+1'>🇺🇸 +1</option>
           <option value='+44'>🇬🇧 +44</option>
@@ -130,6 +142,7 @@ const StepOne = ({
           type='tel'
           placeholder='Phone Number'
           className='flex-grow px-4 py-2 border rounded-r-lg focus:outline-none focus:ring focus:ring-orange-300'
+          onChange={(e) => updatePhoneNo(1, e.target.value)}
         />
       </div>
       {/* <PhoneField/> */}

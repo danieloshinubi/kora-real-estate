@@ -53,6 +53,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
       );
 
       setPropertyTypes(propertyTypesArray);
+      console.log(propertyTypesArray);
     }
   }, [data]);
 
@@ -85,18 +86,24 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
       if (!data) {
         if (error) {
           console.log(error);
-          if (error.status === 400) {
-            setErrorMessage("Bad request");
-          } else if (error?.status === 409) {
-            setErrorMessage("User already exists");
-          } else if (error.status === 500) {
-            setErrorMessage("Server error: An unexpected error occurred");
+          if ('status' in error) {
+            // Handle FetchBaseQueryError
+            if (error.status === 400) {
+              setErrorMessage("Bad request");
+            } else if (error.status === 409) {
+              setErrorMessage("User already exists");
+            } else if (error.status === 500) {
+              setErrorMessage("Server error: An unexpected error occurred");
+            } else {
+              setErrorMessage("Signup failed. Try again.");
+            }
           } else {
-            setErrorMessage("Signup failed. Try again.");
+            // Handle SerializedError
+            setErrorMessage("An unexpected error occurred. Please try again.");
           }
         }
       } else {
-        console.log(data?.message);
+        console.log(data);
         nextStep();
       }
     } catch (error) {
@@ -113,7 +120,6 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
 
   return (
     <div className='overflow-y-scroll flex flex-col items-center h-[calc(100%-52px)]'>
-      <p className='text-red-600'>{errorMessage}</p>
       {step === 1 && (
         <StepOne
           nextStep={nextStep}
@@ -126,6 +132,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
           handleSignUp={handleSignUp}
           setPhoneNo={setPhoneNo}
           isLoading={isLoading}
+          errorMessage={errorMessage}
           setError={setErrorMessage}
         />
       )}

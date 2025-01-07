@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { inknutAntiqua } from "../fonts";
 import { cabin } from "../fonts";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import PhoneField from "./PhoneField";
 
 type Props = {
@@ -18,6 +18,7 @@ type Props = {
   handleSignUp: () => void;
   isLoading: boolean;
   setError: (error: string) => void;
+  errorMessage: string;
 };
 
 const StepOne = ({
@@ -31,6 +32,7 @@ const StepOne = ({
   setPhoneNo,
   isLoading,
   setError,
+  errorMessage
 }: Props) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
@@ -87,12 +89,22 @@ const StepOne = ({
     setPhoneNo("+" + numArr[0] + numArr[1]);
   };
 
+  useEffect(() => {
+    if (errorMessage) {
+      const timer = setTimeout(() => {
+        setError("");
+      }, 3000);
+
+      // Cleanup the timer if the component unmounts or if errorMessage changes
+      return () => clearTimeout(timer);
+    }
+  }, [errorMessage]);
   return (
     <div className={`max-w-md mx-auto h-full ${cabin.className}`}>
-      <h1 className={`text-2xl font-semibold ${inknutAntiqua.className}`}>
+      <h1 className={`text-xl lg:text-2xl font-semibold ${inknutAntiqua.className}`}>
         Create Your Account
       </h1>
-      <p className='text-center text-gray-600 mb-6'>
+      <p className='lg:text-center text-gray-600 mb-6'>
         We recommend using your school email for the best experience.
       </p>
 
@@ -121,7 +133,7 @@ const StepOne = ({
       </div>
 
       <div className='text-center my-4'>OR</div>
-
+    <p className='text-red-600 text-center'>{errorMessage}</p>
       {/* Email Address */}
       <input
         type='email'

@@ -27,6 +27,7 @@ type PropertyType = {
 
 const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
   const nextStep = async () => setStep((prev) => prev + 1);
+  const [errorMessage, setErrorMessage] = useState("");
 
   // Form Step one states
   const [email, setEmail] = useState<string>("");
@@ -79,21 +80,40 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
     setIsLoading(true);
 
     try {
-      const {data} = await signUp({ email: email, password: password, phoneNo: phoneNo });
-      if (data?.message){
-        console.log(data.message);
+      const { data, error } = await signUp({ email, password, phoneNo });
+
+      if (!data) {
+        if (error) {
+          console.log(error);
+          if (error.status === 400) {
+            setErrorMessage("Bad request");
+          } else if (error?.status === 409) {
+            setErrorMessage("User already exists");
+          } else if (error.status === 500) {
+            setErrorMessage("Server error: An unexpected error occurred");
+          } else {
+            setErrorMessage("Signup failed. Try again.");
+          }
+        }
+      } else {
+        console.log(data?.message);
+        nextStep();
       }
-      nextStep();
     } catch (error) {
-      console.log("Signup failed. Try again.");
-      console.log(error);
+      setErrorMessage("Signup failed. Try again.");
+      if (error instanceof Error) {
+        console.log("Error message:", error.message);
+      } else {
+        console.log("Unexpected error:", error);
+      }
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div className='overflow-y-scroll flex items-center h-[calc(100%-52px)]'>
+    <div className='overflow-y-scroll flex flex-col items-center h-[calc(100%-52px)]'>
+      <p className='text-red-600'>{errorMessage}</p>
       {step === 1 && (
         <StepOne
           nextStep={nextStep}
@@ -105,6 +125,8 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
           setConfirmPassword={setConfirmPassword}
           handleSignUp={handleSignUp}
           setPhoneNo={setPhoneNo}
+          isLoading={isLoading}
+          setError={setErrorMessage}
         />
       )}
       {step === 2 && (

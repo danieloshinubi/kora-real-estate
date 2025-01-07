@@ -16,6 +16,8 @@ type Props = {
   setConfirmPassword: (confirmPassword: string) => void;
   setPhoneNo: (phoneNo: string) => void;
   handleSignUp: () => void;
+  isLoading: boolean;
+  setError: (error: string) => void;
 };
 
 const StepOne = ({
@@ -27,6 +29,8 @@ const StepOne = ({
   setConfirmPassword,
   handleSignUp,
   setPhoneNo,
+  isLoading,
+  setError,
 }: Props) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
@@ -58,18 +62,18 @@ const StepOne = ({
   const emailValidation = validateEmail(email);
 
   const checkInput = () => {
-    if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+    if (!emailValidation) {
+      setError("Enter a valid email address");
       return;
     }
 
     if (!passwordValidation.isValid) {
-      alert("Passwords doesn't meet the criteria!");
+      setError("Enter A Valid Password!!");
       return;
     }
 
-    if (!emailValidation) {
-      alert("enter a valid email address");
+    if (password !== confirmPassword) {
+      setError("Passwords do not match!");
       return;
     }
 
@@ -165,7 +169,7 @@ const StepOne = ({
         </button>
         {/* Password Validation */}
         <div
-          className={`grid grid-cols-4 text-gray-600 text-[13px] leading-[16px] ${cabin.className}`}
+          className={`grid lg:grid-cols-4 grid-cols-2 text-gray-600 text-[13px] leading-[16px] ${cabin.className}`}
         >
           <span className={passwordValidation.length ? "text-green-600" : ""}>
             8 characters
@@ -211,11 +215,11 @@ const StepOne = ({
 
       {/* Submit Button */}
       <button
-        // disabled={isLoading}
+        disabled={isLoading}
         className='w-full py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600'
         onClick={checkInput}
       >
-        Create Account
+        {isLoading ? "Creating Account......" : "Create Account"}
       </button>
 
       <p className='text-center mt-4 text-sm text-gray-500'>

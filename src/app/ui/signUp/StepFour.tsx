@@ -2,6 +2,7 @@ import { cabin } from "../fonts";
 
 type Props = {
   nextStep: () => void;
+  handleCreateUserProfile: () => void;
 };
 
 const StepFour = ({ nextStep }: Props) => {

@@ -12,24 +12,26 @@ type StepTwoProps = {
   nextStep: () => void;
   propertyTypes: PropertyType[];
   setPropertyTypes: React.Dispatch<React.SetStateAction<PropertyType[]>>;
-  setUserPropertyPreference: React.Dispatch<React.SetStateAction<object[]>>;
+  setSelectedPropertyTypes: React.Dispatch<React.SetStateAction<PropertyType[]>>;
 };
 
 const StepTwo = ({
   nextStep,
-  setUserPropertyPreference,
   propertyTypes,
   setPropertyTypes,
+  setSelectedPropertyTypes
 }: StepTwoProps) => {
 
+  // console.log(propertyTypes)
   const handleSelect = (selectedName: string) => {
     setPropertyTypes((prev) =>
       prev.map((type) =>
         type.name === selectedName ? { ...type, toggle: !type.toggle } : type
       )
     );
-    console.log(propertyTypes)
-    setUserPropertyPreference(propertyTypes);
+
+    const selectedTypes = propertyTypes.filter((type) => type.toggle);
+    setSelectedPropertyTypes(selectedTypes);
   };
   
   return (

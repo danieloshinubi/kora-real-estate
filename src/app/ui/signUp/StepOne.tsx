@@ -98,7 +98,7 @@ const StepOne = ({
       // Cleanup the timer if the component unmounts or if errorMessage changes
       return () => clearTimeout(timer);
     }
-  }, [errorMessage]);
+  }, [errorMessage, setError]);
   return (
     <div className={`max-w-md mx-auto h-full ${cabin.className}`}>
       <h1 className={`text-xl lg:text-2xl font-semibold ${inknutAntiqua.className}`}>

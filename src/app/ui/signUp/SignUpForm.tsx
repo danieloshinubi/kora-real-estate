@@ -10,6 +10,7 @@ import FinalStep from "./FinalStep";
 import {
   useSignUpMutation,
   useGetPropertyTypesQuery,
+  useCreateProfileMutation,
 } from "../../utils/services/api";
 
 import { FetchedPropertyType } from "../../utils/services/api";
@@ -25,6 +26,19 @@ type PropertyType = {
   toggle: boolean;
 };
 
+type UserDetails = {
+  user: {
+    id: string;
+    email: string;
+    phoneNo: string;
+    roles: {
+      User: string;
+    };
+    isVerified: boolean;
+    accountDisabled: boolean;
+  };
+  message: string;
+};
 const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
   const nextStep = async () => setStep((prev) => prev + 1);
   const [errorMessage, setErrorMessage] = useState("");
@@ -38,44 +52,51 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
   //backend services
   const [signUp] = useSignUpMutation();
   const { data } = useGetPropertyTypesQuery();
+  const [createProfile] = useCreateProfileMutation();
 
   // Form Step two
   const [propertyTypes, setPropertyTypes] = useState<PropertyType[]>([]);
+  const [selectedPropertyTypes, setSelectedPropertyTypes] = useState<
+    PropertyType[]
+  >([]);
+
+  const retrievePropertyTypes = (data: {
+    propertyTypes: FetchedPropertyType[];
+  }) => {
+    const propertyTypesArray = data.map((type: FetchedPropertyType) => ({
+      name: type.name,
+      _id: type._id,
+      toggle: false,
+    }));
+
+    setPropertyTypes(propertyTypesArray);
+  };
 
   useEffect(() => {
     if (data) {
-      const propertyTypesArray = data?.propertyTypes?.map(
-        (type: FetchedPropertyType) => ({
-          name: type.name,
-          _id: type._id,
-          toggle: false,
-        })
-      );
-
-      setPropertyTypes(propertyTypesArray);
-      console.log(propertyTypesArray);
+      retrievePropertyTypes(data);
     }
   }, [data]);
+
+  const selectedPropertyIds = selectedPropertyTypes.map((type) => type._id);
 
   //Final step loading for signup
   const [isLoading, setIsLoading] = useState(false);
 
-  const [userPropertyPreference, setUserPropertyPreference] = useState<
-    object[]
-  >([]);
+  const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
 
-  // const userProfileInfo = {
-  //   user: "60d5f7c9d7a2c943bf0ef12d",
-  //   propertyType: ["60d5f7c9d7a2c943bf0ef13d"],
-  //   bedrooms: 3,
-  //   pets: 2,
-  //   minPrice: 100000,
-  //   maxPrice: 500000,
-  //   location: {
-  //     longitude: 12.9716,
-  //     latitude: 77.5946,
-  //   },
-  // };
+  const userProfileInfo = {
+    user: userDetails?.user?.id,
+    propertyType: selectedPropertyIds,
+    bedrooms: 3,
+    pets: 2,
+    minPrice: 100000,
+    maxPrice: 500000,
+    location: {
+      longitude: 12.9716,
+      latitude: 77.5946,
+    },
+  };
 
   const handleSignUp = async () => {
     setIsLoading(true);
@@ -86,14 +107,14 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
       if (!data) {
         if (error) {
           console.log(error);
-          if ('status' in error) {
+          if ("status" in error) {
             // Handle FetchBaseQueryError
             if (error.status === 400) {
               setErrorMessage("Bad request");
             } else if (error.status === 409) {
               setErrorMessage("User already exists");
             } else if (error.status === 500) {
-              setErrorMessage("Server error: An unexpected error occurred");
+              setErrorMessage("Server error: Please Try Again");
             } else {
               setErrorMessage("Signup failed. Try again.");
             }
@@ -104,6 +125,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
         }
       } else {
         console.log(data);
+        setUserDetails(data);
         nextStep();
       }
     } catch (error) {
@@ -118,6 +140,39 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
     }
   };
 
+  const handleCreateUserProfile = async () => {
+    try {
+      const { data, error } = await createProfile(userProfileInfo);
+
+      if (!data) {
+        if (error) {
+          console.log(error);
+          if ("status" in error) {
+            // Handle FetchBaseQueryError
+            if (error.status === 400) {
+              console.log(
+                "Bad request, missing required fields or invalid input"
+              );
+            } else {
+              console.log("Server error: Please Try Again");
+            }
+          } else {
+            // Handle SerializedError
+            console.log("An unexpected error occurred. Please try again.");
+          }
+        }
+      } else {
+        nextStep();
+      }
+    } catch (error) {
+      console.log("Signup failed. Try again.");
+      if (error instanceof Error) {
+        console.log("Error message:", error.message);
+      } else {
+        console.log("Unexpected error:", error);
+      }
+    }
+  };
   return (
     <div className='overflow-y-scroll flex flex-col items-center h-[calc(100%-52px)]'>
       {step === 1 && (
@@ -141,11 +196,16 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
           nextStep={nextStep}
           propertyTypes={propertyTypes}
           setPropertyTypes={setPropertyTypes}
-          setUserPropertyPreference={setUserPropertyPreference}
+          setSelectedPropertyTypes={setSelectedPropertyTypes}
         />
       )}
       {step === 3 && <StepThree nextStep={nextStep} />}
-      {step === 4 && <StepFour nextStep={nextStep} />}
+      {step === 4 && (
+        <StepFour
+          nextStep={nextStep}
+          handleCreateUserProfile={handleCreateUserProfile}
+        />
+      )}
       {step === 5 && (
         <FinalStep handleSignUp={handleSignUp} isLoading={isLoading} />
       )}

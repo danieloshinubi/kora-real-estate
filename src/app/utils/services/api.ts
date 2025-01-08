@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
+import { UserDetails, UserProfileInfo } from "@/app/ui/signUp/SignUpForm";
 export type FetchedPropertyType = {
   name: string;
   _id: string;
@@ -11,7 +11,7 @@ export const api = createApi({
   endpoints: (builder) => ({
     // Auth Endpoints
     signUp: builder.mutation<
-      { message: string },
+      { message: UserDetails },
       { email: string,  password: string, phoneNo: string; }
     >({
       query: (newUser) => ({
@@ -58,7 +58,7 @@ export const api = createApi({
     // Profile Endpoints
     createProfile: builder.mutation<
       { message: string },
-      { userId: string; preferences: JSON }
+      UserProfileInfo
     >({
       query: (profile) => ({
         url: "/profile",
@@ -72,7 +72,7 @@ export const api = createApi({
     }),
 
     // PropertyType Endpoints
-    getPropertyTypes: builder.query<{ propertyTypes: FetchedPropertyType[] }, void>({
+    getPropertyTypes: builder.query<FetchedPropertyType[], void>({
       query: () => "/property-types",
     }),
 

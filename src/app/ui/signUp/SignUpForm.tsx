@@ -26,7 +26,7 @@ type PropertyType = {
   toggle: boolean;
 };
 
-type UserDetails = {
+export type UserDetails = {
   user: {
     id: string;
     email: string;
@@ -39,64 +39,39 @@ type UserDetails = {
   };
   message: string;
 };
+
+export type UserProfileInfo = {
+  user: string;
+  propertyType: string[];
+  bedrooms: number;
+  pets: number;
+  minPrice: number;
+  maxPrice: number;
+  location: {
+    longitude: number;
+    latitude: number;
+  };
+};
+
 const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
   const nextStep = async () => setStep((prev) => prev + 1);
-  const [errorMessage, setErrorMessage] = useState("");
-
-  // Form Step one states
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [confirmPassword, setConfirmPassword] = useState<string>("");
-  const [phoneNo, setPhoneNo] = useState<string>("");
 
   //backend services
   const [signUp] = useSignUpMutation();
   const { data } = useGetPropertyTypesQuery();
   const [createProfile] = useCreateProfileMutation();
 
-  // Form Step two
-  const [propertyTypes, setPropertyTypes] = useState<PropertyType[]>([]);
-  const [selectedPropertyTypes, setSelectedPropertyTypes] = useState<
-    PropertyType[]
-  >([]);
+  // Form Step One Action
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const [phoneNo, setPhoneNo] = useState<string>("");
 
-  const retrievePropertyTypes = (data: {
-    propertyTypes: FetchedPropertyType[];
-  }) => {
-    const propertyTypesArray = data.map((type: FetchedPropertyType) => ({
-      name: type.name,
-      _id: type._id,
-      toggle: false,
-    }));
+  const [errorMessage, setErrorMessage] = useState("");
 
-    setPropertyTypes(propertyTypesArray);
-  };
-
-  useEffect(() => {
-    if (data) {
-      retrievePropertyTypes(data);
-    }
-  }, [data]);
-
-  const selectedPropertyIds = selectedPropertyTypes.map((type) => type._id);
-
-  //Final step loading for signup
   const [isLoading, setIsLoading] = useState(false);
 
   const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
-
-  const userProfileInfo = {
-    user: userDetails?.user?.id,
-    propertyType: selectedPropertyIds,
-    bedrooms: 3,
-    pets: 2,
-    minPrice: 100000,
-    maxPrice: 500000,
-    location: {
-      longitude: 12.9716,
-      latitude: 77.5946,
-    },
-  };
 
   const handleSignUp = async () => {
     setIsLoading(true);
@@ -124,8 +99,8 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
           }
         }
       } else {
-        console.log(data);
-        setUserDetails(data);
+        console.log(data.message);
+        setUserDetails(data.message);
         nextStep();
       }
     } catch (error) {
@@ -138,6 +113,46 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  // Form Step two Action
+  const [propertyTypes, setPropertyTypes] = useState<PropertyType[]>([]);
+  const [selectedPropertyTypes, setSelectedPropertyTypes] = useState<
+    PropertyType[]
+  >([]);
+
+  const retrievePropertyTypes = (data: FetchedPropertyType[]) => {
+    const propertyTypesArray = data.map((type: FetchedPropertyType) => ({
+      name: type.name,
+      _id: type._id,
+      toggle: false,
+    }));
+
+    setPropertyTypes(propertyTypesArray);
+  };
+
+  useEffect(() => {
+    if (data) {
+      retrievePropertyTypes(data);
+    }
+  }, [data]);
+
+  const selectedPropertyIds = selectedPropertyTypes.map((type) => type._id);
+
+  //Form Step three Action
+  
+  //Final step
+  const userProfileInfo = {
+    user: userDetails?.user?.id || "",
+    propertyType: selectedPropertyIds,
+    bedrooms: 3,
+    pets: 2,
+    minPrice: 100000,
+    maxPrice: 500000,
+    location: {
+      longitude: 12.9716,
+      latitude: 77.5946,
+    },
   };
 
   const handleCreateUserProfile = async () => {
@@ -162,6 +177,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
           }
         }
       } else {
+        console.log(data.message);
         nextStep();
       }
     } catch (error) {
@@ -173,6 +189,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
       }
     }
   };
+
   return (
     <div className='overflow-y-scroll flex flex-col items-center h-[calc(100%-52px)]'>
       {step === 1 && (

@@ -140,7 +140,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
   const selectedPropertyIds = selectedPropertyTypes.map((type) => type._id);
 
   //Form Step three Action
-  
+
   //Final step
   const userProfileInfo = {
     user: userDetails?.user?.id || "",

@@ -1,5 +1,6 @@
 import { cabin } from "../fonts";
 import { inknutAntiqua } from "../fonts";
+import LocationSearchWithMap from "./LocationSearchWithMap";
 
 type Props = {
   nextStep: () => void;
@@ -12,8 +13,9 @@ const StepThree = ({ nextStep }: Props) => {
         Select Your preferred location
       </h1>
       <p className='text-gray-600 mb-6'>
-        Lorem ipsum dolor sit amet consectetur. Malesuada gravida quam sed eu.
+      Search for a location below, and it will appear on the map.
       </p>
+      <LocationSearchWithMap />
       <button
         onClick={nextStep}
         className={`bg-[#D2691E] ${cabin.className} text-white w-full py-[10px] px-[18px] rounded-[6px]`}

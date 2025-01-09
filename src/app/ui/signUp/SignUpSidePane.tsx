@@ -11,7 +11,7 @@ export default function SignUpSidePane() {
           width={360}
           height={243}
           alt='sign up home picture'
-          className='w-auto'
+          className='h-auto'
         />
       </div>
       <div className='leading-[24px] text-white text-center'>

@@ -21,7 +21,7 @@ export default function SignUpPage() {
               height={52}
               width={151}
               alt='kora logo'
-              className="w-auto h-auto"
+              className="h-auto"
             />
           </div>
         ) : (
@@ -31,7 +31,7 @@ export default function SignUpPage() {
               height={52}
               width={151}
               alt='kora logo'
-              className="w-auto h-auto"
+              className="h-auto"
             />
           </div>
         )}

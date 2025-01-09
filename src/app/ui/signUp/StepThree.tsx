@@ -1,6 +1,8 @@
 import { cabin } from "../fonts";
 import { inknutAntiqua } from "../fonts";
-import LocationSearchWithMap from "./LocationSearchWithMap";
+import dynamic from 'next/dynamic';
+
+const LocationSearchWithMap = dynamic(() => import('./LocationSearchWithMap'), { ssr: false });
 
 type Props = {
   nextStep: () => void;

@@ -25,20 +25,23 @@ const PlaceSearchInput = ({ setCoordinates }: Props) => {
 
   return (
     <div className='p-4'>
-      <div className="flex ">
+      <div className="">
         <input
           type='text'
           value={location}
           onChange={(e) => setLocation(e.target.value)}
-          placeholder='Enter a location'
-          className='border p-2 w-full mb-4'
+          placeholder='Please specify the location'
+          className='border-[#D2691E] border-[1px] p-4 rounded-[10px] outline-0 w-full mb-4'
         />
         <button
           onClick={handleSearch}
-          className='bg-blue-500 text-white px-4 py-2 rounded'
+          className='bg-[#D2691E] text-white px-4 py-2 rounded'
         >
           Search
         </button>
+        <select>
+          <option>Choose Selection</option>
+        </select>
       </div>
 
       {result && (

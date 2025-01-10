@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mapbox/mapbox-sdk": "^0.16.1",
     "@reduxjs/toolkit": "^2.5.0",
     "autoprefixer": "^10.4.20",
     "daisyui": "^4.12.22",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/leaflet": "^1.9.16",
+    "@types/mapbox__mapbox-sdk": "^0.16.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

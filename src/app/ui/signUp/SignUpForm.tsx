@@ -28,18 +28,21 @@ type PropertyType = {
 };
 
 export type UserDetails = {
-  user: {
-    id: string;
+    _id: string;
     email: string;
     phoneNo: string;
     roles: {
-      User: string;
+      User: number;
     };
     isVerified: boolean;
     accountDisabled: boolean;
-  };
-  message: string;
+    createdAt: string;
+    updatedAt: string;
+    otp: string | null;
+    password: string;
+    __v: number;
 };
+
 
 export type UserProfileInfo = {
   user: string;
@@ -100,8 +103,8 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
           }
         }
       } else {
-        console.log(data.message);
-        setUserDetails(data.message);
+        console.log(data.user);
+        setUserDetails(data.user);
         nextStep();
       }
     } catch (error) {
@@ -146,22 +149,27 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
   ]);
 
   //Form Step four Action
-  
+  const [bedrooms, setBedrooms] = useState(4);
+  const [pets, setPets] = useState(2);
+  const [price, setPrice] = useState([0, 100000]); // Min and Max Price
+
   //Final step
   const userProfileInfo = {
-    user: userDetails?.user?.id || "",
+    user: userDetails?._id || "",
     propertyType: selectedPropertyIds,
-    bedrooms: 3,
-    pets: 2,
-    minPrice: 100000,
-    maxPrice: 500000,
+    bedrooms: bedrooms,
+    pets: pets,
+    minPrice: price[0],
+    maxPrice: price[1],
     location: {
-      longitude: preferredLocation[1],
       latitude: preferredLocation[0],
+      longitude: preferredLocation[1],
     },
   };
 
   const handleCreateUserProfile = async () => {
+    console.log(userDetails);
+    console.log(userProfileInfo);
     try {
       const { data, error } = await createProfile(userProfileInfo);
 
@@ -230,7 +238,12 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
       )}
       {step === 4 && (
         <StepFour
-          nextStep={nextStep}
+          bedrooms={bedrooms}
+          setBedrooms={setBedrooms}
+          pets={pets}
+          setPets={setPets}
+          price={price}
+          setPrice={setPrice}
           handleCreateUserProfile={handleCreateUserProfile}
         />
       )}

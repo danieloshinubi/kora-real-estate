@@ -1,17 +1,26 @@
 import { inknutAntiqua, cabin } from "../fonts";
-import { useState } from "react";
+// import { useState } from "react";
 import { Range } from "react-range";
 
 type Props = {
-  nextStep: () => void;
   handleCreateUserProfile: () => void;
+  bedrooms: number;
+  setBedrooms: React.Dispatch<React.SetStateAction<number>>;
+  pets: number;
+  setPets: React.Dispatch<React.SetStateAction<number>>;
+  price: number[];
+  setPrice: React.Dispatch<React.SetStateAction<number[]>>;
 };
 
-const StepFour = ({ nextStep }: Props) => {
-  const [bedrooms, setBedrooms] = useState(4);
-  const [pets, setPets] = useState(2);
-  const [price, setPrice] = useState([0, 100000]); // Min and Max Price
-
+const StepFour = ({
+  bedrooms,
+  setBedrooms,
+  pets,
+  setPets,
+  price,
+  setPrice,
+  handleCreateUserProfile
+}: Props) => {
 
   const increment = (
     value: number,
@@ -97,42 +106,41 @@ const StepFour = ({ nextStep }: Props) => {
           </div>
         </div>
         <Range
-  step={1}
-  min={0}
-  max={100000}
-  values={price}
-  onChange={(price) => setPrice(price)}
-  renderTrack={({ props, children }) => (
-    <div
-      {...props}
-      className="h-[5px] w-full bg-[#2F4F4F] rounded-sm mt-[10px] mb-6 flex"
-      style={{
-        position: "relative",
-        width: "100%",
-      }}
-    >
-      {children}
-    </div>
-  )}
-  renderThumb={({ props, index }) => (
-    <div
-      {...props}
-      key={index}
-      className="h-[24px] w-[24px] rounded-full bg-[#2F4F4F] outline-0"
-      style={{
-        ...props.style,
-        boxShadow: "0px 2px 6px #aaa",
-        position: "absolute",
-      }}
-    />
-  )}
-/>
-
+          step={1}
+          min={0}
+          max={100000}
+          values={price}
+          onChange={(price) => setPrice(price)}
+          renderTrack={({ props, children }) => (
+            <div
+              {...props}
+              className='h-[5px] w-full bg-[#2F4F4F] rounded-sm mt-[10px] mb-6 flex'
+              style={{
+                position: "relative",
+                width: "100%",
+              }}
+            >
+              {children}
+            </div>
+          )}
+          renderThumb={({ props, index }) => (
+            <div
+              {...props}
+              key={index}
+              className='h-[24px] w-[24px] rounded-full bg-[#2F4F4F] outline-0'
+              style={{
+                ...props.style,
+                boxShadow: "0px 2px 6px #aaa",
+                position: "absolute",
+              }}
+            />
+          )}
+        />
       </div>
 
       {/* Next Button */}
       <button
-        onClick={nextStep}
+        onClick={handleCreateUserProfile}
         className='bg-[#D2691E] text-white w-full py-2 rounded-lg font-medium'
       >
         Next

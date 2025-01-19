@@ -2,7 +2,7 @@ import { cabin } from "../fonts";
 import { inknutAntiqua } from "../fonts";
 import dynamic from "next/dynamic";
 import PlaceSearchInput from "./PlaceSearchInput";
-import { useState } from "react";
+import {  useState } from "react";
 import { LatLngTuple } from "leaflet";
 
 const LocationSearchWithMap = dynamic(() => import("./LocationSearchWithMap"), {
@@ -18,6 +18,10 @@ const StepThree = ({ nextStep }: Props) => {
     48.8584, 2.2945,
   ]);
 
+  // useEffect(() => {
+  //   console.log(coordinates);
+  // },[coordinates]);
+
   return (
     <div className={`max-w-md mx-auto h-full ${cabin.className}`}>
       <h1 className={`text-2xl font-semibold ${inknutAntiqua.className}`}>
@@ -26,7 +30,7 @@ const StepThree = ({ nextStep }: Props) => {
       <p className='text-gray-600 mb-6'>
         Search for a location below, and it will appear on the map.
       </p>
-      <div>
+      <div className="relative flex-col flex">
         <PlaceSearchInput setCoordinates={setCoordinates} />
         <LocationSearchWithMap coordinates={coordinates} />
       </div>

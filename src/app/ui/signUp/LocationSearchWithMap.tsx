@@ -38,7 +38,7 @@ type Props = {
 
 const LocationSearchWithMap = ({ coordinates }: Props) => {
   return (
-    <div className='w-full h-[400px] mb-6'>
+    <div className='w-full h-[400px] mb-6 z-0'>
       <MapContainer
         key={coordinates.toString()}
         center={coordinates}

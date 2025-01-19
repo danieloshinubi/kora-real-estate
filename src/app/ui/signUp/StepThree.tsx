@@ -14,11 +14,14 @@ type Props = {
 };
 
 const StepThree = ({ nextStep }: Props) => {
-  const [coordinates, setCoordinates] = useState<LatLngTuple>([51.505, -0.09]);
+  const [coordinates, setCoordinates] = useState<LatLngTuple>([
+    48.8584, 2.2945,
+  ]);
+
   return (
     <div className={`max-w-md mx-auto h-full ${cabin.className}`}>
       <h1 className={`text-2xl font-semibold ${inknutAntiqua.className}`}>
-        Select Your preferred location
+        Select Your Preferred Location
       </h1>
       <p className='text-gray-600 mb-6'>
         Search for a location below, and it will appear on the map.

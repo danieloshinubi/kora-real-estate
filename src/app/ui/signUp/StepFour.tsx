@@ -12,14 +12,6 @@ const StepFour = ({ nextStep }: Props) => {
   const [pets, setPets] = useState(2);
   const [price, setPrice] = useState([0, 100000]); // Min and Max Price
 
-  const handlePriceChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-    index: number
-  ) => {
-    const newPrice = [...price];
-    newPrice[index] = parseInt(event.target.value);
-    setPrice(newPrice);
-  };
 
   const increment = (
     value: number,
@@ -90,7 +82,7 @@ const StepFour = ({ nextStep }: Props) => {
         <div className='flex justify-between text-sm mb-2'>
           <span className='font-medium text-[24px] py-6'>Price</span>
         </div>
-        <div className='flex gap-4 text-sm'>
+        <div className='flex gap-4 text-sm mb-6'>
           <div className='w-full p-4 border-[1px] border-[#697D95] rounded-[10px]'>
             <span className='block font-medium text-[18px] border-gray-300'>
               Min
@@ -105,47 +97,37 @@ const StepFour = ({ nextStep }: Props) => {
           </div>
         </div>
         <Range
-          step={1}
-          min={0}
-          max={100000}
-          values={price}
-          onChange={(price) => setPrice(price)}
-          renderTrack={({ props, children }) => (
-            <div
-              {...props}
-              key='renderTrack'
-              className='h-[4px] w-100 bg-[#8BC34A] rounded-sm mt-[10px] flex'
-            >
-              {children}
-            </div>
-          )}
-          renderThumb={({ props, index }) => (
-            <div
-              {...props}
-              key={index}
-              className='h-[15px] w-[15px] rounded-full bg-[#8BC34A] flex outline-0'
-              style={{
-                boxShadow: "0px 2px 6px #aaa",
-              }}
-            />
-          )}
-        />
-        <input
-          type='range'
-          min='0'
-          max='100000'
-          value={price[0]}
-          onChange={(e) => handlePriceChange(e, 0)}
-          className='w-full accent-[#004F4F]'
-        />
-        <input
-          type='range'
-          min='0'
-          max='100000'
-          value={price[1]}
-          onChange={(e) => handlePriceChange(e, 1)}
-          className='w-full accent-[#004F4F]'
-        />
+  step={1}
+  min={0}
+  max={100000}
+  values={price}
+  onChange={(price) => setPrice(price)}
+  renderTrack={({ props, children }) => (
+    <div
+      {...props}
+      className="h-[5px] w-full bg-[#2F4F4F] rounded-sm mt-[10px] mb-6 flex"
+      style={{
+        position: "relative",
+        width: "100%",
+      }}
+    >
+      {children}
+    </div>
+  )}
+  renderThumb={({ props, index }) => (
+    <div
+      {...props}
+      key={index}
+      className="h-[24px] w-[24px] rounded-full bg-[#2F4F4F] outline-0"
+      style={{
+        ...props.style,
+        boxShadow: "0px 2px 6px #aaa",
+        position: "absolute",
+      }}
+    />
+  )}
+/>
+
       </div>
 
       {/* Next Button */}

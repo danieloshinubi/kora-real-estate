@@ -14,6 +14,7 @@ import {
 } from "../../utils/services/api";
 
 import { FetchedPropertyType } from "../../utils/services/api";
+import { LatLngTuple } from "leaflet";
 
 type SignupFormProps = {
   step: number;
@@ -140,7 +141,12 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
   const selectedPropertyIds = selectedPropertyTypes.map((type) => type._id);
 
   //Form Step three Action
+  const [preferredLocation, setPreferredLocation] = useState<LatLngTuple>([
+    48.8584, 2.2945,
+  ]);
 
+  //Form Step four Action
+  
   //Final step
   const userProfileInfo = {
     user: userDetails?.user?.id || "",
@@ -150,8 +156,8 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
     minPrice: 100000,
     maxPrice: 500000,
     location: {
-      longitude: 12.9716,
-      latitude: 77.5946,
+      longitude: preferredLocation[1],
+      latitude: preferredLocation[0],
     },
   };
 
@@ -216,7 +222,12 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
           setSelectedPropertyTypes={setSelectedPropertyTypes}
         />
       )}
-      {step === 3 && <StepThree nextStep={nextStep} />}
+      {step === 3 && (
+        <StepThree
+          nextStep={nextStep}
+          setPreferredLocation={setPreferredLocation}
+        />
+      )}
       {step === 4 && (
         <StepFour
           nextStep={nextStep}

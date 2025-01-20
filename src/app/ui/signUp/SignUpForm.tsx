@@ -168,14 +168,11 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
   };
 
   const handleCreateUserProfile = async () => {
-    console.log(userDetails);
-    console.log(userProfileInfo);
     try {
       const { data, error } = await createProfile(userProfileInfo);
 
       if (!data) {
         if (error) {
-          console.log(error);
           if ("status" in error) {
             // Handle FetchBaseQueryError
             if (error.status === 400) {
@@ -248,7 +245,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
         />
       )}
       {step === 5 && (
-        <FinalStep handleSignUp={handleSignUp} isLoading={isLoading} />
+        <FinalStep/>
       )}
     </div>
   );

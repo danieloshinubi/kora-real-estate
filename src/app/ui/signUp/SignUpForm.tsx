@@ -245,7 +245,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ step, setStep }) => {
         />
       )}
       {step === 5 && (
-        <FinalStep/>
+        <FinalStep setStep={setStep}/>
       )}
     </div>
   );

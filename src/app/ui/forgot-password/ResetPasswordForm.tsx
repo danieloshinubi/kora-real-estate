@@ -6,6 +6,8 @@ import { cabin } from "../fonts";
 
 import { useResetPasswordMutation } from "../../utils/services/api";
 
+import { useRouter } from "next/navigation";
+
 type ResetNewPasswordFormProps = {
   email: string;
 };
@@ -50,6 +52,8 @@ const ResetNewPasswordForm = ({ email }: ResetNewPasswordFormProps) => {
 
   const [isLoading, setIsLoading] = useState(false);
 
+  const router = useRouter();
+
   const handleresetNewPassword = async () => {
     checkPassword();
     setIsLoading(true);
@@ -65,6 +69,7 @@ const ResetNewPasswordForm = ({ email }: ResetNewPasswordFormProps) => {
       console.log(error);
     } finally {
       setIsLoading(false);
+      router.push("/auth/login");
     }
   };
 
@@ -144,7 +149,7 @@ const ResetNewPasswordForm = ({ email }: ResetNewPasswordFormProps) => {
         {/* OTP */}
         <div className='mb-6 relative'>
           <input
-            type="text"
+            type='text'
             placeholder='OTP'
             className='w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-orange-300'
             value={otp}

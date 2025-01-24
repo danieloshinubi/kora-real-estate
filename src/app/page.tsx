@@ -4,7 +4,6 @@ import { useUser } from "./context/UserContext";
 export default function Home() {
   const { user } = useUser();
 
-  console.log(user)
   if (!user) {
     return <p>Loading...</p>;
   }

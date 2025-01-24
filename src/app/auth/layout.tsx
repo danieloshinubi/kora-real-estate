@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className='flex items-center justify-center h-screen'>
-      <div className='w-full h-full flex flex-col lg:flex-row p-6'>
+      <div className='w-full h-full flex flex-col lg:flex-row lg:p-6 gap-8'>
         <SignUpSidePane />
         <div className='lg:w-[60%] lg:px-6 flex flex-col justify-between items-center'>
           {children}

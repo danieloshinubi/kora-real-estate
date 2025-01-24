@@ -48,7 +48,7 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <div className='overflow-y-scroll flex items-center h-[calc(100%-52px)]'>
+    <div className='overflow-y-scroll flex items-center lg:h-[calc(100%-52px)]'>
       <div
         className={`max-w-md mx-auto h-full flex flex-col justify-center ${cabin.className}`}
       >

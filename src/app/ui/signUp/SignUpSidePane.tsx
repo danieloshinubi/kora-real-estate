@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function SignUpSidePane() {
   return (
-    <div className='w-[40%] max-w-[540px] hidden px-6 py-6 rounded-2xl lg:flex flex-col justify-between bg-[#2f4f4f] items-center'>
-      <div className='mt-4'>
+    <div className='w-full lg:max-w-[540px]  px-6 py-6 rounded-b-[50%] lg:rounded-2xl lg:flex flex-col justify-between bg-[#2f4f4f] items-center'>
+      <div className='mt-4 flex justify-center'>
         <Image
           src='/signUpHomeWbg.png'
           width={360}
@@ -14,7 +14,7 @@ export default function SignUpSidePane() {
           className='h-auto'
         />
       </div>
-      <div className='leading-[24px] text-white text-center'>
+      <div className='leading-[24px] hidden lg:block text-white text-center'>
         <h1 className='text-[20px]  mb-4'>
           The Largest Selection Of Apartments
         </h1>
@@ -23,7 +23,7 @@ export default function SignUpSidePane() {
           readable content of a page when looking at its layout.
         </p>
       </div>
-      <div className='flex flex-col gap-4 items-center text-white'>
+      <div className='lg:flex flex-col gap-4 hidden items-center text-white'>
         <h3> Trusted by teams at</h3>
         <div className='flex items-center gap-4 justify-center'>
           <Image

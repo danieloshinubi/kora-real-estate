@@ -10,9 +10,9 @@ export default function LoginPage() {
   return (
     <div className='w-full h-full'>
       {/* Navigation Buttons */}
-      <div className='flex justify-between'>
+      <div className='hidden lg:flex justify-between'>
         {step > 1 ? (
-          <div className='flex absolute top-0 justify-between w-full'>
+          <div className='hidden lg:flex absolute top-0 justify-between w-full'>
             <button className='btn btn-outline' onClick={prevStep}>
               {"< Back"}
             </button>

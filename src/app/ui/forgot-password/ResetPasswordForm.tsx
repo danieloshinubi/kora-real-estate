@@ -12,12 +12,20 @@ type ResetNewPasswordFormProps = {
   email: string;
 };
 
+type ErrorType = {
+  status: number;
+  data: {
+    message: string;
+  };
+};
+
 const ResetNewPasswordForm = ({ email }: ResetNewPasswordFormProps) => {
   const [otp, setOtp] = useState<string>("");
   const [newPassword, setNewPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [resetNewPassword] = useResetPasswordMutation();
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
   const validatePassword = (password: string) => {
     const validation = {
@@ -59,17 +67,24 @@ const ResetNewPasswordForm = ({ email }: ResetNewPasswordFormProps) => {
     setIsLoading(true);
 
     try {
-      await resetNewPassword({
+      const response = await resetNewPassword({
         email: email,
         otp: otp,
         newPassword: newPassword,
-      });
+      }).unwrap();
+
+      // Verify if the response indicates success
+      if (response?.message === "Password has been changed successfully.") {
+        router.push("/auth/login"); // Redirect only if the response is successful
+      } else {
+        throw new Error(response?.message || "Reset password failed."); // Throw an error if success is not true
+      }
     } catch (error) {
-      alert("resetNewPassword failed. Try again.");
-      console.log(error);
+      const errorData = error as ErrorType;
+      console.log(errorData.data.message);
+      setError(errorData.data.message as string);
     } finally {
       setIsLoading(false);
-      router.push("/auth/login");
     }
   };
 
@@ -156,6 +171,7 @@ const ResetNewPasswordForm = ({ email }: ResetNewPasswordFormProps) => {
             onChange={(e) => setOtp(e.target.value)}
           />
         </div>
+        <p className="text-right text-red-500">{error + " or OTP"}</p>
 
         {/* Submit Button */}
         <button

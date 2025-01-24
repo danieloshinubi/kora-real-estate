@@ -11,20 +11,36 @@ type ForgotPasswordFormProps = {
   email: string;
   setEmail: React.Dispatch<React.SetStateAction<string>>;
 };
-const ForgotPasswordForm = ({ setStep, email, setEmail }: ForgotPasswordFormProps) => {
-  
+
+type ErrorType = {
+  status: number;
+  data: {
+    message: string;
+  };
+};
+
+const ForgotPasswordForm = ({
+  setStep,
+  email,
+  setEmail,
+}: ForgotPasswordFormProps) => {
   const [forgotPassword] = useForgotPasswordMutation();
 
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleforgotPassword = async () => {
     setIsLoading(true);
     try {
-      await forgotPassword({ email: email });
-      setStep(2);
+      const response = await forgotPassword({ email: email }).unwrap();
+      if (response?.message === "password reset token sent") {
+        setStep(2); // Redirect only if the response is successful
+      } else {
+        throw new Error(response?.message || "Couldn't send email."); // Throw an error if success is not true
+      }
     } catch (error) {
-      alert("forgotPassword failed. Try again.");
-      console.log(error);
+      const errorData = error as ErrorType;
+      setError(errorData.data.message as string);
     } finally {
       setIsLoading(false);
     }
@@ -50,6 +66,7 @@ const ForgotPasswordForm = ({ setStep, email, setEmail }: ForgotPasswordFormProp
           onChange={(e) => setEmail(e.target.value)}
           required
         />
+        <p className='text-right text-red-500'>{error}</p>
 
         {/* Submit Button */}
         <button

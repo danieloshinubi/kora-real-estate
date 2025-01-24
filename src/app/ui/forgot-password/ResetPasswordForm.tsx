@@ -171,7 +171,9 @@ const ResetNewPasswordForm = ({ email }: ResetNewPasswordFormProps) => {
             onChange={(e) => setOtp(e.target.value)}
           />
         </div>
-        <p className="text-right text-red-500">{error + " or OTP"}</p>
+        <p className='text-right text-red-500'>
+          {error ? error + " or OTP" : ""}
+        </p>
 
         {/* Submit Button */}
         <button

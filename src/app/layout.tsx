@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { inknutAntiqua } from "@/app/ui/fonts";
-// import { Providers } from "./utils/Providers";
+import { Providers } from "./utils/Providers";
 
 import { UserProvider } from "./context/UserContext";
 import "./globals.css";
@@ -18,8 +18,9 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${inknutAntiqua.variable} antialiased`}>
-        {/* <Providers>{children}</Providers> */}
-        <UserProvider>{children}</UserProvider>
+        <Providers>
+          <UserProvider>{children}</UserProvider>
+        </Providers>
       </body>
     </html>
   );

@@ -1,7 +1,18 @@
+"use client"
+import { useUser } from "./context/UserContext";
+
 export default function Home() {
+  const { user } = useUser();
+
+  console.log(user)
+  if (!user) {
+    return <p>Loading...</p>;
+  }
+
   return (
-    <>
-      Home Page
-    </>
+    <div>
+      <h1>Welcome, {user.id}!</h1>
+      <p>Your email: {user.email}</p>
+    </div>
   );
 }

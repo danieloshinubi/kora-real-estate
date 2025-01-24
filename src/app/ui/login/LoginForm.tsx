@@ -8,7 +8,7 @@ import { cabin } from "../fonts";
 import { useLoginMutation } from "../../utils/services/api";
 import { useUser } from "@/app/context/UserContext";
 
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 type ErrorType = {
   status: number;

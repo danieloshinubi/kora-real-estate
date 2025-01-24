@@ -7,24 +7,34 @@ import { cabin } from "../fonts";
 
 import { useLoginMutation } from "../../utils/services/api";
 
+type ErrorType = {
+  status: number;
+  data: {
+    message: string;
+  };
+};
+
 const LoginForm: React.FC = () => {
   const [password, setPassword] = useState<string>("");
-  const [username, setUsername] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [login] = useLoginMutation();
+  const [error, setError] = useState<ErrorType | null>(null);
 
-  const [isLoading, setIsLoading] = useState(false);
+  const [login, { isLoading }] = useLoginMutation();
 
-  const handleLogin = async () => {
-    setIsLoading(true);
-
+  const handleLogin = async (event: React.FormEvent) => {
+    event.preventDefault();
     try {
-      await login({ username: username, password: password });
-    } catch (error) {
-      alert("login failed. Try again.");
-      console.log(error);
-    } finally {
-      setIsLoading(false);
+      const credentials = { email: email, password: password };
+      const result = await login(credentials).unwrap();
+      console.log("Login successful:", result);
+    } catch (err: unknown) {
+      setError(err as ErrorType);
+      if (err && typeof err === "object" && "data" in err) {
+        console.error("Login failed:", err);
+      } else {
+        console.error("An unexpected error occurred:", err);
+      }
     }
   };
 
@@ -33,9 +43,7 @@ const LoginForm: React.FC = () => {
       <div
         className={`max-w-md mx-auto h-full flex flex-col justify-center ${cabin.className}`}
       >
-        <h1
-          className={`text-2xl font-semibold ${inknutAntiqua.className}`}
-        >
+        <h1 className={`text-2xl font-semibold ${inknutAntiqua.className}`}>
           Welcome Back, User
         </h1>
         <p className='text-center text-gray-600 mb-6'>
@@ -52,7 +60,7 @@ const LoginForm: React.FC = () => {
               width={20}
               height={20}
             />
-            Sign Up with Google
+            Login with Google
           </button>
           <button className='w-full flex items-center py-[10px] px-[16px] justify-center border rounded-lg bg-blue-600 text-white hover:bg-blue-700'>
             <Image
@@ -62,18 +70,23 @@ const LoginForm: React.FC = () => {
               width={20}
               height={20}
             />
-            Sign Up with Facebook
+            Login with Facebook
           </button>
         </div>
 
         <div className='text-center my-4'>OR</div>
+        {error && (
+          <p className='text-red-600 text-center'>
+            {error?.data?.message || "Something went wrong"}
+          </p>
+        )}
 
         {/* Email Address */}
         <input
           type='text'
           placeholder='Email Address'
           className='w-full px-4 py-2 mb-4 border rounded-lg focus:outline-none focus:ring focus:ring-orange-300'
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
 
@@ -97,7 +110,10 @@ const LoginForm: React.FC = () => {
 
         {/*Forgot Password Button */}
         <button className='w-full text-[#DB1E13] text-right rounded-lg mb-8'>
-          <a href='/auth/forgot-password' className='text-[#DB1E13] hover:underline'>
+          <a
+            href='/auth/forgot-password'
+            className='text-[#DB1E13] hover:underline'
+          >
             Forgot Password?
           </a>
         </button>

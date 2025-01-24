@@ -11,8 +11,8 @@ export const api = createApi({
   endpoints: (builder) => ({
     // Auth Endpoints
     signUp: builder.mutation<
-      { user: UserDetails, message: string },
-      { email: string,  password: string, phoneNo: string; }
+      { user: UserDetails; message: string },
+      { email: string; password: string; phoneNo: string }
     >({
       query: (newUser) => ({
         url: "/auth/user/signup",
@@ -22,8 +22,16 @@ export const api = createApi({
     }),
 
     login: builder.mutation<
-      { token: string },
-      { username: string; password: string }
+      {
+        message: string;
+        accessToken: string;
+        user: {
+          id: string;
+          email: string;
+          roles: string[];
+        };
+      },
+      { email: string; password: string }
     >({
       query: (credentials) => ({
         url: "/auth/user/login",
@@ -46,7 +54,7 @@ export const api = createApi({
 
     resetPassword: builder.mutation<
       { message: string },
-      { email:string; otp: string; newPassword: string;}
+      { email: string; otp: string; newPassword: string }
     >({
       query: (data) => ({
         url: "/auth/user/resetpassword",
@@ -56,10 +64,7 @@ export const api = createApi({
     }),
 
     // Profile Endpoints
-    createProfile: builder.mutation<
-      { message: string },
-      UserProfileInfo
-    >({
+    createProfile: builder.mutation<{ message: string }, UserProfileInfo>({
       query: (profile) => ({
         url: "/profile",
         method: "POST",

@@ -6,6 +6,9 @@ import { inknutAntiqua } from "../fonts";
 import { cabin } from "../fonts";
 
 import { useLoginMutation } from "../../utils/services/api";
+import { useUser } from "@/app/context/UserContext";
+
+import { useRouter } from "next/router";
 
 type ErrorType = {
   status: number;
@@ -22,12 +25,18 @@ const LoginForm: React.FC = () => {
 
   const [login, { isLoading }] = useLoginMutation();
 
+  const { setUser } = useUser();
+
+  const router = useRouter();
+
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
       const credentials = { email: email, password: password };
       const result = await login(credentials).unwrap();
-      console.log("Login successful:", result);
+      setUser(result.user);
+
+      router.push("/");
     } catch (err: unknown) {
       setError(err as ErrorType);
       if (err && typeof err === "object" && "data" in err) {

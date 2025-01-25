@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { cabin } from "../fonts";
-import { MdSearch } from "react-icons/md";
+import { MdMap, MdSearch } from "react-icons/md";
 
 const SearchCriteria = [
   { criteria: "Location", placeholder: "Search Where?", inputType: "text" },
@@ -11,14 +11,14 @@ const SearchCriteria = [
 ];
 export default function HomeHero() {
   return (
-    <div className='relative w-full h-full  flex flex-col justify-center items-center text-white'>
-      <div className='absolute top-0 left-0 w-full h-full bg-black bg-opacity-50'></div>
+    <div className='relative w-full h-full flex flex-col justify-center items-center text-white'>
+      <div className='absolute top-0 left-0 w-full h-[450px] sm:h-[590px] bg-black bg-opacity-50'></div>
       <Image
         src='/kora-home-bg.jpeg'
         alt='hero'
         height={450}
         width={1200}
-        className='w-full h-[450px] sm:h-[650px] object-cover'
+        className='w-full h-[450px] sm:h-[590px] object-cover'
       />
       <div className='absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-[777px] text-center'>
         <div className='mb-4'>
@@ -56,12 +56,19 @@ export default function HomeHero() {
               </li>
             ))}
           </ul>
-          <button className='bg-orange-500 text-white ml-auto px-6 py-2 rounded-full'>
+          <button className='bg-[#D2691E] text-white ml-auto px-6 py-2 rounded-full'>
             <span className='flex gap-2'>
               <MdSearch className='text-2xl' /> Search
             </span>
           </button>
         </div>
+      </div>
+      <div className='absolute bottom-8 left-0 w-full justify-center py-4 px-8 flex items-center'>
+        <button className='bg-[#D2691E] text-white px-6 py-4 rounded-full'>
+          <span className={`flex gap-2 ${cabin.className}`}>
+            <MdMap className="text-2xl"/> View Map
+          </span>
+        </button>
       </div>
     </div>
   );

@@ -30,7 +30,7 @@ export default function SignUpSidePane() {
           className='h-auto'
         />
       </div>
-      <h1 className='text-[16px] font-semibold text-center text-white'>{title}</h1>
+      <h1 className='text-[16px] lg:hidden font-semibold text-center text-white'>{title}</h1>
       <div className='leading-[24px] hidden lg:block text-white text-center'>
         <h1 className='text-[20px]  mb-4'>
           The Largest Selection Of Apartments

@@ -13,7 +13,7 @@ export default function ForgotPasswordPage() {
   return (
     <div className='w-full h-full'>
       {/* Navigation Buttons */}
-      <div className='flex justify-between'>
+      <div className='hidden lg:flex justify-between'>
         {step > 1 ? (
           <div className='flex top-0 justify-between w-full'>
             <button className='btn btn-outline' onClick={prevStep}>

@@ -10,7 +10,7 @@ export default function SignUpPage() {
   return (
     <div className='w-full h-full'>
       {/* Navigation Buttons */}
-      <div className='flex justify-between'>
+      <div className='lg:flex justify-between hidden'>
         {step > 1 ? (
           <div className='flex justify-between top-0 w-full'>
             <button className='btn btn-outline' onClick={prevStep}>

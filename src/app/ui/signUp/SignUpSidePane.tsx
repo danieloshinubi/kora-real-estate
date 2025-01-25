@@ -1,11 +1,15 @@
 import React from "react";
 import { cabin } from "@/app/ui/fonts";
 import Image from "next/image";
+import Circles from "../auth/Circle1";
+import Circle2 from "../auth/Circle2";
 
 export default function SignUpSidePane() {
   return (
-    <div className='w-full lg:max-w-[540px]  px-6 py-6 rounded-b-[50%] lg:rounded-2xl lg:flex flex-col justify-between bg-[#2f4f4f] items-center'>
-      <div className='mt-4 flex justify-center'>
+    <div className='w-full relative lg:max-w-[540px] h-1/2 lg:h-auto px-6 py-6 rounded-b-[50%] lg:rounded-2xl lg:flex flex-col justify-between bg-[#2f4f4f] items-center'>
+      <Circles/>
+      <Circle2/>
+      <div className='z-40 mt-4 flex justify-center'>
         <Image
           src='/signUpHomeWbg.png'
           width={360}

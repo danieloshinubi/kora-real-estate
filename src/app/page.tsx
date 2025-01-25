@@ -1,17 +1,15 @@
-"use client"
+"use client";
 import { useUser } from "./context/UserContext";
+import Navbar from "./ui/Navbar";
+import HomeHero from "./ui/home/HomeHero";
 
 export default function Home() {
   const { user } = useUser();
-
-  if (!user) {
-    return <p>Loading...</p>;
-  }
-
+  console.log(user);
   return (
-    <div>
-      <h1>Welcome, {user.id}!</h1>
-      <p>Your email: {user.email}</p>
+    <div className=''>
+      <Navbar />
+      <HomeHero />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { MdArrowDropDown } from "react-icons/md";
+import MobileNav from "./components/MobileNav";
 
 const NavLinks = [
   {
@@ -44,7 +45,7 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Right Section: Buttons and Avatar */}
-      <div className='flex items-center gap-8 justify-between'>
+      <div className='flex items-center gap-4 lg:gap-8 justify-between ml-auto mr-4'>
         <button className='hidden lg:block px-4 py-2 border-2 border-[#F5DEB3] text-[#F5DEB3] rounded-full hover:bg-[#F5DEB3] hover:text-white'>
           Become a host
         </button>
@@ -61,6 +62,9 @@ const Navbar: React.FC = () => {
           />
         </div>
       </div>
+
+      {/* Mobile Navigation */}
+      <MobileNav />
     </nav>
   );
 };

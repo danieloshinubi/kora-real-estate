@@ -22,7 +22,7 @@ export default function HomeHero() {
       />
       <div className='absolute px-6 top-1/2 lg:left-1/2 transform lg:-translate-x-1/2 lg:-translate-y-1/2 max-w-[777px] w-full text-center'>
         <div className='mb-4'>
-          <h1 className='text-[16px] sm:text-2xl lg:text-[32px] w-full lg:leading-[50px] tracking-[2%] '>
+          <h1 className='text-[20px] sm:text-2xl lg:text-[32px] w-full lg:leading-[50px] tracking-[2%] '>
             Your next Outdoorsy adventure starts here
           </h1>
           <p
@@ -33,15 +33,15 @@ export default function HomeHero() {
           </p>
         </div>
         <div
-          className={`flex flex-col sm:flex-row justify-between bg-white py-2 px-8 sm:rounded-full text-black w-full max-w-[833px] ${cabin.className}`}
+          className={`flex flex-col sm:flex-row justify-between bg-white py-2 px-8 shadow-lg sm:shadow-none sm:rounded-full text-black w-full max-w-[833px] ${cabin.className}`}
         >
           <ul className='flex flex-col sm:flex-row gap-4 justify-between text-[14px] mr-2 lg:mr-8 w-full lg:rounded-full'>
-            {SearchCriteria.map((criteria) => (
+            {SearchCriteria.map((criteria, index) => (
               <li
-                key={criteria.criteria}
+                key={index}
                 className='flex flex-col items-center text-left'
               >
-                <span className='text-left w-full'>{criteria.criteria}</span>
+                <span className='text-left w-full text-[16px] font-medium sm:text-[14px]'>{criteria.criteria}</span>
                 {criteria.inputType === "select" ? (
                   <select className='mr-auto outline-none border-none text-gray-500'>
                     <option value=''>{criteria.placeholder}</option>

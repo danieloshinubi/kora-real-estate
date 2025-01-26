@@ -2,6 +2,7 @@
 import { useUser } from "./context/UserContext";
 import Navbar from "./ui/Navbar";
 import HomeHero from "./ui/home/HomeHero";
+import HouseListingSection from "./ui/home/HouseListingSection";
 
 export default function Home() {
   const { user } = useUser();
@@ -10,6 +11,9 @@ export default function Home() {
     <div className=''>
       <Navbar />
       <HomeHero />
+      <div className='container mx-auto px-12'>
+        <HouseListingSection />
+      </div>
     </div>
   );
 }

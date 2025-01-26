@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { cabin } from "../fonts";
+import { FaHeart, FaRegHeart } from "react-icons/fa6";
 
 interface CardProps {
   image: string;
@@ -23,6 +24,8 @@ const PropertyCard: React.FC<CardProps> = ({
   bathrooms,
   price,
 }) => {
+  const [favorite, setFavorite] = React.useState(false);
+
   return (
     <div className=' bg-white overflow-hidden'>
       {/* Image Section */}
@@ -35,21 +38,18 @@ const PropertyCard: React.FC<CardProps> = ({
             className='object-cover rounded-lg'
           />
         </div>
-        <button className='absolute top-3 right-3 bg-white p-2 rounded-full shadow-md'>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            fill='none'
-            viewBox='0 0 24 24'
-            strokeWidth={2}
-            stroke='currentColor'
-            className='h-5 w-5 text-red-500'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              d='M11.048 2.927c.3-.921 1.603-.921 1.902 0a7.501 7.501 0 014.5 6.881 7.5 7.5 0 01-9.62 7.248 7.5 7.5 0 01-9.616-7.25 7.5 7.5 0 014.5-6.88z'
+        <button className='absolute top-3 right-3 p-2'>
+          {favorite ? (
+            <FaHeart
+              className='text-white text-2xl'
+              onClick={() => setFavorite(false)}
             />
-          </svg>
+          ) : (
+            <FaRegHeart
+              className='text-black text-2xl'
+              onClick={() => setFavorite(true)}
+            />
+          )}
         </button>
       </div>
 

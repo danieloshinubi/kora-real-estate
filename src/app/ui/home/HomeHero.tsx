@@ -20,7 +20,7 @@ export default function HomeHero() {
         width={1200}
         className='w-full h-[450px] sm:h-[590px] object-cover'
       />
-      <div className='absolute px-6 top-1/2 lg:left-1/2 transform lg:-translate-x-1/2 lg:-translate-y-1/2 max-w-[777px] w-full text-center'>
+      <div className='absolute px-6 lg:px-0 top-1/2 lg:left-1/2 transform lg:-translate-x-1/2 lg:-translate-y-1/2 max-w-[777px] w-full text-center'>
         <div className='mb-4'>
           <h1 className='text-[20px] sm:text-2xl lg:text-[32px] w-full lg:leading-[50px] tracking-[2%] '>
             Your next Outdoorsy adventure starts here

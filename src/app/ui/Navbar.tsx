@@ -18,7 +18,7 @@ const NavLinks = [
 ];
 const Navbar: React.FC = () => {
   return (
-    <nav className='absolute top-0 left-0 z-20 w-full flex items-center justify-between px-24 py-4 bg-transparent'>
+    <nav className='absolute top-0 left-0 z-20 w-full flex items-center justify-between px-6 lg:px-24 py-4 bg-transparent'>
       {/* Left Section: Logo */}
       <div className='flex items-center'>
         <Image
@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Middle Section: Navigation Links */}
-      <div className='flex space-x-6'>
+      <div className='hidden lg:flex space-x-6'>
         {NavLinks.map((link) => (
           <a
             key={link.name}
@@ -45,11 +45,10 @@ const Navbar: React.FC = () => {
 
       {/* Right Section: Buttons and Avatar */}
       <div className='flex items-center gap-8 justify-between'>
-        <button className='px-4 py-2 border-2 border-[#F5DEB3] text-[#F5DEB3] rounded-full hover:bg-[#F5DEB3] hover:text-white'>
+        <button className='hidden lg:block px-4 py-2 border-2 border-[#F5DEB3] text-[#F5DEB3] rounded-full hover:bg-[#F5DEB3] hover:text-white'>
           Become a host
         </button>
         <div className='relative flex gap-2 items-center'>
-          
           <button className=' bg-orange-500 p-1 rounded-full'>
             <MdArrowDropDown className='text-gray-300' />
           </button>

@@ -1,6 +1,7 @@
 "use client";
 import { useUser } from "./context/UserContext";
 import Navbar from "./ui/Navbar";
+import HomeCategoriesSection from "./ui/home/HomeCategoriesSection";
 import HomeHero from "./ui/home/HomeHero";
 import HouseListingSection from "./ui/home/HouseListingSection";
 
@@ -13,6 +14,7 @@ export default function Home() {
       <HomeHero />
       <div className='container mx-auto px-12'>
         <HouseListingSection />
+        <HomeCategoriesSection/>
       </div>
     </div>
   );

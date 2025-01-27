@@ -20,7 +20,7 @@ const MobileNav = () => {
         } transition-transform duration-300 ease-in-out`}
         onClick={toggleNav}
       >
-        <div className='w-3/4 h-full  bg-white ' onClick={(e) => e.stopPropagation()}>
+        <div className='w-3/4 sm:w-1/3 h-full  bg-white ' onClick={(e) => e.stopPropagation()}>
           <button onClick={toggleNav} className='text-2xl p-4'>
             <FaTimes />
           </button>

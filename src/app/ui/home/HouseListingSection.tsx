@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import cards from "@/app/utils/PropertyListings";
 import PropertyCard from "./PropertyCard";
 import { cabin } from "../fonts";
-import { MdArrowDropDown } from "react-icons/md";
+import { MdArrowDownward, MdArrowUpward } from "react-icons/md";
 
 export default function HouseListingSection() {
   const [visibleCount, setVisibleCount] = useState(8);
@@ -43,7 +43,7 @@ export default function HouseListingSection() {
           >
             Show More Options
             
-          </button><MdArrowDropDown className="text-orange-500 text-[2xl]"/>
+          </button><MdArrowDownward className="text-orange-500 text-[2xl]"/>
         </div>
       ):(
         <div className="text-center mt-6 flex justify-center items-center">
@@ -53,7 +53,7 @@ export default function HouseListingSection() {
           >
             Show Lesser Options
             
-          </button><MdArrowDropDown className="text-orange-500 text-[2xl]"/>
+          </button><MdArrowUpward className="text-orange-500 text-[2xl]"/>
         </div>
       )}
     </div>

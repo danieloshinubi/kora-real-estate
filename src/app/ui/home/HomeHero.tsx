@@ -34,7 +34,7 @@ export default function HomeHero() {
             </p>
           </div>
           <div
-            className={`flex flex-col sm:flex-row justify-between bg-white py-2 px-8 shadow-lg sm:shadow-none sm:rounded-full text-black w-full max-w-[833px] ${cabin.className}`}
+            className={`flex flex-col sm:flex-row justify-between bg-white py-4 lg:py-2 px-8  rounded-lg shadow-lg sm:shadow-none sm:rounded-full text-black w-full max-w-[833px] ${cabin.className}`}
           >
             <ul className='flex flex-col sm:flex-row gap-4 justify-between text-[14px] mr-2 lg:mr-8 w-full lg:rounded-full'>
               {SearchCriteria.map((criteria, index) => (
@@ -59,8 +59,8 @@ export default function HomeHero() {
                 </li>
               ))}
             </ul>
-            <button className='bg-[#D2691E] text-white ml-auto mt-8 sm:mt-auto px-6 py-2 rounded-full'>
-              <span className='flex gap-2 w-full'>
+            <button className='bg-[#D2691E] w-full lg:w-auto text-white ml-auto mt-8 sm:mt-auto px-6 py-2 sm:rounded-full rounded-lg'>
+              <span className='flex gap-2 justify-center mx-auto'>
                 <MdSearch className='text-2xl' />
                 <span className='hdden md:block'> Search</span>
               </span>

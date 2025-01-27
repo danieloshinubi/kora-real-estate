@@ -21,7 +21,7 @@ const NavLinks = [
 const Navbar: React.FC = () => {
   const pathName = usePathname();
   return (
-    <nav className='absolute top-0 left-0 z-20 w-full  px-6 lg:px-24 py-4 bg-transparent'>
+    <nav className='absolute top-0 left-0 z-20 w-full flex items-center  px-6 lg:px-24 py-4 bg-transparent'>
       <div className='container mx-auto w-full flex  items-center justify-between'>
         {/* Left Section: Logo */}
         <div className='flex items-center'>

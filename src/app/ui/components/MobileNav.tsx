@@ -18,8 +18,9 @@ const MobileNav = () => {
         className={`fixed top-0 left-0 w-full h-full bg-[#00000086] shadow-lg transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out`}
+        onClick={toggleNav}
       >
-        <div className='w-3/4 h-full  bg-white '>
+        <div className='w-3/4 h-full  bg-white ' onClick={(e) => e.stopPropagation()}>
           <button onClick={toggleNav} className='text-2xl p-4'>
             <FaTimes />
           </button>

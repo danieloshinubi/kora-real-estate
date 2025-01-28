@@ -14,7 +14,7 @@ export default function HomeCategoriesSection() {
           readable content of a page when looking at its layout.
         </p>
       </div>
-      <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6  mt-6'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6  mt-6'>
         {categoryListing.map((category) => (
           <HomeCategory
             title={category.title}

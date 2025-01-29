@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
       <div className='h-full flex flex-col gap-8'>
         <div className='flex gap-8 '>
           {/* Subscribe Section */}
-          <div className="relative space-y-6 ">
+          <div className='relative space-y-6 '>
             <div className='bg-[#333333] h-full p-6 rounded-lg flex flex-col max-w-[340px]'>
               <h4 className='text-[28px] mb-4 text-[#CFCDBE]'>
                 Subscribe to our newsletter

@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
       <div className='h-full flex flex-col gap-8'>
         <div className='flex gap-8 '>
           {/* Subscribe Section */}
-          <div className='relative space-y-6 '>
+          <div className='relative space-y-4 '>
             <div className='bg-[#333333] h-full p-6 rounded-lg flex flex-col max-w-[340px]'>
               <h4 className='text-[28px] mb-4 text-[#CFCDBE]'>
                 Subscribe to our newsletter
@@ -30,14 +30,15 @@ const Footer: React.FC = () => {
               <div className=' p-6'>
                 <FiArrowUp className='text-4xl' />
               </div>
-              <div className='flex flex-col gap-2 py-6 text-xl'>
+              <div className='flex flex-col gap-4 py-4 text-xl'>
                 <FiFacebook />
                 <FiYoutube />
               </div>
             </div>
+            <p className='text-[#6F6D66] '>© 2023 — Copyright</p>
           </div>
 
-          <div className='ml-8 '>
+          <div className='ml-8 h-full'>
             <div className='w-[434px] flex justify-between gap-8'>
               <h1>For Applicants</h1>
               <h1>For Students</h1>
@@ -79,6 +80,11 @@ const Footer: React.FC = () => {
             <button className='bg-[#D2691E] text-white py-[10px] px-[18px] rounded-[6px] w-[140px]'>
               Send
             </button>
+
+            <div className="flex flex-col gap-4 mt-8">
+              
+              <p className='text-[#6F6D66]'></p>
+            </div>
           </div>
         </div>
 

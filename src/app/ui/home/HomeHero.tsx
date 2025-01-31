@@ -12,7 +12,7 @@ const SearchCriteria = [
 export default function HomeHero() {
   return (
     <div className='relative w-full h-full flex flex-col justify-center items-center text-white'>
-      <div className='absolute top-0 left-0 w-full h-[450px] sm:h-[590px] bg-black bg-opacity-50'></div>
+      <div className='absolute top-0 left-0 w-full h-[450px] sm:h-[590px] bg-black bg-opacity-65'></div>
       <Image
         src='/kora-home-bg.jpeg'
         alt='hero'
@@ -23,7 +23,7 @@ export default function HomeHero() {
       <div className='container mx-auto'>
         <div className='absolute px-6 lg:px-0 top-1/2 lg:left-1/2 transform lg:-translate-x-1/2 lg:-translate-y-1/2 max-w-[777px] w-full text-center'>
           <div className='mb-4'>
-            <h1 className='text-[20px] sm:text-2xl lg:text-[32px] w-full lg:leading-[50px] tracking-[2%] '>
+            <h1 className='text-[20px] sm:text-2xl lg:mb-4 lg:text-[32px] w-full lg:leading-[50px] tracking-[2%] '>
               Your next Outdoorsy adventure starts here
             </h1>
             <p
@@ -34,7 +34,7 @@ export default function HomeHero() {
             </p>
           </div>
           <div
-            className={`flex flex-col sm:flex-row justify-between bg-white py-4 lg:py-2 px-8  rounded-lg shadow-lg sm:shadow-none sm:rounded-full text-black w-full max-w-[833px] ${cabin.className}`}
+            className={`flex flex-col sm:flex-row justify-between bg-white py-4 lg:py-2 px-8  lg:px-4 rounded-lg shadow-lg sm:shadow-none sm:rounded-full text-black w-full max-w-[833px] ${cabin.className}`}
           >
             <ul className='flex flex-col sm:flex-row gap-4 justify-between text-[14px] mr-2 lg:mr-8 w-full lg:rounded-full'>
               {SearchCriteria.map((criteria, index) => (
@@ -59,7 +59,7 @@ export default function HomeHero() {
                 </li>
               ))}
             </ul>
-            <button className='bg-[#D2691E] w-full lg:w-auto text-white ml-auto mt-8 sm:mt-auto px-6 py-2 sm:rounded-full rounded-lg'>
+            <button className='bg-[#D2691E] w-full lg:w-auto text-white ml-auto mt-8 sm:mt-auto px-4 py-2 sm:rounded-full rounded-lg'>
               <span className='flex gap-2 justify-center mx-auto'>
                 <MdSearch className='text-2xl' />
                 <span className='hdden md:block'> Search</span>

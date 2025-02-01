@@ -37,8 +37,7 @@ const Footer: React.FC = () => {
             </div>
             <p className='text-[#6F6D66] '>© 2023 — Copyright</p>
           </div>
-
-          <div className='ml-8 h-full'>
+          <div className='ml-8'>
             <div className='w-[434px] flex justify-between gap-8'>
               <h1>For Applicants</h1>
               <h1>For Students</h1>
@@ -80,35 +79,46 @@ const Footer: React.FC = () => {
             <button className='bg-[#D2691E] text-white py-[10px] px-[18px] rounded-[6px] w-[140px]'>
               Send
             </button>
-
-            <div className="flex flex-col gap-4 mt-8">
-              
-              <p className='text-[#6F6D66]'></p>
-            </div>
           </div>
         </div>
 
         {/* Contact Info Section */}
-        {/* <div className='flex gap-8'>
-          <div className='ml-8 flex'>
+        <div className='flex gap-8 w-full'>
+          <div className='w-[340px]'></div>
+          <div className='flex flex-col gap-8 ml-8'>
+            <div className='flex gap-12'>
+              <div>
+                <p className='text-[#6F6D66] text-[10px] leading-[14px]'>
+                  Selection Committee
+                </p>
+                <p className='text-[14px] text-[#B2B1AA]'>+1 891 989-11-92</p>
+              </div>
+              <div>
+                <p className='text-[#6F6D66] text-[10px] leading-[14px]'>
+                  Add. Education
+                </p>
+                <p className='text-[14px] text-[#B2B1AA]'>+1 891 989-11-93</p>
+              </div>
+              <div>
+                <p className='text-[#6F6D66] text-[10px] leading-[14px]'>
+                  Email
+                </p>
+                <p className='text-[14px] text-[#B2B1AA]'>
+                  info@logolipsum.com
+                </p>
+              </div>
+            </div>
+
             <div>
-              <p>Selection Committee</p>
-              <p>+1 891 989-11-92</p>
-            </div>
-            <div className='mt-4'>
-              <p>Add. Education</p>
-              <p>+1 891 989-11-93</p>
-            </div>
-            <div className='mt-4'>
-              <p>Email</p>
-              <p>info@logolipsum.com</p>
-            </div>
-            <div className='mt-4'>
-              <p>Address</p>
-              <p>2972 Westheimer Rd. Santa Ana, Illinois 85486</p>
+              <p className='text-[#6F6D66] text-[10px] leading-[14px]'>
+                Address
+              </p>
+              <p className='text-[14px] text-[#B2B1AA]'>
+                2972 Westheimer Rd. Santa Ana, Illinois 85486
+              </p>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     </footer>
   );

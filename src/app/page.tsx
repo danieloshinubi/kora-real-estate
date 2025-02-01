@@ -5,6 +5,7 @@ import HomeCategoriesSection from "./ui/home/HomeCategoriesSection";
 import HomeHero from "./ui/home/HomeHero";
 import HouseListingSection from "./ui/home/HouseListingSection";
 import Footer from "./ui/components/Footer";
+import CountryOutreachSection from "./ui/home/CountryOutreachSection";
 
 export default function Home() {
   // const { user } = useUser();
@@ -16,6 +17,7 @@ export default function Home() {
       <div className='container mx-auto px-12'>
         <HouseListingSection />
         <HomeCategoriesSection/>
+        <CountryOutreachSection/>
       </div>
       <Footer/>
     </div>

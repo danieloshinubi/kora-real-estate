@@ -6,6 +6,8 @@ import HomeHero from "./ui/home/HomeHero";
 import HouseListingSection from "./ui/home/HouseListingSection";
 import Footer from "./ui/components/Footer";
 import CountryOutreachSection from "./ui/home/CountryOutreachSection";
+import CustomerReviewSection from "./ui/home/CustomerReviewSection";
+import FinalSection from "./ui/home/FinalSection";
 
 export default function Home() {
   // const { user } = useUser();
@@ -18,6 +20,8 @@ export default function Home() {
         <HouseListingSection />
         <HomeCategoriesSection/>
         <CountryOutreachSection/>
+        <CustomerReviewSection/>
+        <FinalSection/>
       </div>
       <Footer/>
     </div>

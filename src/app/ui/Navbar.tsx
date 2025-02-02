@@ -21,7 +21,7 @@ const NavLinks = [
 const Navbar: React.FC = () => {
   const pathName = usePathname();
   return (
-    <nav className='absolute top-0 left-0 z-20 w-full flex items-center  px-6 lg:px-24 py-4 bg-transparent'>
+    <nav className='absolute top-0 left-0 z-20 w-full flex items-center  text-[14px] px-6 lg:px-24 py-4 bg-transparent'>
       <div className='container mx-auto w-full flex  items-center justify-between'>
         {/* Left Section: Logo */}
         <div className='flex items-center'>
@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Middle Section: Navigation Links */}
-        <div className='hidden lg:flex space-x-6 mx-auto'>
+        <div className='hidden lg:flex gap-6 justify-center'>
           {NavLinks.map((link) => (
             <a
               key={link.name}
@@ -48,7 +48,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Right Section: Buttons and Avatar */}
-        <div className='flex items-center gap-4 lg:gap-8 justify-between ml-auto mr-4'>
+        <div className='flex items-center gap-4 lg:gap-8 justify-between mr-4'>
           <button className='hidden lg:block px-4 py-2 border-2 border-[#F5DEB3] text-[#F5DEB3] rounded-full hover:bg-[#F5DEB3] hover:text-white'>
             Become a host
           </button>

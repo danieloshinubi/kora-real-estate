@@ -20,7 +20,7 @@ export default function HouseListingSection() {
         <h1 className='text-[18px] sm:text-[20px] lg:text-[24px] font-semibold'>Discover Recent Listings</h1>
         <p className={`text-gray-600 ${cabin.className}`}>Lorem ipsum dolor sit amet consectetur.</p>
       </div>
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6'>
         {cards.slice(0, visibleCount).map((card) => (
           <PropertyCard
             key={card.title}

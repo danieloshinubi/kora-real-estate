@@ -49,18 +49,18 @@ export default function CustomerReviewSection() {
       </div>
       <div className="lg:flex gap-2 lg:gap-6 items-center mt-16 lg:mt-0">
         <TestimonialCard slice={slice} />
-        <div className='h-full lg:flex flex-col items-center justify-center gap-6'>
+        <div className='h-full flex lg:flex-col items-center justify-center mt-8 lg:mt-0 gap-6'>
           <button
             onClick={() => nextSlice(1)}
             className='bg-[#D2691E] text-white rounded-full p-2 lg:p-4'
           >
-            <MdChevronLeft className='rotate-90 text-[32px]' />
+            <MdChevronLeft className='lg:rotate-90 text-[32px]' />
           </button>
           <button
             onClick={() => nextSlice(-1)}
             className='bg-[#D2691E] text-white rounded-full p-2 lg:p-4'
           >
-            <MdChevronLeft className='-rotate-90 text-[32px]' />
+            <MdChevronLeft className='rotate-180 lg:-rotate-90 text-[32px]' />
           </button>
         </div>
       </div>

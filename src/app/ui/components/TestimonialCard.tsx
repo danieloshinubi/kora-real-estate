@@ -49,7 +49,7 @@ type TestimonialCardProps = {
 const TestimonialCard = ({ slice }: TestimonialCardProps) => {
   return (
     <div
-      className={`flex flex-col items-center bg-[#F5DEB3] rounded-lg p-6 space-y-4 w-full max-w-md mx-auto ${cabin.className}`}
+      className={`flex flex-col items-center bg-[#F5DEB3] rounded-lg p-4 sm:p-6 space-y-4 w-full max-w-md mx-auto ${cabin.className}`}
     >
       {testimonials.slice(...slice).map((testimonial, index) => (
         <div key={index} className='bg-white rounded-lg shadow-md p-4 w-full'>

@@ -4,7 +4,7 @@ import Navbar from "./ui/Navbar";
 import HomeCategoriesSection from "./ui/home/HomeCategoriesSection";
 import HomeHero from "./ui/home/HomeHero";
 import HouseListingSection from "./ui/home/HouseListingSection";
-import Footer from "./ui/components/Footer";
+// import Footer from "./ui/components/Footer";
 import CountryOutreachSection from "./ui/home/CountryOutreachSection";
 import CustomerReviewSection from "./ui/home/CustomerReviewSection";
 import FinalSection from "./ui/home/FinalSection";
@@ -16,14 +16,14 @@ export default function Home() {
     <div className=''>
       <Navbar />
       <HomeHero />
-      <div className='container mx-auto md:px-12 lg:px-24'>
+      <div className='container mx-auto px-8 md:px-12 lg:px-24'>
         <HouseListingSection />
         <HomeCategoriesSection/>
         <CountryOutreachSection/>
         <CustomerReviewSection/>
         <FinalSection/>
       </div>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }

@@ -30,11 +30,11 @@ const CountryOutreachSection = () => {
       </p>
 
       {/* Tabs */}
-      <div className='flex mt-8 overflow-x-auto border-b border-gray-300'>
+      <div className='hidden sm:flex mt-8 overflow-x-auto border-b border-gray-300'>
         {regions.map((region) => (
           <button
             key={region}
-            className={`px-4 py-2 text-[12px] lg:text-[16px] ${
+            className={`lg:px-4 py-2 text-[12px] lg:text-[16px] ${
               activeTab === region
                 ? "text-white bg-[#2F4F4F] rounded-t-lg"
                 : "text-black"

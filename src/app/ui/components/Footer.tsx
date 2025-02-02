@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
       className={`${inter.className} bg-[#2F4F4F] text-[#CFCDBE] box-border py-6 px-5 sm:h-[100vh] md:px-6`}
     >
       <div className='h-full flex flex-col gap-8'>
-        <div className='sm:flex gap-8 '>
+        <div className='sm:flex lg:gap-8 '>
           {/* Subscribe Section */}
           <div className='relative space-y-4 '>
             <div className='bg-[#333333] h-full p-6 rounded-lg flex flex-col w-full sm:max-w-[340px]'>

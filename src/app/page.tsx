@@ -7,7 +7,7 @@ import HouseListingSection from "./ui/home/HouseListingSection";
 import Footer from "./ui/components/Footer";
 import CustomerReviewSection from "./ui/home/CustomerReviewSection";
 import FinalSection from "./ui/home/FinalSection";
-import CountryOutreachSection from "../../components/CountryOutreachSection";
+import CountryOutreachSection from "./ui/components/CountryOutreachSection";
 
 export default function Home() {
   // const { user } = useUser();
@@ -18,12 +18,12 @@ export default function Home() {
       <HomeHero />
       <div className='container mx-auto px-4 sm:px-8 md:px-12 lg:px-24'>
         <HouseListingSection />
-        <HomeCategoriesSection/>
-        <CountryOutreachSection/>
-        <CustomerReviewSection/>
-        <FinalSection/>
+        <HomeCategoriesSection />
+        <CountryOutreachSection />
+        <CustomerReviewSection />
+        <FinalSection />
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

@@ -23,7 +23,7 @@ const CountryOutreachSection = () => {
   ];
 
   return (
-    <section className='py-8 px-4'>
+    <section className='py-8 px-12'>
       <h2 className='text-[28px] font-bold text-gray-800'>Country Outreach</h2>
       <p className={`text-gray-500 mt-2 text-[16px] ${cabin.className}`}>
         Lorem ipsum dolor sit amet consectetur.
@@ -34,10 +34,10 @@ const CountryOutreachSection = () => {
         {regions.map((region) => (
           <button
             key={region}
-            className={`px-4 py-2 text-[12px] lg:text-[16px] font-medium ${
+            className={`px-4 py-2 text-[12px] lg:text-[16px] ${
               activeTab === region
-                ? "text-white bg-gray-800 rounded-t-lg"
-                : "text-gray-600"
+                ? "text-white bg-[#2F4F4F] rounded-t-lg"
+                : "text-black"
             }`}
             onClick={() => setActiveTab(region)}
           >

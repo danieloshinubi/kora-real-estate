@@ -29,8 +29,8 @@ export default function CustomerReviewSection() {
   };
 
   return (
-    <section className='py-8 px-4 flex justify-between'>
-      <div className='gap-4 max-w-[460px]'>
+    <section className='py-8 px-4 lg:flex justify-between'>
+      <div className='gap-4 lg:max-w-[460px]'>
         <h2 className='text-[28px] font-bold text-gray-800'>
           Customer Reviews
         </h2>
@@ -47,18 +47,18 @@ export default function CustomerReviewSection() {
           View More
         </button>
       </div>
-      <div className="flex gap-6">
+      <div className="lg:flex gap-2 lg:gap-6 items-center mt-16 lg:mt-0">
         <TestimonialCard slice={slice} />
-        <div className='h-full flex flex-col items-center justify-center gap-6'>
+        <div className='h-full lg:flex flex-col items-center justify-center gap-6'>
           <button
             onClick={() => nextSlice(1)}
-            className='bg-[#D2691E] text-white rounded-full p-4'
+            className='bg-[#D2691E] text-white rounded-full p-2 lg:p-4'
           >
             <MdChevronLeft className='rotate-90 text-[32px]' />
           </button>
           <button
             onClick={() => nextSlice(-1)}
-            className='bg-[#D2691E] text-white rounded-full p-4'
+            className='bg-[#D2691E] text-white rounded-full p-2 lg:p-4'
           >
             <MdChevronLeft className='-rotate-90 text-[32px]' />
           </button>

@@ -34,7 +34,7 @@ const CountryOutreachSection = () => {
         {regions.map((region) => (
           <button
             key={region}
-            className={`px-4 py-2 text-sm font-medium ${
+            className={`px-4 py-2 text-[12px] lg:text-[16px] font-medium ${
               activeTab === region
                 ? "text-white bg-gray-800 rounded-t-lg"
                 : "text-gray-600"

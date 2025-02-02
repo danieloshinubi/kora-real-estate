@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { cabin } from "../fonts";
-import { FaHeart, FaRegHeart } from "react-icons/fa6";
+import { FaHeart} from "react-icons/fa6";
 
 interface CardProps {
   image: string;
@@ -26,6 +26,10 @@ const PropertyCard: React.FC<CardProps> = ({
 }) => {
   const [favorite, setFavorite] = React.useState(false);
 
+  const toggleFavorite = () => {
+    setFavorite(!favorite);
+  }
+
   return (
     <div className=' bg-white overflow-hidden'>
       {/* Image Section */}
@@ -39,17 +43,11 @@ const PropertyCard: React.FC<CardProps> = ({
           />
         </div>
         <button className='absolute top-3 right-3 p-2'>
-          {favorite ? (
+         
             <FaHeart
-              className='text-white text-2xl'
-              onClick={() => setFavorite(false)}
+              className={`${favorite? "text-[#D2691E]":"text-white" } text-2xl`}
+              onClick={toggleFavorite}
             />
-          ) : (
-            <FaRegHeart
-              className='text-black text-2xl'
-              onClick={() => setFavorite(true)}
-            />
-          )}
         </button>
       </div>
 

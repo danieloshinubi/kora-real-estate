@@ -40,7 +40,7 @@ export default function HomeHero() {
               {SearchCriteria.map((criteria, index) => (
                 <li
                   key={index}
-                  className='flex flex-col items-center text-left border-r-[1px] pr-2 last:border-none border-black'
+                  className='flex flex-col items-center text-left lg:border-r-[1px] lg:pr-2 last:border-none border-black'
                 >
                   <span className='text-left w-full text-[16px] font-medium sm:text-[14px]'>
                     {criteria.criteria}

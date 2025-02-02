@@ -17,3 +17,13 @@ export const cabin = Cabin({
   subsets: ["latin"],
   display: "swap",
 });
+
+import { Inter } from "next/font/google";
+
+// Import Inter font from Google Fonts
+export const inter = Inter({
+  weight: ["400", "700"],
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});

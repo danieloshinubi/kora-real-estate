@@ -1,5 +1,5 @@
 import React from 'react'
-import { cabin } from "@/app/ui/fonts";
+import { cabin } from './fonts';
 import Image from "next/image";
 
 export default function SignUpSidePane() {

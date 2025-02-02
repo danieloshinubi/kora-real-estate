@@ -1,0 +1,84 @@
+import React, { useState } from "react";
+import cards from "@/app/utils/PropertyListings";
+import PropertyCard from "./PropertyCard";
+import { cabin } from "../fonts";
+import { MdArrowDownward, MdArrowUpward } from "react-icons/md";
+
+// Header component
+const Header = () => (
+  <div>
+    <h1 className='text-[18px] sm:text-[20px] lg:text-[24px] font-semibold'>Discover Recent Listings</h1>
+    <p className={`text-gray-600 ${cabin.className}`}>Lorem ipsum dolor sit amet consectetur.</p>
+  </div>
+);
+
+// PropertyGrid component
+interface PropertyGridProps {
+  visibleCount: number;
+}
+
+const PropertyGrid: React.FC<PropertyGridProps> = ({ visibleCount }) => (
+  <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6'>
+    {cards.slice(0, visibleCount).map((card) => (
+      <PropertyCard
+        key={card.title}
+        image={card.image}
+        category={card.category}
+        rating={card.rating}
+        title={card.title}
+        location={card.location}
+        bedrooms={card.bedrooms}
+        bathrooms={card.bathrooms}
+        price={card.price}
+      />
+    ))}
+  </div>
+);
+
+// ShowMoreButton component
+interface ShowMoreButtonProps {
+  visibleCount: number;
+  handleSeeMore: () => void;
+  handleSeeLess: () => void;
+}
+
+const ShowMoreButton: React.FC<ShowMoreButtonProps> = ({ visibleCount, handleSeeMore, handleSeeLess }) => (
+  visibleCount < cards.length ? (
+    <div className="text-center mt-6 w-full flex justify-center items-center">
+      <button onClick={handleSeeMore} className=" text-orange-500">
+        Show More Options
+      </button>
+      <MdArrowDownward className="text-orange-500 text-[2xl]" />
+    </div>
+  ) : (
+    <div className="text-center mt-6 flex justify-center items-center">
+      <button onClick={handleSeeLess} className=" text-orange-500">
+        Show Lesser Options
+      </button>
+      <MdArrowUpward className="text-orange-500 text-[2xl]" />
+    </div>
+  )
+);
+
+export default function HouseListingSection() {
+  const [visibleCount, setVisibleCount] = useState<number>(8);
+
+  const handleSeeMore = () => {
+    setVisibleCount((prevCount) => prevCount + 8);
+  };
+  const handleSeeLess = () => {
+    setVisibleCount(8);
+  };
+
+  return (
+    <div className="py-24  pt-64 sm:pt-24">
+      <Header />
+      <PropertyGrid visibleCount={visibleCount} />
+      <ShowMoreButton 
+        visibleCount={visibleCount} 
+        handleSeeMore={handleSeeMore} 
+        handleSeeLess={handleSeeLess} 
+      />
+    </div>
+  );
+}

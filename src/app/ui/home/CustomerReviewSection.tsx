@@ -31,7 +31,7 @@ export default function CustomerReviewSection() {
   return (
     <section className='py-8 lg:flex justify-between'>
       <div className='gap-4 lg:max-w-[460px]'>
-        <h2 className='text-[28px] font-bold text-gray-800'>
+        <h2 className='text-[18px] sm:text-[20px] lg:text-[28px] font-bold text-gray-800'>
           Customer Reviews
         </h2>
         <p className={`text-gray-500 mt-2 text-[16px] ${cabin.className}`}>

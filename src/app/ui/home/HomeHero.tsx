@@ -21,7 +21,7 @@ export default function HomeHero() {
         className='w-full h-[450px] sm:h-[590px] object-cover'
       />
       <div className='container mx-auto'>
-        <div className='absolute px-6 lg:px-0 top-[40%] -translate-x-1/3 left-1/3 lg:left-1/2 transform lg:-translate-x-1/2 lg:-translate-y-1/2 max-w-[777px] w-full text-center'>
+        <div className='absolute px-3 sm:px-4 lg:px-0 top-[40%] -translate-x-1/3 left-1/3 lg:left-1/2 transform lg:-translate-x-1/2 lg:-translate-y-1/2 max-w-[777px] w-full text-center'>
           <div className='mb-4'>
             <h1 className='text-[20px] sm:text-2xl lg:mb-4 lg:text-[32px] w-full lg:leading-[50px] tracking-[2%] '>
               Your next Outdoorsy adventure starts here
@@ -34,7 +34,7 @@ export default function HomeHero() {
             </p>
           </div>
           <div
-            className={`flex flex-col sm:flex-row justify-between bg-white py-4 lg:py-2 px-8  lg:px-4 rounded-lg shadow-lg sm:shadow-none sm:rounded-full text-black w-full max-w-[833px] ${cabin.className}`}
+            className={`flex flex-col sm:flex-row justify-between bg-white py-4 lg:py-2 px-2 sm:px-8  lg:px-4 rounded-lg shadow-lg sm:shadow-none sm:rounded-full text-black w-full max-w-[833px] ${cabin.className}`}
           >
             <ul className='flex flex-col sm:flex-row gap-4 justify-between text-[14px] mr-2 lg:mr-8 w-full lg:rounded-full'>
               {SearchCriteria.map((criteria, index) => (

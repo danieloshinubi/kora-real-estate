@@ -7,7 +7,7 @@ import HouseListingSection from "./ui/home/HouseListingSection";
 import Footer from "./ui/components/Footer";
 import CustomerReviewSection from "./ui/home/CustomerReviewSection";
 import FinalSection from "./ui/home/FinalSection";
-import CountryOutreachSection from "./ui/components/CountryOutreachSection";
+import CountryOutreachSection from "./ui/home/CountryOutreachSection";
 
 export default function Home() {
   // const { user } = useUser();

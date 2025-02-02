@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { cabin } from "@/app/ui/fonts";
-import Tabs from "./Tabs";
-import Listings from "./Listings";
+import Tabs from "../components/Tabs";
+import Listings from "../components/Listings";
 
 const CountryOutreachSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("South - West");

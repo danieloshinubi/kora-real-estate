@@ -5,9 +5,9 @@ import HomeCategoriesSection from "./ui/home/HomeCategoriesSection";
 import HomeHero from "./ui/home/HomeHero";
 import HouseListingSection from "./ui/home/HouseListingSection";
 import Footer from "./ui/components/Footer";
-import CountryOutreachSection from "./ui/home/CountryOutreachSection";
 import CustomerReviewSection from "./ui/home/CustomerReviewSection";
 import FinalSection from "./ui/home/FinalSection";
+import CountryOutreachSection from "../../components/CountryOutreachSection";
 
 export default function Home() {
   // const { user } = useUser();

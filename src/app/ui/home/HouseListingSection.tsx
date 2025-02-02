@@ -15,7 +15,7 @@ export default function HouseListingSection() {
   };
 
   return (
-    <div className="py-24 lg:px-12 pt-64 sm:pt-24">
+    <div className="py-24  pt-64 sm:pt-24">
       <div>
         <h1 className='text-[18px] sm:text-[20px] lg:text-[24px] font-semibold'>Discover Recent Listings</h1>
         <p className={`text-gray-600 ${cabin.className}`}>Lorem ipsum dolor sit amet consectetur.</p>

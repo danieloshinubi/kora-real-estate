@@ -16,7 +16,7 @@ export default function Home() {
     <div className=''>
       <Navbar />
       <HomeHero />
-      <div className='container mx-auto px-12'>
+      <div className='container mx-auto md:px-12 lg:px-24'>
         <HouseListingSection />
         <HomeCategoriesSection/>
         <CountryOutreachSection/>

@@ -29,7 +29,7 @@ export default function CustomerReviewSection() {
   };
 
   return (
-    <section className='py-8 px-4 lg:flex justify-between'>
+    <section className='py-8 lg:flex justify-between'>
       <div className='gap-4 lg:max-w-[460px]'>
         <h2 className='text-[28px] font-bold text-gray-800'>
           Customer Reviews

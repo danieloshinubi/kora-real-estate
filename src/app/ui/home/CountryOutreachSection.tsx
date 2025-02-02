@@ -23,7 +23,7 @@ const CountryOutreachSection = () => {
   ];
 
   return (
-    <section className='py-8 px-12'>
+    <section className='py-8 '>
       <h2 className='text-[28px] font-bold text-gray-800'>Country Outreach</h2>
       <p className={`text-gray-500 mt-2 text-[16px] ${cabin.className}`}>
         Lorem ipsum dolor sit amet consectetur.

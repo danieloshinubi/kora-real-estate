@@ -21,7 +21,7 @@ export default function HomeHero() {
         className='w-full h-[450px] sm:h-[590px] object-cover'
       />
       <div className='container mx-auto'>
-        <div className='absolute px-6 lg:px-0 top-1/2 lg:left-1/2 transform lg:-translate-x-1/2 lg:-translate-y-1/2 max-w-[777px] w-full text-center'>
+        <div className='absolute px-6 lg:px-0 top-[40%] lg:left-1/2 transform lg:-translate-x-1/2 lg:-translate-y-1/2 max-w-[777px] w-full text-center'>
           <div className='mb-4'>
             <h1 className='text-[20px] sm:text-2xl lg:mb-4 lg:text-[32px] w-full lg:leading-[50px] tracking-[2%] '>
               Your next Outdoorsy adventure starts here
@@ -40,7 +40,7 @@ export default function HomeHero() {
               {SearchCriteria.map((criteria, index) => (
                 <li
                   key={index}
-                  className='flex flex-col items-center text-left'
+                  className='flex flex-col items-center text-left border-r-[1px] pr-2 last:border-none border-black'
                 >
                   <span className='text-left w-full text-[16px] font-medium sm:text-[14px]'>
                     {criteria.criteria}

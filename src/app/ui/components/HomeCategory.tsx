@@ -7,7 +7,7 @@ type HomeCategoryProps = {
 
 const HomeCategory: React.FC<HomeCategoryProps> = ({ title, imageUrl }) => {
   return (
-    <div className="relative w-full max-w-[212px] h-64 rounded-lg mx-auto overflow-hidden shadow-md group">
+    <div className="relative w-full max-w-[212px] h-64 rounded-lg mx-auto sm:mx-0 overflow-hidden shadow-md group">
       {/* Background Image */}
       <Image
         src={imageUrl}

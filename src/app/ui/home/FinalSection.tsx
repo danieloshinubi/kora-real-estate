@@ -3,7 +3,7 @@ import { cabin } from '../fonts'
 
 export default function FinalSection() {
   return (
-    <section className='py-24 px-4 flex justify-between'>
+    <section className='pt-24 pb-64 px-4 flex justify-between'>
           <div className='gap-4'>
             <h2 className='text-[28px] font-bold text-gray-800'>
               Country Outreach

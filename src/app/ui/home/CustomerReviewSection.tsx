@@ -12,17 +12,17 @@ export default function CustomerReviewSection() {
     const newSlice = [...slice];
     const arrayLength = 4; // Replace with the actual length of your reviews array
 
-    newSlice[0] = newSlice[0] + num
-    newSlice[1] = newSlice[1] + num 
+    newSlice[0] = (newSlice[0] + num) % arrayLength - 2;
+    newSlice[1] = (newSlice[1] + num) % arrayLength;
 
 
-    if (newSlice[0] === arrayLength - 1) {
-      newSlice[1] = 0;
-    }
+    // if (newSlice[0] === arrayLength - 1) {
+    //   newSlice[1] = 0;
+    // }
 
-    if (newSlice[1] === arrayLength + 1) {
-      newSlice[1] = 2;
-    }
+    // if (newSlice[1] === arrayLength + 1) {
+    //   newSlice[1] = 2;
+    // }
 
     console.log(newSlice);
     setSlice(newSlice);

@@ -40,6 +40,7 @@ const PropertyCard: React.FC<CardProps> = ({
             alt={title}
             fill
             className='object-cover rounded-lg'
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
         <button className='absolute top-3 right-3 p-2'>

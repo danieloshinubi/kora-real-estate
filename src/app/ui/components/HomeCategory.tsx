@@ -14,6 +14,7 @@ const HomeCategory: React.FC<HomeCategoryProps> = ({ title, imageUrl }) => {
         alt={title}
         fill
         className="object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition duration-300" />

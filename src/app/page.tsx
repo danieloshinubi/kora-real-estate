@@ -1,5 +1,5 @@
 "use client";
-// import { useUser } from "./context/UserContext";
+import { useUser } from "./context/UserContext";
 import Navbar from "./ui/Navbar";
 import HomeCategoriesSection from "./ui/home/HomeCategoriesSection";
 import HomeHero from "./ui/home/HomeHero";
@@ -10,8 +10,8 @@ import FinalSection from "./ui/home/FinalSection";
 import CountryOutreachSection from "./ui/home/CountryOutreachSection";
 
 export default function Home() {
-  // const { user } = useUser();
-  // console.log(user);
+  const { user } = useUser();
+  console.log(user);
   return (
     <div className=''>
       <Navbar />

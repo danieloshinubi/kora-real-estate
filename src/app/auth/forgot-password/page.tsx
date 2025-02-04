@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import ForgotPasswordForm from "../../ui/forgot-password/ForgotPasswordForm";
 import ResetNewPasswordForm from "@/app/ui/forgot-password/ResetPasswordForm";
+import Link from "next/link";
 
 export default function ForgotPasswordPage() {
   const [step, setStep] = useState(1);
@@ -19,12 +20,15 @@ export default function ForgotPasswordPage() {
             <button className='btn btn-outline' onClick={prevStep}>
               {"< Back"}
             </button>
-            <Image
-              src='/kora-logo.png'
-              height={100}
-              width={100}
-              alt='kora logo'
-            />
+            <Link href='/'>
+              <Image
+                src='/kora-logo.png'
+                height={52}
+                width={151}
+                alt='kora logo'
+                className='h-auto'
+              />
+            </Link>
           </div>
         ) : (
           <div className='flex justify-end w-full'>

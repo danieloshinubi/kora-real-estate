@@ -18,7 +18,18 @@ const NavLinks = [
     url: "/favourites",
   },
 ];
-const Navbar: React.FC = () => {
+
+type User = {
+  id: string;
+  email: string;
+  roles: string[];
+};
+
+type NavProps = {
+  user: User | null;
+};
+
+const Navbar: React.FC<NavProps> = ({ user }) => {
   const pathName = usePathname();
   return (
     <nav className='absolute top-0 left-0 z-20 w-full flex items-center  text-[14px] px-6 lg:px-24 py-4 bg-transparent'>
@@ -49,21 +60,39 @@ const Navbar: React.FC = () => {
 
         {/* Right Section: Buttons and Avatar */}
         <div className='flex items-center gap-4 lg:gap-8 justify-between mr-4'>
-          <button className='hidden lg:block px-4 py-2 border-2 border-[#F5DEB3] text-[#F5DEB3] rounded-full hover:bg-[#F5DEB3] hover:text-white'>
+          {!user && (
+            <div className='hidden lg:flex gap-6 justify-center text-[14px]'>
+              <a
+                href='/login'
+                className={`text-white ${pathName === "/" ? "text-white" : "text-[#D2691E]"} hover:text-white`}
+              >
+                Login
+              </a>
+              <a
+                href='/sign-up'
+                className={`text-white ${pathName === "/" ? "text-white" : "text-[#D2691E]"} hover:text-white`}
+              >
+                Sign Up
+              </a>
+            </div>
+          )}
+          <button className='hidden lg:block px-4 py-2 border-[1px] border-[#F5DEB3] text-[#F5DEB3] rounded-full hover:bg-[#F5DEB3] hover:text-white'>
             Become a host
           </button>
-          <div className='relative flex gap-2 items-center'>
-            <button className=' bg-orange-500 p-1 rounded-full'>
-              <MdArrowDropDown className='text-gray-300' />
-            </button>
-            <Image
-              src='/avatar.png'
-              alt='User Avatar'
-              width={46}
-              height={46}
-              className='h-10 w-10 rounded-full border-2'
-            />
-          </div>
+          {user && (
+            <div className='relative flex gap-2 items-center'>
+              <button className=' bg-orange-500 p-1 rounded-full'>
+                <MdArrowDropDown className='text-gray-300' />
+              </button>
+              <Image
+                src='/avatar.png'
+                alt='User Avatar'
+                width={46}
+                height={46}
+                className='h-10 w-10 rounded-full border-2'
+              />
+            </div>
+          )}
         </div>
       </div>
 

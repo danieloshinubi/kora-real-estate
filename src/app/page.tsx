@@ -14,7 +14,7 @@ export default function Home() {
   console.log(user);
   return (
     <div className=''>
-      <Navbar />
+      <Navbar user={user}/>
       <HomeHero />
       <div className='container mx-auto px-4 sm:px-8 md:px-12 lg:px-24'>
         <HouseListingSection />

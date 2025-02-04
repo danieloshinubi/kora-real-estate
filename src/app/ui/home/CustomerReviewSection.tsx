@@ -40,18 +40,18 @@ type ReviewNavigationProps = {
 };
 
 const ReviewNavigation = ({ nextSlice }: ReviewNavigationProps) => (
-  <div className='h-full flex sm:flex-col items-center justify-center mt-8 lg:mt-0 gap-6'>
+  <div className='flex lg:flex-col items-center justify-center mt-8 lg:mt-0 gap-6'>
     <button
       onClick={() => nextSlice(1)}
       className='bg-[#D2691E] text-white rounded-full p-2 lg:p-4'
     >
-      <MdChevronLeft className='sm:rotate-90 text-[32px]' />
+      <MdChevronLeft className='lg:rotate-90 text-[32px]' />
     </button>
     <button
       onClick={() => nextSlice(-1)}
       className='bg-[#D2691E] text-white rounded-full p-2 lg:p-4'
     >
-      <MdChevronLeft className='rotate-180 sm:-rotate-90 text-[32px]' />
+      <MdChevronLeft className='rotate-180 lg:-rotate-90 text-[32px]' />
     </button>
   </div>
 );
@@ -71,7 +71,7 @@ export default function CustomerReviewSection() {
   };
 
   return (
-    <section className='py-8 lg:flex justify-between'>
+    <section className='relative py-8 lg:flex justify-between'>
       <ReviewHeader />
       <ReviewContent slice={slice} />
       <ReviewNavigation nextSlice={nextSlice} />

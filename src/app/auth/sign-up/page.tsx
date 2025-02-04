@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import SignupForm from "../../ui/signUp/SignUpForm";
+import Link from "next/link";
 
 export default function SignUpPage() {
   const [step, setStep] = useState(1);
@@ -16,13 +17,15 @@ export default function SignUpPage() {
             <button className='btn btn-outline' onClick={prevStep}>
               {"< Back"}
             </button>
-            <Image
-              src='/kora-logo.png'
-              height={52}
-              width={151}
-              alt='kora logo'
-              className="h-auto"
-            />
+            <Link href='/'>
+              <Image
+                src='/kora-logo.png'
+                height={52}
+                width={151}
+                alt='kora logo'
+                className='h-auto'
+              />
+            </Link>
           </div>
         ) : (
           <div className='flex justify-end w-full'>
@@ -31,7 +34,7 @@ export default function SignUpPage() {
               height={52}
               width={151}
               alt='kora logo'
-              className="h-auto"
+              className='h-auto'
             />
           </div>
         )}

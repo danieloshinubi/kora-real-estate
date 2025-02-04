@@ -29,12 +29,15 @@ export default function LoginPage() {
           </div>
         ) : (
           <div className='flex justify-end w-full'>
-            <Image
-              src='/kora-logo.png'
-              height={52}
-              width={151}
-              alt='kora logo'
-            />
+            <Link href='/'>
+              <Image
+                src='/kora-logo.png'
+                height={52}
+                width={151}
+                alt='kora logo'
+                className='h-auto'
+              />
+            </Link>
           </div>
         )}
       </div>

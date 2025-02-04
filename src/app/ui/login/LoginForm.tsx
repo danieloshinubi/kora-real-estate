@@ -37,7 +37,7 @@ const LoginForm: React.FC = () => {
 
       setUser(result.user);
 
-      await fetch("/utils/api/set-token", {
+      await fetch("/api/set-token", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token: result.accessToken }),

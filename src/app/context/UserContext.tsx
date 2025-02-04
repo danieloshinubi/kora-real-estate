@@ -1,22 +1,35 @@
-"use client"
-
-import React, { createContext, useContext, useState } from "react";
+"use client";
+import { createContext, useContext, useEffect, useState } from "react";
 
 type User = {
-    id: string,
-    email: string,
-    roles: string[],
-}
+  id: string;
+  email: string;
+  roles: string[];
+} | null;
 
-type UserContextType = {
-  user: User | null;
-  setUser: (user: User) => void;
-};
-
-const UserContext = createContext<UserContextType | undefined>(undefined);
+const UserContext = createContext<{ user: User; setUser: (user: User) => void }>({
+  user: null,
+  setUser: () => {},
+});
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User>(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await fetch("/api/auth/get-user");
+        if (res.ok) {
+          const data = await res.json();
+          setUser(data.user);
+        }
+      } catch (error) {
+        console.error("Failed to fetch user:", error);
+      }
+    };
+
+    fetchUser();
+  }, []);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
@@ -25,10 +38,4 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export const useUser = () => {
-  const context = useContext(UserContext);
-  if (!context) {
-    throw new Error("useUser must be used within a UserProvider");
-  }
-  return context;
-};
+export const useUser = () => useContext(UserContext);

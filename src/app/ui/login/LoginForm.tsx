@@ -34,7 +34,14 @@ const LoginForm: React.FC = () => {
     try {
       const credentials = { email: email, password: password };
       const result = await login(credentials).unwrap();
+
       setUser(result.user);
+
+      await fetch("/utils/api/set-token", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token: result.accessToken }),
+      });
 
       router.push("/");
     } catch (err: unknown) {

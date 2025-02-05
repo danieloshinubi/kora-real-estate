@@ -4,6 +4,8 @@ import { NextResponse } from 'next/server';
 import jwt from 'jsonwebtoken';
 import { cookies } from 'next/headers'; // Import cookies from next/headers
 
+const { JWT_SECRET } = process.env;
+
 export async function GET() {
   const cookieStore = await cookies(); // Get the cookie store
   const token = cookieStore.get('token')?.value; // Access the token from cookies
@@ -12,8 +14,13 @@ export async function GET() {
     return NextResponse.json({ message: "Not authenticated" }, { status: 401 });
   }
 
+  if (!JWT_SECRET) {
+    console.error("JWT_SECRET is not defined");
+    return NextResponse.json({ message: "Server error" }, { status: 500 });
+  }
+
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET as string); // Replace with your real secret key
+    const decoded = jwt.verify(token, JWT_SECRET as string); // Ensure JWT_SECRET is defined and correct
     return NextResponse.json({ user: decoded });
   } catch (error) {
     console.error(error);

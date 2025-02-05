@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState} from "react";
 import Image from "next/image";
 import { inknutAntiqua } from "../fonts";
 import { cabin } from "../fonts";
@@ -36,6 +36,7 @@ const LoginForm: React.FC = () => {
       const result = await login(credentials).unwrap();
 
       setUser(result.user);
+      localStorage.setItem("user", JSON.stringify(result.user)); // Save user data in local storage
 
       await fetch("/api/set-token", {
         method: "POST",

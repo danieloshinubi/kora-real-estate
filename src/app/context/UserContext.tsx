@@ -1,6 +1,7 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
-import { useGetProfileByIdQuery } from "../utils/services/api";
+import { useGetProfileByIdQuery} from "../utils/services/api";
+import { skipToken } from "@reduxjs/toolkit/query";
 
 type User = {
   id: string;

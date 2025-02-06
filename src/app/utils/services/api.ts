@@ -1,4 +1,8 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import {
+  createApi,
+  fetchBaseQuery,
+  skipToken,
+} from "@reduxjs/toolkit/query/react";
 import { UserDetails, UserProfileInfo } from "@/app/ui/signUp/SignUpForm";
 export type FetchedPropertyType = {
   name: string;

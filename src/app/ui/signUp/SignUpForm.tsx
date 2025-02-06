@@ -41,7 +41,7 @@ export type UserDetails = {
     otp: string | null;
     password: string;
     __v: number;
-};
+} | null;
 
 
 export type UserProfileInfo = {

@@ -1,5 +1,6 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
+import { useGetProfileByIdQuery } from "../utils/services/api";
 
 type User = {
   id: string;
@@ -20,6 +21,14 @@ const UserContext = createContext<{
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User>(null);
   const [authToken, setAuthToken] = useState<string | null>(null);
+
+  const userId = user?.id;
+
+  const {
+    data: userProfile,
+    error,
+    refetch,
+  } = useGetProfileByIdQuery(userId ? { userId } : skipToken);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -43,6 +52,21 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
       setUser(JSON.parse(storedUser));
     }
   }, [setUser]);
+
+  useEffect(() => {
+    if (userId) {
+      refetch();
+    }
+  }, [userId, refetch]);
+
+  useEffect(() => {
+    if (userProfile) {
+      console.log(userProfile);
+    }
+    if (error) {
+      console.log(error);
+    }
+  }, [userProfile, error]);
 
   return (
     <UserContext.Provider value={{ user, setUser, authToken }}>

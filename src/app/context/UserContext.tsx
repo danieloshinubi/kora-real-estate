@@ -1,7 +1,5 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
-import { useGetProfileByIdQuery} from "../utils/services/api";
-import { skipToken } from "@reduxjs/toolkit/query";
 
 type User = {
   id: string;
@@ -21,15 +19,8 @@ const UserContext = createContext<{
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User>(null);
+  const [userId, setUserId] = useState<string>("");
   const [authToken, setAuthToken] = useState<string | null>(null);
-
-  const userId = user?.id;
-
-  const {
-    data: userProfile,
-    error,
-    refetch,
-  } = useGetProfileByIdQuery(userId ? { userId } : skipToken);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -51,23 +42,38 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
+      setUserId(JSON.parse(storedUser)._id);
     }
   }, [setUser]);
 
   useEffect(() => {
-    if (userId) {
-      refetch();
-    }
-  }, [userId, refetch]);
+    const fetchUserProfile = async () => {
+      if (userId) {
+        try {
+          const res = await fetch(
+            `https://kora-service.onrender.com/profile/${userId}`,
+            {
+              method: "GET",
+            }
+          );
 
-  useEffect(() => {
-    if (userProfile) {
-      console.log(userProfile);
-    }
-    if (error) {
-      console.log(error);
-    }
-  }, [userProfile, error]);
+          console.log(res)
+          if (res.ok) {
+            const profileData = await res.json();
+            console.log("User Profile:", profileData);
+          } else {
+            console.error("Failed to fetch user profile:", res.statusText);
+          }
+        } catch (error) {
+          console.error("Error fetching user profile:", error);
+        }
+      } else {
+        console.log("No user id found");
+      }
+    };
+
+    fetchUserProfile();
+  }, [userId, authToken]);
 
   return (
     <UserContext.Provider value={{ user, setUser, authToken }}>

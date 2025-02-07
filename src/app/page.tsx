@@ -10,8 +10,9 @@ import FinalSection from "./ui/home/FinalSection";
 import CountryOutreachSection from "./ui/home/CountryOutreachSection";
 
 export default function Home() {
-  const { user } = useUser();
+  const { user, userProfileData } = useUser();
 
+  console.log("From Home:", userProfileData)
 
   
   //get the user profile and store it

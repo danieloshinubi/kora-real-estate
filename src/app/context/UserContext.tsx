@@ -1,5 +1,6 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
+import { UserProfileInfo } from "../ui/signUp/SignUpForm";
 
 type User = {
   id: string;
@@ -11,16 +12,20 @@ const UserContext = createContext<{
   user: User;
   setUser: (user: User) => void;
   authToken: string | null;
+  userProfileData: UserProfileInfo | null;
 }>({
   user: null,
   setUser: () => {},
   authToken: null,
+  userProfileData: null,
 });
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User>(null);
   const [userId, setUserId] = useState<string>("");
   const [authToken, setAuthToken] = useState<string | null>(null);
+  const [userProfileData, setUserProfileData] =
+    useState<UserProfileInfo | null>(null);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -57,10 +62,9 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
             }
           );
 
-          console.log(res)
           if (res.ok) {
             const profileData = await res.json();
-            console.log("User Profile:", profileData);
+            setUserProfileData(profileData?.profile);
           } else {
             console.error("Failed to fetch user profile:", res.statusText);
           }
@@ -76,7 +80,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   }, [userId, authToken]);
 
   return (
-    <UserContext.Provider value={{ user, setUser, authToken }}>
+    <UserContext.Provider value={{ user, setUser, authToken, userProfileData }}>
       {children}
     </UserContext.Provider>
   );

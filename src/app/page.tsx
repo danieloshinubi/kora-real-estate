@@ -12,7 +12,7 @@ import CountryOutreachSection from "./ui/home/CountryOutreachSection";
 export default function Home() {
   const { user, userProfileData } = useUser();
 
-  console.log("From Home:", userProfileData)
+  // console.log("From Home:", userProfileData)
 
   
   //get the user profile and store it

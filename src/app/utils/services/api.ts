@@ -63,6 +63,21 @@ export const api = createApi({
       }),
     }),
 
+    changePassword: builder.mutation<
+      { message: string },
+      {
+        userId: string;
+        currentPassword: string;
+        newPassword: string;
+      }
+    >({
+      query: (data) => ({
+        url: "/auth/user/changepassword",
+        method: "PATCH",
+        body: data,
+      }),
+    }),
+
     // Profile Endpoints
     createProfile: builder.mutation<{ message: string }, UserProfileInfo>({
       query: (profile) => ({

@@ -7,7 +7,7 @@ import { cabin } from "./fonts";
 
 const NavLinks = [
   { name: "Home", url: "/" },
-  { name: "Feed", url: "/feed" },
+  { name: "Feed", url: "/map" },
   { name: "Favourites", url: "/favourites" },
 ];
 

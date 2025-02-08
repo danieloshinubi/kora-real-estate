@@ -12,6 +12,7 @@
     "@mapbox/mapbox-sdk": "^0.16.1",
     "@reduxjs/toolkit": "^2.5.0",
     "autoprefixer": "^10.4.20",
+    "cookie": "^1.0.2",
     "daisyui": "^4.12.22",
     "framer-motion": "^12.0.6",
     "jsonwebtoken": "^9.0.2",

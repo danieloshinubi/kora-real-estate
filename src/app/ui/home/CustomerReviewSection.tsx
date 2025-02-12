@@ -11,11 +11,10 @@ const ReviewHeader = () => (
       Customer Reviews
     </h2>
     <p className={`text-gray-500 mt-2 text-[16px] ${cabin.className}`}>
-      Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse
-      semper nunc blandit at ac luctus. Viverra diam in sit ultrices in et
-      proin lorem ipsum. Feugiat etiam scelerisque aliquet vitae mauris
-      ornare quis eget tincidunt. Sapien aliquet aliquet ut curabitur.
-      Aliquet leo arcu tellus.
+      Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper
+      nunc blandit at ac luctus. Viverra diam in sit ultrices in et proin lorem
+      ipsum. Feugiat etiam scelerisque aliquet vitae mauris ornare quis eget
+      tincidunt. Sapien aliquet aliquet ut curabitur. Aliquet leo arcu tellus.
     </p>
     <button
       className={`${cabin.className} bg-[#D2691E] text-white py-[10px] px-[18px] mt-12 rounded-[6px] w-full max-w-[204px]`}
@@ -30,7 +29,7 @@ type ReviewContentProps = {
 };
 
 const ReviewContent = ({ slice }: ReviewContentProps) => (
-  <div className="sm:flex gap-2 lg:gap-6 items-center mt-16 lg:mt-0">
+  <div className='sm:flex gap-2 lg:gap-6 items-center mt-16 lg:mt-0'>
     <TestimonialCard slice={slice} />
   </div>
 );
@@ -63,7 +62,7 @@ export default function CustomerReviewSection() {
     const newSlice = [...slice];
     const arrayLength = 4; // Replace with the actual length of your reviews array
 
-    newSlice[0] = (newSlice[0] + num) % arrayLength - 2;
+    newSlice[0] = ((newSlice[0] + num) % arrayLength) - 2;
     newSlice[1] = (newSlice[1] + num) % arrayLength;
 
     console.log(newSlice);

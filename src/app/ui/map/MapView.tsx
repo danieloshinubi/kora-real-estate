@@ -36,7 +36,10 @@ interface MapViewProps {
 
 const MapView: React.FC<MapViewProps> = ({ listings }) => {
   const [hoveredListing, setHoveredListing] = useState<Listing | null>(null);
-  const [cardPosition, setCardPosition] = useState<{ x: number; y: number } | null>(null);
+  const [cardPosition, setCardPosition] = useState<{
+    x: number;
+    y: number;
+  } | null>(null);
 
   // Custom Marker Component to handle hover events
   const CustomMarker = ({
@@ -72,14 +75,14 @@ const MapView: React.FC<MapViewProps> = ({ listings }) => {
   };
 
   return (
-    <div className="relative">
+    <div className='relative'>
       <MapContainer
         center={[9.082, 8.6753]} // Default center
         zoom={7} // Default zoom level
-        className="h-[500px] w-full rounded-md"
+        className='h-[500px] w-full rounded-md'
       >
         <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
 
@@ -96,7 +99,7 @@ const MapView: React.FC<MapViewProps> = ({ listings }) => {
       {/* Hovered Card */}
       {hoveredListing && cardPosition && (
         <div
-          className="absolute bg-white shadow-lg rounded-lg w-80 z-[1000] transition duration-300 ease-in-out"
+          className='absolute bg-white shadow-lg rounded-lg w-80 z-[1000] transition duration-300 ease-in-out'
           style={{
             left: cardPosition.x + 10, // Offset for better visibility
             top: cardPosition.y + 10,

@@ -4,6 +4,7 @@ import { MdArrowDropDown } from "react-icons/md";
 import MobileNav from "./components/MobileNav";
 import { usePathname } from "next/navigation";
 import { cabin } from "./fonts";
+import { useLogoutMutation } from "../utils/services/api";
 
 const NavLinks = [
   { name: "Home", url: "/" },
@@ -24,6 +25,14 @@ type NavProps = {
 const Navbar: React.FC<NavProps> = ({ user }) => {
   const pathName = usePathname();
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const [logout] = useLogoutMutation();
+
+  const handleLogout = async() =>{
+    await logout();
+    localStorage.removeItem("user");
+    window.location.href = "/";
+  }
 
   return (
     <nav className='absolute top-0 left-0 z-20 w-full flex items-center text-[14px] px-6 lg:px-24 py-4 bg-transparent'>
@@ -120,11 +129,16 @@ const Navbar: React.FC<NavProps> = ({ user }) => {
                       Account
                     </li>
                   </ul>
-                  <div className={`px-4 py-2 ${cabin.className} text-[14px] font-semibold`}>
+                  <div
+                    className={`px-4 py-2 ${cabin.className} text-[14px] font-semibold`}
+                  >
                     <li className='list-none py-2 hover:bg-gray-100 cursor-pointer'>
                       Help Center
                     </li>
-                    <button className='text-red-500 hover:underline'>
+                    <button
+                      className='text-red-500 hover:underline'
+                      onClick={handleLogout}
+                    >
                       Sign Out
                     </button>
                   </div>

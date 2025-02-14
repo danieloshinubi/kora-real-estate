@@ -4,15 +4,15 @@ import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import MapCard from "./MapCard";
+// import PriceBox from "./PriceBox";
 
 // Custom Marker Icon
 const createCustomIcon = (price: number) =>
   new L.DivIcon({
-    html: `
-      <div class="bg-white text-[#8B3A2D] hover:bg-[#8B3A2D] hover:text-white font-medium rounded-lg shadow-md border border-gray-300 p-2 text-sm w-max text-center">
-        NGN ${price.toLocaleString()}
-      </div>
-    `,
+    html: `<div class="custom-price-box">
+      NGN ${price.toLocaleString()}
+      <div class="custom-price-arrow"></div>
+    </div>`,
     className: "custom-icon-container",
     iconSize: [80, 40],
     iconAnchor: [40, 40],
@@ -78,7 +78,7 @@ const MapView: React.FC<MapViewProps> = ({ listings }) => {
     <div className='relative'>
       <MapContainer
         center={[9.082, 8.6753]} // Default center
-        zoom={7} // Default zoom level
+        zoom={3} // Default zoom level
         className='h-[500px] w-full rounded-md'
       >
         <TileLayer

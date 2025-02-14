@@ -171,7 +171,7 @@ export const houseListings = [
     latitude: 45.4215,
     longitude: -75.6972,
     image: "/lodge.jpg",
-    bathrooms: 2,
+    bathrooms: 2, 
     bedrooms: 3,
     location: "Ottawa, Canada"
   },

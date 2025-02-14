@@ -20,9 +20,10 @@ type User = {
 
 type NavProps = {
   user: User | null;
+  theme?: "light" | "dark";
 };
 
-const Navbar: React.FC<NavProps> = ({ user }) => {
+const Navbar: React.FC<NavProps> = ({ user, theme }) => {
   const pathName = usePathname();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -34,13 +35,14 @@ const Navbar: React.FC<NavProps> = ({ user }) => {
     window.location.href = "/";
   }
 
+  const color = theme === "dark" && pathName === "/" ? "text-white" : "text-[#8B3A2D]";
   return (
     <nav className='absolute top-0 left-0 z-20 w-full flex items-center text-[14px] px-6 lg:px-24 py-4 bg-transparent'>
       <div className='container mx-auto w-full flex items-center justify-between'>
         {/* Left Section: Logo */}
         <div className='flex items-center'>
           <Image
-            src='/logo-kora.png'
+            src={`${theme === "dark" ? "/kora-logo-dark.png": "/logo-kora.png"}`}
             width={103}
             height={30}
             alt='KORA Logo'
@@ -56,7 +58,7 @@ const Navbar: React.FC<NavProps> = ({ user }) => {
               href={link.url}
               className={`${
                 link.url === pathName ? "text-white" : "text-[#D2691E]"
-              } hover:text-white`}
+              } hover:text-white ${pathName === "/favourites" ? "hover:text-[#8B3A2D]" : "hover:text-white"}`}
             >
               {link.name}
             </a>
@@ -69,17 +71,17 @@ const Navbar: React.FC<NavProps> = ({ user }) => {
             <div className='hidden lg:flex gap-6 justify-center text-[14px]'>
               <a
                 href='/login'
-                className={`text-white ${
-                  pathName === "/" ? "text-white" : "text-[#D2691E]"
-                } hover:text-white`}
+                className={` ${
+                  pathName === "/" ? color : "text-[#D2691E]"
+                } hover:${color}`}
               >
                 Login
               </a>
               <a
                 href='/sign-up'
-                className={`text-white ${
-                  pathName === "/" ? "text-white" : "text-[#D2691E]"
-                } hover:text-white`}
+                className={` ${
+                  pathName === "/" ? color : "text-[#D2691E]"
+                } hover:${color}`}
               >
                 Sign Up
               </a>

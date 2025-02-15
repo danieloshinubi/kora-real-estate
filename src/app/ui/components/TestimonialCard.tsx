@@ -60,6 +60,7 @@ const TestimonialCard = ({ slice }: TestimonialCardProps) => {
                 alt={testimonial.name}
                 fill
                 className='w-12 h-12 rounded-full object-cover'
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
 

@@ -1,0 +1,222 @@
+export const houseListings = [
+  {
+    id: "1",
+    title: "Luxury Apartment",
+    price: 90000,
+    latitude: 6.5244,
+    longitude: 3.3792,
+    image: "/apartment.jpg",
+    bathrooms: 3,
+    bedrooms: 3,
+    location: "Lagos, Nigeria"
+  },
+  {
+    id: "2",
+    title: "Beach House",
+    price: 120000,
+    latitude: 4.8156,
+    longitude: 7.0498,
+    image: "/apartment.jpg",
+    bathrooms: 3,
+    bedrooms: 3,
+    location: "Port Harcourt, Nigeria"
+  },
+  {
+    id: "3",
+    title: "Mountain Cabin",
+    price: 75000,
+    latitude: 9.0579,
+    longitude: 7.4951,
+    image: "/apartment.jpg",
+    bathrooms: 3,
+    bedrooms: 3,
+    location: "Abuja, Nigeria"
+  },
+  {
+    id: "4",
+    title: "City Loft",
+    price: 85000,
+    latitude: 5.6037,
+    longitude: -0.1870,
+    image: "/condo.jpg",
+    bathrooms: 3,
+    bedrooms: 3,
+    location: "Accra, Ghana"
+  },
+  {
+    id: "5",
+    title: "Country House",
+    price: 95000,
+    latitude: 7.3775,
+    longitude: 3.9470,
+    image: "/villa.jpg",
+    bathrooms: 3,
+    bedrooms: 3,
+    location: "Abeokuta, Nigeria"
+  },
+  {
+    id: "6",
+    title: "Suburban Home",
+    price: 70000,
+    latitude: 8.4790,
+    longitude: 4.5418,
+    image: "/condo.jpg",
+    bathrooms: 3,
+    bedrooms: 3,
+    location: "Ilorin, Nigeria"
+  },
+  {
+    id: "7",
+    title: "Penthouse Suite",
+    price: 150000,
+    latitude: -1.2864,
+    longitude: 36.8172,
+    image: "/villa.jpg",
+    bathrooms: 3,
+    bedrooms: 3,
+    location: "Nairobi, Kenya"
+  },
+  {
+    id: "8",
+    title: "Lake House",
+    price: 110000,
+    latitude: 10.2932,
+    longitude: 11.1655,
+    image: "/duplex.jpg",
+    bathrooms: 3,
+    bedrooms: 3,
+    location: "Bauchi, Nigeria"
+  },
+  {
+    id: "9",
+    title: "Ranch",
+    price: 80000,
+    latitude: 13.5120,
+    longitude: 2.1121,
+    image: "/detached-house.jpg",
+    bathrooms: 3,
+    bedrooms: 3,
+    location: "Niamey, Niger"
+  },
+  {
+    id: "10",
+    title: "Cottage",
+    price: 60000,
+    latitude: 12.0022,
+    longitude: 8.5919,
+    image: "/duplex.jpg",
+    bathrooms: 3,
+    bedrooms: 3,
+    location: "Kano, Nigeria"
+  },
+  {
+    id: "11",
+    title: "Desert Retreat",
+    price: 140000,
+    latitude: 23.8859,
+    longitude: 45.0792,
+    image: "/villa.jpg",
+    bathrooms: 3,
+    bedrooms: 4,
+    location: "Riyadh, Saudi Arabia"
+  },
+  {
+    id: "12",
+    title: "Snowy Chalet",
+    price: 160000,
+    latitude: 46.8182,
+    longitude: 8.2275,
+    image: "/cabin.jpg",
+    bathrooms: 2,
+    bedrooms: 3,
+    location: "Zermatt, Switzerland"
+  },
+  {
+    id: "13",
+    title: "Hillside Villa",
+    price: 130000,
+    latitude: -33.8688,
+    longitude: 151.2093,
+    image: "/villa.jpg",
+    bathrooms: 3,
+    bedrooms: 4,
+    location: "Sydney, Australia"
+  },
+  {
+    id: "14",
+    title: "Oceanfront Condo",
+    price: 110000,
+    latitude: 25.7617,
+    longitude: -80.1918,
+    image: "/condo.jpg",
+    bathrooms: 2,
+    bedrooms: 3,
+    location: "Miami, USA"
+  },
+  {
+    id: "15",
+    title: "Skyline Penthouse",
+    price: 200000,
+    latitude: 51.5074,
+    longitude: -0.1278,
+    image: "/penthouse.jpg",
+    bathrooms: 3,
+    bedrooms: 4,
+    location: "London, UK"
+  },
+  {
+    id: "16",
+    title: "Forest Lodge",
+    price: 100000,
+    latitude: 45.4215,
+    longitude: -75.6972,
+    image: "/lodge.jpg",
+    bathrooms: 2, 
+    bedrooms: 3,
+    location: "Ottawa, Canada"
+  },
+  {
+    id: "17",
+    title: "Island Getaway",
+    price: 170000,
+    latitude: 35.6895,
+    longitude: 139.6917,
+    image: "/beach-house.jpg",
+    bathrooms: 3,
+    bedrooms: 4,
+    location: "Tokyo, Japan"
+  },
+  {
+    id: "18",
+    title: "Tropical Villa",
+    price: 125000,
+    latitude: -8.4095,
+    longitude: 115.1889,
+    image: "/villa.jpg",
+    bathrooms: 3,
+    bedrooms: 3,
+    location: "Bali, Indonesia"
+  },
+  {
+    id: "19",
+    title: "Ski Resort Cabin",
+    price: 190000,
+    latitude: 40.7608,
+    longitude: -111.8910,
+    image: "/cabin.jpg",
+    bathrooms: 2,
+    bedrooms: 4,
+    location: "Utah, USA"
+  },
+  {
+    id: "20",
+    title: "Urban Loft",
+    price: 105000,
+    latitude: 41.8781,
+    longitude: -87.6298,
+    image: "/loft.jpg",
+    bathrooms: 2,
+    bedrooms: 3,
+    location: "Chicago, USA"
+  }
+];

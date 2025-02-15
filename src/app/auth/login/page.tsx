@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import LoginForm from "../../ui/login/LoginForm";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [step, setStep] = useState(1);
@@ -16,21 +17,27 @@ export default function LoginPage() {
             <button className='btn btn-outline' onClick={prevStep}>
               {"< Back"}
             </button>
-            <Image
-              src='/kora-logo.png'
-              height={100}
-              width={100}
-              alt='kora logo'
-            />
+            <Link href='/'>
+              <Image
+                src='/kora-logo.png'
+                height={52}
+                width={151}
+                alt='kora logo'
+                className='h-auto'
+              />
+            </Link>
           </div>
         ) : (
           <div className='flex justify-end w-full'>
-            <Image
-              src='/kora-logo.png'
-              height={52}
-              width={151}
-              alt='kora logo'
-            />
+            <Link href='/'>
+              <Image
+                src='/kora-logo.png'
+                height={52}
+                width={151}
+                alt='kora logo'
+                className='h-auto'
+              />
+            </Link>
           </div>
         )}
       </div>

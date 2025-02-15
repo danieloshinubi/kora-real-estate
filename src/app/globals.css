@@ -37,3 +37,40 @@ body {
 ::-webkit-scrollbar-track {
   background-color: #EDF2F7;
 } */
+
+.custom-price-box {
+  background-color: white;
+  color: #8B3A2D;
+  padding: 6px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid gray;
+  text-align: center;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+}
+
+/* Hover Effect */
+.custom-price-box:hover {
+  background-color: #8B3A2D;
+  color: white;
+}
+
+/* Arrow */
+.custom-price-arrow {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid white;
+}
+
+/* Change arrow color on hover */
+.custom-price-box:hover .custom-price-arrow {
+  border-top-color: #8B3A2D;
+}

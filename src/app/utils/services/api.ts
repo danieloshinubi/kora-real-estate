@@ -40,6 +40,10 @@ export const api = createApi({
       }),
     }),
 
+    logout: builder.mutation<{ message: string }, void>({
+      query: () => "/auth/user/logout",
+    }),
+
     verifyAccount: builder.query<{ message: string }, { token: string }>({
       query: ({ token }) => `/auth/user/verify-account/${token}`,
     }),
@@ -59,6 +63,21 @@ export const api = createApi({
       query: (data) => ({
         url: "/auth/user/resetpassword",
         method: "POST",
+        body: data,
+      }),
+    }),
+
+    changePassword: builder.mutation<
+      { message: string },
+      {
+        userId: string;
+        currentPassword: string;
+        newPassword: string;
+      }
+    >({
+      query: (data) => ({
+        url: "/auth/user/changepassword",
+        method: "PATCH",
         body: data,
       }),
     }),
@@ -103,6 +122,7 @@ export const api = createApi({
 export const {
   useSignUpMutation,
   useLoginMutation,
+  useLogoutMutation,
   useVerifyAccountQuery,
   useForgotPasswordMutation,
   useResetPasswordMutation,

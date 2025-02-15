@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState} from "react";
 import Image from "next/image";
 import { inknutAntiqua } from "../fonts";
 import { cabin } from "../fonts";
@@ -34,7 +34,15 @@ const LoginForm: React.FC = () => {
     try {
       const credentials = { email: email, password: password };
       const result = await login(credentials).unwrap();
+
       setUser(result.user);
+      localStorage.setItem("user", JSON.stringify(result.user)); // Save user data in local storage
+
+      await fetch("/api/set-token", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token: result.accessToken }),
+      });
 
       router.push("/");
     } catch (err: unknown) {

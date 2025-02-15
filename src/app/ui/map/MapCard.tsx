@@ -5,8 +5,6 @@ import { FaHeart} from "react-icons/fa6";
 
 interface CardProps {
   image: string;
-  category: string;
-  rating: number;
   title: string;
   location: string;
   bedrooms: number;
@@ -14,10 +12,8 @@ interface CardProps {
   price: number;
 }
 
-const PropertyCard: React.FC<CardProps> = ({
+const MapCard: React.FC<CardProps> = ({
   image,
-  category,
-  rating,
   title,
   location,
   bedrooms,
@@ -31,7 +27,7 @@ const PropertyCard: React.FC<CardProps> = ({
   }
 
   return (
-    <div className=' bg-white overflow-hidden'>
+    <div className='rounded-lg bg-white overflow-hidden'>
       {/* Image Section */}
       <div className='relative'>
         <div className='relative w-full h-48'>
@@ -39,7 +35,7 @@ const PropertyCard: React.FC<CardProps> = ({
             src={image}
             alt={title}
             fill
-            className='object-cover rounded-lg'
+            className='object-cover rounded-t-lg'
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
@@ -53,30 +49,8 @@ const PropertyCard: React.FC<CardProps> = ({
       </div>
 
       {/* Content Section */}
-      <div className='py-4'>
-        {/* Category and Rating */}
-        <div className='flex justify-between items-center'>
-          <span
-            className={`px-3 py-1 bg-gray-800 text-white rounded-full text-[12px] ${cabin.className}`}
-          >
-            {category}
-          </span>
-          <div className='flex items-center space-x-1'>
-            <span
-              className={`text-[14px] font-bold text-gray-800 ${cabin.className} `}
-            >
-              {rating}
-            </span>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              fill='currentColor'
-              viewBox='0 0 24 24'
-              className='h-5 w-5 text-yellow-400'
-            >
-              <path d='M12 17.27l5.18 3.73-1.64-6.81L22 9.24l-6.87-.61L12 2 8.87 8.63 2 9.24l5.46 4.95L5.82 21z' />
-            </svg>
-          </div>
-        </div>
+      <div className='py-4 px-6'>
+        
 
         {/* Title */}
         <h3 className='mt-3 text-[16px] leading-[21px] font-semibold text-gray-900'>
@@ -135,4 +109,4 @@ const PropertyCard: React.FC<CardProps> = ({
   );
 };
 
-export default PropertyCard;
+export default MapCard;

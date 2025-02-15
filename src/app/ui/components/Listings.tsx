@@ -22,6 +22,7 @@ const Listings: React.FC<ListingsProps> = ({ listings }) => {
               alt={listing.name}
               fill
               className='w-full object-cover rounded-lg'
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
           <div className='flex justify-between text-center'>

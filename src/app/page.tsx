@@ -1,5 +1,5 @@
 "use client";
-// import { useUser } from "./context/UserContext";
+import { useUser } from "./context/UserContext";
 import Navbar from "./ui/Navbar";
 import HomeCategoriesSection from "./ui/home/HomeCategoriesSection";
 import HomeHero from "./ui/home/HomeHero";
@@ -10,11 +10,17 @@ import FinalSection from "./ui/home/FinalSection";
 import CountryOutreachSection from "./ui/home/CountryOutreachSection";
 
 export default function Home() {
-  // const { user } = useUser();
-  // console.log(user);
+  // const { user, userProfileData } = useUser();
+  const { user } = useUser();
+
+  // console.log("From Home:", userProfileData)
+
+  
+  //get the user profile and store it
+
   return (
     <div className=''>
-      <Navbar />
+      <Navbar user={user}/>
       <HomeHero />
       <div className='container mx-auto px-4 sm:px-8 md:px-12 lg:px-24'>
         <HouseListingSection />

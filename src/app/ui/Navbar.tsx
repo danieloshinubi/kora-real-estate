@@ -29,20 +29,21 @@ const Navbar: React.FC<NavProps> = ({ user, theme }) => {
 
   const [logout] = useLogoutMutation();
 
-  const handleLogout = async() =>{
+  const handleLogout = async () => {
     await logout();
     localStorage.removeItem("user");
     window.location.href = "/";
-  }
+  };
 
-  const color = theme === "dark" && pathName === "/" ? "text-white" : "text-[#8B3A2D]";
+  const color = theme === "dark" ? "text-[#8B3A2D]" : "text-white";
+
   return (
     <nav className='absolute top-0 left-0 z-20 w-full flex items-center text-[14px] px-6 lg:px-24 py-4 bg-transparent'>
       <div className='container mx-auto w-full flex items-center justify-between'>
         {/* Left Section: Logo */}
         <div className='flex items-center'>
           <Image
-            src={`${theme === "dark" ? "/kora-logo-dark.png": "/logo-kora.png"}`}
+            src={`${theme === "dark" ? "/kora-logo-dark.png" : "/logo-kora.png"}`}
             width={103}
             height={30}
             alt='KORA Logo'
@@ -57,8 +58,8 @@ const Navbar: React.FC<NavProps> = ({ user, theme }) => {
               key={link.name}
               href={link.url}
               className={`${
-                link.url === pathName ? "text-white" : "text-[#D2691E]"
-              } hover:text-white ${pathName === "/favourites" ? "hover:text-[#8B3A2D]" : "hover:text-white"}`}
+                link.url === pathName ? color : "text-[#D2691E]"
+              } ${pathName === "/favourites" ? "hover:text-[#8B3A2D]" : "hover:text-white"}`}
             >
               {link.name}
             </a>
@@ -88,9 +89,15 @@ const Navbar: React.FC<NavProps> = ({ user, theme }) => {
             </div>
           ) : (
             <div className='relative flex gap-6'>
-              <button className='hidden lg:block px-4 py-2 border-[1px] border-[#F5DEB3] text-[#F5DEB3] rounded-full hover:bg-[#F5DEB3] hover:text-white'>
-                Become a host
-              </button>
+              {theme === "dark" ? (
+                <button className='hidden lg:block px-4 py-2 border-[1px] border-[#8B3A2D] text-[#8B3A2D] rounded-full hover:bg-[#8B3A2D] hover:text-white'>
+                  Become a host
+                </button>
+              ) : (
+                <button className='hidden lg:block px-4 py-2 border-[1px] border-[#F5DEB3] text-[#F5DEB3] rounded-full hover:bg-[#F5DEB3] hover:text-white'>
+                  Become a host
+                </button>
+              )}
               <button
                 className='flex items-center gap-2'
                 onClick={() => setDropdownOpen((prev) => !prev)}

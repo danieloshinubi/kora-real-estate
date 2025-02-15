@@ -7,12 +7,12 @@ import FavouritesSection from "../ui/favorites/FavouritesSection";
 export default function Favourites() {
   const { user } = useUser();
   return (
-    <div>
+    <div className="">
       <div className="text-[#8B3A2D]">
         <Navbar user={user} theme="dark"/>
       </div>
       
-      <div className='relative container mx-auto h-[500px] w-full'>
+      <div className='relative container mx-auto px-6 lg:px-24 w-full'>
         <FavouritesSection/>
       </div>
 

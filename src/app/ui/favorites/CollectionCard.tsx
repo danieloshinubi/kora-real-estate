@@ -7,23 +7,32 @@ interface CollectionCardProps {
   id: string;
   title: string;
   savedListings: number;
-  images: string[];
+  collectionProperties:{
+    image: string;
+    category: string,
+    rating: number,
+    title: string,
+    location: string,
+    bedrooms: number,
+    bathrooms: number,
+    price: number,
+  }[]
 }
 
 const CollectionCard: React.FC<CollectionCardProps> = ({
   id,
   title,
   savedListings,
-  images,
+  collectionProperties,
 }) => {
   return (
     <Link href={`/favourites/${id}`} passHref>
       <div className="bg-white cursor-pointer hover:shadow-lg transition duration-300">
         {/* Image Grid */}
         <div className="grid grid-cols-2 gap-1 w-full">
-          {images.slice(0, 4).map((img, index) => (
+          {collectionProperties.slice(0, 4).map((img, index) => (
             <div key={index} className="relative h-[174px]">
-              <Image src={img} alt={title} fill className="rounded-md" />
+              <Image src={img.image} alt={title} fill className="rounded-md" />
             </div>
           ))}
         </div>

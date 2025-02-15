@@ -6,7 +6,16 @@ interface CollectionDetailsProp {
     id: string;
     title: string;
     savedListings: number;
-    images: string[];
+    collectionProperties: {
+      image: string;
+      category: string;
+      rating: number;
+      title: string;
+      location: string;
+      bedrooms: number;
+      bathrooms: number;
+      price: number;
+    }[];
   };
 }
 
@@ -16,13 +25,12 @@ export default function CollectionDetailsSection({
   return (
     <section className='min-h-screen mt-32 p-6'>
       <h2 className='text-3xl font-semibold'>{collection.title}</h2>
-      <p className='text-gray-500'>{collection.savedListings} saved listings</p>
 
       <div className='mt-8 grid md:grid-cols-3 gap-6'>
-        {collection.images.map((img, index) => (
+        {collection.collectionProperties.slice(0,4).map((img, index) => (
           <div key={index} className='relative h-60'>
             <Image
-              src={img}
+              src={img.image}
               alt={collection.title}
               fill
               className='rounded-md'

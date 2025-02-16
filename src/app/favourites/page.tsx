@@ -9,11 +9,11 @@ export default function Favourites() {
   return (
     <div className="">
       <div className="text-[#8B3A2D]">
-        <Navbar user={user} theme="dark"/>
+        <Navbar user={user} theme="dark" />
       </div>
-      
+
       <div className='relative container mx-auto px-6 lg:px-24 w-full'>
-        <FavouritesSection/>
+        <FavouritesSection />
       </div>
 
       <Footer />

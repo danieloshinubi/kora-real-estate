@@ -27,7 +27,7 @@ const CollectionCard: React.FC<CollectionCardProps> = ({
 }) => {
   return (
     <Link href={`/favourites/${id}`} passHref>
-      <div className="bg-white cursor-pointer hover:shadow-lg transition duration-300">
+      <div className="bg-white cursor-pointer transition duration-300">
         {/* Image Grid */}
         <div className="grid grid-cols-2 gap-1 w-full">
           {collectionProperties.slice(0, 4).map((img, index) => (

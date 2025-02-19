@@ -48,9 +48,6 @@ export default function ImageGallery() {
             fill
             className="w-full h-full object-cover rounded-br-lg"
           />
-          <button className="absolute bottom-2 right-2 bg-orange-500 text-white px-3 py-1 rounded-md">
-            Show more
-          </button>
         </div>
       </div>
     </div>

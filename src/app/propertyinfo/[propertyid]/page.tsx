@@ -6,6 +6,7 @@ import Navbar from '@/app/ui/Navbar';
 import Footer from '@/app/ui/components/Footer';
 import { cabin } from '@/app/ui/fonts';
 import { FaChevronLeft } from 'react-icons/fa6';
+import ListingPage from '@/app/ui/listing/ListingPageSection';
 
 
 export default function ListingDetailPage() {
@@ -13,10 +14,12 @@ export default function ListingDetailPage() {
   const params = useParams(); // Get route params
   const propertyId = params?.propertyId
 
+  console.log(propertyId)
+
   return (
     <div className=''>
       <div className='text-[#8B3A2D]'>
-        <Navbar user={user} theme='dark'/>
+        <Navbar user={user} theme='dark' />
       </div>
 
       <div className='relative container mx-auto px-6 lg:px-24 w-full'>
@@ -27,7 +30,7 @@ export default function ListingDetailPage() {
             <h2 className=''>Listings</h2>
           </div>
         </Link>
-        <h1>{propertyId}</h1>
+        <ListingPage />
       </div>
 
       <Footer />

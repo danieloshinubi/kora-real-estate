@@ -32,7 +32,7 @@ const PropertyCard: React.FC<CardProps> = ({
   }
 
   return (
-    <Link href={`/propertyinfo/${title.toLowerCase().replace(" ", "-")}`}>
+    <Link href={`/propertyinfo/${title.toLowerCase().replaceAll(" ", "-")}`}>
       <div className=' bg-white overflow-hidden'>
         {/* Image Section */}
         <div className='relative'>

@@ -14,8 +14,8 @@ export default function ListingPage() {
       <Header />
       <ImageGallery />
       <Tabs />
-      <div className='grid md:grid-cols-3 gap-6 mt-6'>
-        <div className='md:col-span-2 space-y-6'>
+      <div className='grid sm:grid-cols-1 md:grid-cols-3 gap-6 mt-6'>
+        <div className='sm:col-span-1 md:col-span-2 space-y-6'>
           <AboutSection />
           <BedroomDetails />
           <AmenitiesList />

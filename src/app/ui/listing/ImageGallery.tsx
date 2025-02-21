@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function ImageGallery() {
   return (
-    <div className="grid grid-cols-2 gap-2 mt-4 w-full rounded-lg">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4 w-full rounded-lg">
       {/* Large Image */}
       <div className="relative col-span-1 h-full">
         <Image
@@ -14,7 +14,7 @@ export default function ImageGallery() {
       </div>
 
       {/* Right Section with Four Images */}
-      <div className="grid grid-cols-2 gap-2 col-span-1">
+      <div className="grid md:grid-cols-2 gap-2 col-span-1">
         <div className="relative h-[177px]">
           <Image
             src="/lodge.jpg"

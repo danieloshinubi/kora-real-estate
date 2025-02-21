@@ -10,7 +10,7 @@ import PropertyOwner from "./PropertyOwner";
 
 export default function ListingPage() {
   return (
-    <div className='container mx-auto p-4'>
+    <div className='container mx-auto md:p-4'>
       <Header />
       <ImageGallery />
       <Tabs />

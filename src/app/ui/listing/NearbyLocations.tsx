@@ -120,7 +120,7 @@ export default function NearbyLocations() {
 
                 {/* Text Section */}
                 <div className='w-2/3 p-4'>
-                  <span className={`'bg-[#8B3A2D] text-white text-xs px-2 py-1 rounded-md inline-block ${cabin.className}`}>
+                  <span className={`bg-[#8B3A2D] text-white text-xs px-2 py-1 rounded-md inline-block ${cabin.className}`}>
                     {loc.distance}
                   </span>
                   <h4 className='text-lg font-bold mt-2'>{loc.name}</h4>

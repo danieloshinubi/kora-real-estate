@@ -31,7 +31,7 @@ export default function AmenitiesList() {
       <h2 className='text-[24px] font-semibold text-[#8B3A2D] py-6 mb-4'>
         Amenities offered
       </h2>
-      <div className={`${cabin.className} grid grid-cols-2 gap-y-4`}>
+      <div className={`${cabin.className} grid sm:grid-cols-2 gap-y-4`}>
         {amenities.map((amenity, index) => (
           <div
             key={index}

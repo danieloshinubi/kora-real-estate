@@ -39,8 +39,8 @@ function Bathroom({ imageSrc, altText, title, description }: BathroomProps) {
       <Image
         src={imageSrc}
         alt={altText}
-        width={600}
-        height={300}
+        width={300}
+        height={200}
         className='rounded-lg'
       />
       <h3 className='text-lg font-bold mt-2'>{title}</h3>
@@ -54,12 +54,12 @@ export default function BathroomDetails() {
     <div className='max-w-3xl mx-auto flex flex-col space-y-6 pb-12'>
       {/* Title */}
       <h2
-        className={`${inknutAntiqua.className} text-[24px] font-semibold text-[#8B3A2D]`}
+        className={`${inknutAntiqua.className} text-[20px] md:text-[24px] font-semibold text-[#8B3A2D]`}
       >
         Bedrooms and Bathrooms
       </h2>
       {/* Bedrooms Section */}
-      <div className='grid grid-cols-2 gap-6'>
+      <div className='grid xs:grid-cols-1 sm:grid-cols-2 gap-6'>
         <Bedroom
           imageSrc='/bed.jpeg'
           altText='Bedroom 1'
@@ -75,7 +75,7 @@ export default function BathroomDetails() {
       </div>
 
       {/* Bathroom Section */}
-      <div className='grid grid-cols-2 gap-6'>
+      <div className='grid xs:grid-cols-1 sm:grid-cols-2 gap-6'>
         <Bathroom
           imageSrc='/bed.jpeg'
           altText='Bathroom 1'

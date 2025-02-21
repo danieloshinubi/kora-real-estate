@@ -24,7 +24,7 @@ export default function ListingDetailPage() {
 
       <div className='relative container mx-auto px-6 lg:px-24 w-full'>
         <Link href='/favourites' passHref>
-          <div className={`${cabin.className} text-[16px] mt-32 px-6 flex items-center`}>
+          <div className={`${cabin.className} text-[16px] mt-24 md:mt-32 md:px-6 flex items-center`}>
             <FaChevronLeft />
 
             <h2 className=''>Listings</h2>

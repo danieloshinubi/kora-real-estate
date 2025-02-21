@@ -94,7 +94,7 @@ export default function NearbyLocations() {
     <section className='max-w-6xl mx-auto py-8'>
       {/* Top heading (optional) */}
       <h2 className='text-[#8B3A2D] text-xl font-semibold'>Location</h2>
-      <h3 className={`${cabin.className} text-[36px] mb-6`}>
+      <h3 className={`${cabin.className} text-[24px] md:text-[36px] mb-6`}>
         Nearby Popular Locations
       </h3>
 
@@ -107,9 +107,9 @@ export default function NearbyLocations() {
               className='mb-4 border-2 border-[#8B3A2D] rounded-md p-1'
             >
               {/* Inner border for the "double border" effect */}
-              <div className='border-2 border-[#8B3A2D] rounded-md flex overflow-hidden'>
+              <div className='border-2 border-[#8B3A2D] rounded-md sm:flex overflow-hidden'>
                 {/* Image Section */}
-                <div className='relative w-1/3 min-h-[200px]'>
+                <div className='relative sm:w-1/3 min-h-[200px]'>
                   <Image
                     src={loc.image}
                     alt={loc.name}

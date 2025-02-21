@@ -2,7 +2,7 @@ import { cabin } from "../fonts";
 
 export default function PriceCard() {
   return (
-    <div className="bg-white pt-[30px] px-[20px] max-h-[412px] shadow-lg rounded-[20px]">
+    <div className="bg-white md:pt-[30px] md:px-[20px] max-h-[412px] md:shadow-lg md:rounded-[20px]">
       <h2 className="text-[18px] font-bold">Listing Price</h2>
       <p className="text-gray-700 text-[18px]">NGN 596,000</p>
       <button className={`${cabin.className} bg-[#D2691E] text-white px-4 py-2 rounded-md mt-4 w-full`}>Purchase Now</button>

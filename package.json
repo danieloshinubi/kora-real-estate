@@ -25,6 +25,7 @@
     "react-leaflet": "^5.0.0-rc.2",
     "react-range": "^1.10.0",
     "react-redux": "^9.2.0",
+    "react-responsive-carousel": "^3.2.23",
     "react-select": "^5.9.0",
     "redux": "^5.0.1"
   },
@@ -43,7 +44,7 @@
     "typescript": "^5"
   },
   "resolutions": {
-  "react": "^19.0.0",
-  "react-dom": "^19.0.0"
-}
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
 }

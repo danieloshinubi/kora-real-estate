@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function Tabs() {
     const [activeTab, setActiveTab] = useState<string>("Overview");
     return (
-      <div className="flex space-x-4 mt-4 border-b">
+      <div className="hidden md:flex space-x-4 mt-4 border-b">
         {["Overview", "Location", "Comments", "FAQs"].map((tab, index) => (
           <button
           key={index}

@@ -2,7 +2,7 @@ import { cabin, inknutAntiqua } from "../fonts";
 
 export default function AboutSection() {
   return (
-    <div className={`${cabin.className} flex flex-col gap-6`}>
+    <div className={`${cabin.className} flex flex-col gap-6 py-12`}>
       {/* Header */}
       <div className="flex justify-between items-start">
         <h2 className={`${inknutAntiqua.className} text-[24px] font-semibold text-[#8B3A2D]`}>About this location</h2>

@@ -4,6 +4,7 @@ import ListingList from "./listings/ListingList";
 import MapView from "../map/MapView";
 import { Listing } from "./listingType";
 import SortDropdown from "./listings/SortDropDown";
+import { cabin } from "../fonts";
 
 const listings: Listing[] = [
   {
@@ -105,16 +106,16 @@ export default function ListingFinder() {
   return (
     <div className='flex w-full mt-16'>
       {/* Left Filter Panel */}
-      <div className='w-[20%] border-r border-gray-200'>
+      <div className='w-[20%]'>
         <FilterPanel />
       </div>
 
       {/* Main Content */}
-      <div className='w-[55%]'>
+      <div className='w-[55%] pl-6'>
         <div className='flex items-center justify-between mb-4'>
           <div>
-            <h2 className='text-xl font-semibold'>Showing results</h2>
-            <p className='text-sm text-gray-600'>6 properties found</p>
+            <h2 className='text-[18px]'>Showing results</h2>
+            <p className={`${cabin.className} text-sm`}>300+ listings for “Wedding Location”</p>
           </div>
           
           {/* You can add a SortDropdown here if you like */}

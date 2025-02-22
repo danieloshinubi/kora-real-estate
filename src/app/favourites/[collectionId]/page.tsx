@@ -8,7 +8,7 @@ import Navbar from "@/app/ui/Navbar";
 import Footer from "@/app/ui/components/Footer";
 import Link from "next/link";
 import { cabin } from "@/app/ui/fonts";
-import {  FaChevronLeft } from "react-icons/fa6";
+import { FaChevronLeft } from "react-icons/fa6";
 
 const CollectionPage = () => {
   const { user } = useUser();
@@ -29,7 +29,7 @@ const CollectionPage = () => {
       <div className='relative container mx-auto px-6 lg:px-24 w-full'>
         <Link href='/favourites' passHref>
           <div className={`${cabin.className} text-[16px] mt-32 px-6 flex items-center`}>
-            <FaChevronLeft  />
+            <FaChevronLeft />
 
             <h2 className=''>Favorites</h2>
           </div>

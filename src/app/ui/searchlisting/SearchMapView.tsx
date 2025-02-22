@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import MapCard from "./MapCard";
-// import PriceBox from "./PriceBox";
+import MapCard from "../map/MapCard";
 
 // Custom Marker Icon
 const createCustomIcon = (price: number) =>
@@ -35,7 +34,7 @@ interface MapViewProps {
   size?: string;
 }
 
-const MapView: React.FC<MapViewProps> = ({ listings}) => {
+const SearchMapView: React.FC<MapViewProps> = ({ listings }) => {
   const [hoveredListing, setHoveredListing] = useState<Listing | null>(null);
   const [cardPosition, setCardPosition] = useState<{
     x: number;
@@ -78,11 +77,11 @@ const MapView: React.FC<MapViewProps> = ({ listings}) => {
   };
 
   return (
-    <div className={`h-[500px]`}>
+    <div className={`h-[1200px] relative`}>
       <MapContainer
         center={[9.082, 8.6753]} // Default center
-        zoom={3} // Default zoom level
-        className={`h-full w-full rounded-md`}
+        zoom={8} // Default zoom level
+        className={`h-full w-full`}
       >
         <TileLayer
           url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
@@ -115,4 +114,4 @@ const MapView: React.FC<MapViewProps> = ({ listings}) => {
   );
 };
 
-export default MapView;
+export default SearchMapView;

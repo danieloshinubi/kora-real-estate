@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { cabin, inknutAntiqua } from "../../fonts";
 import PriceRangeFilter from "./PriceRangeFilter";
 import BedroomsFilter from "./BedroomsFilter";
+import Amenities from "./AmenityFilter";
+import ListingTypeFilter from "./ListingTypeFilter";
 
 const FilterPanel: React.FC = () => {
   const [bedrooms, setBedrooms] = useState(4);
@@ -47,23 +49,13 @@ const FilterPanel: React.FC = () => {
       <PriceRangeFilter priceRange={priceRange} setPriceRange={setPriceRange} />
 
       {/* Amenities */}
-      <div>
-        <span className='font-medium'>Amenities</span>
-        <div className='grid grid-cols-2 gap-2'>
-          {amenitiesList.map((amenity) => (
-            <label key={amenity} className='flex items-center space-x-2'>
-              <input
-                type='checkbox'
-                className='checkbox checkbox-sm checkbox-primary'
-                checked={selectedAmenities.includes(amenity)}
-                onChange={() => handleAmenityChange(amenity)}
-              />
-              <span>{amenity}</span>
-            </label>
-          ))}
-        </div>
-      </div>
-
+      <Amenities
+        selectedAmenities={selectedAmenities}
+        handleAmenityChange={handleAmenityChange}
+        amenitiesList={amenitiesList}
+      />
+      {/* Listing Types*/}
+      <ListingTypeFilter/>
       {/* Ratings */}
       <div>
         <span className='font-medium'>Ratings</span>

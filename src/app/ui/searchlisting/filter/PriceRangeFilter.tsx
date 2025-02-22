@@ -47,8 +47,8 @@ const PriceRangeFilter: React.FC<PriceRangeFilterProps> = ({
 
       {/* Min & Max Input Fields */}
       <div className='flex items-center gap-3'>
-        <div className='p-4 border rounded-md w-[100px]'>
-          <span>Min</span>
+        <div className='p-2 border rounded-md w-[100px]'>
+          <span className="font-bold">Min</span>
           <input
             type='number'
             className='input outline-0 input-sm w-full '
@@ -60,8 +60,8 @@ const PriceRangeFilter: React.FC<PriceRangeFilterProps> = ({
             }
           />
         </div>
-        <div className='p-4 border rounded-md w-[100px]'>
-          <span>Min</span>
+        <div className='p-2 border rounded-md w-[100px]'>
+          <span className="font-bold">Min</span>
           <input
             type='number'
             className='input outline-0 input-sm w-full text-center'

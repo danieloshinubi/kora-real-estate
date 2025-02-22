@@ -4,7 +4,6 @@ import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import MapCard from "../map/MapCard";
-// import PriceBox from "./PriceBox";
 
 // Custom Marker Icon
 const createCustomIcon = (price: number) =>

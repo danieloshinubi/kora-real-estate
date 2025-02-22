@@ -4,7 +4,9 @@ import ListingList from "./listings/ListingList";
 import { Listing } from "./listingType";
 import SortDropdown from "./listings/SortDropDown";
 import { cabin } from "../fonts";
-import SearchMapView from "./SearchMapView";
+import dynamic from "next/dynamic";
+
+const SearchMapView = dynamic(() => import("./SearchMapView"), { ssr: false });
 
 const listings: Listing[] = [
   {
@@ -18,13 +20,13 @@ const listings: Listing[] = [
     category: "House",
     rating: 4.5,
     location: "Yaba City",
-    latitude: 7.7332, 
+    latitude: 7.7332,
     longitude: 8.5333,
     bathrooms: 2,
     bedrooms: 3,
   },
   {
-    id: "1",
+    id: "2",
     title: "Relaxing retreat at the heart of Yaba City",
     description:
       "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
@@ -34,13 +36,13 @@ const listings: Listing[] = [
     category: "House",
     rating: 4.5,
     location: "Yaba City",
-    latitude: 8.3830,
+    latitude: 8.383,
     longitude: 8.5167,
     bathrooms: 2,
     bedrooms: 3,
   },
   {
-    id: "1",
+    id: "3",
     title: "Relaxing retreat at the heart of Yaba City",
     description:
       "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
@@ -56,7 +58,7 @@ const listings: Listing[] = [
     bedrooms: 3,
   },
   {
-    id: "1",
+    id: "4",
     title: "Relaxing retreat at the heart of Yaba City",
     description:
       "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
@@ -72,7 +74,7 @@ const listings: Listing[] = [
     bedrooms: 3,
   },
   {
-    id: "1",
+    id: "5",
     title: "Relaxing retreat at the heart of Yaba City",
     description:
       "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
@@ -88,7 +90,7 @@ const listings: Listing[] = [
     bedrooms: 3,
   },
   {
-    id: "1",
+    id: "6",
     title: "Relaxing retreat at the heart of Yaba City",
     description:
       "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
@@ -104,7 +106,7 @@ const listings: Listing[] = [
     bedrooms: 3,
   },
   {
-    id: "1",
+    id: "7",
     title: "Relaxing retreat at the heart of Yaba City",
     description:
       "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
@@ -120,7 +122,7 @@ const listings: Listing[] = [
     bedrooms: 3,
   },
   {
-    id: "1",
+    id: "8",
     title: "Relaxing retreat at the heart of Yaba City",
     description:
       "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
@@ -136,7 +138,7 @@ const listings: Listing[] = [
     bedrooms: 3,
   },
   {
-    id: "1",
+    id: "9",
     title: "Relaxing retreat at the heart of Yaba City",
     description:
       "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
@@ -152,7 +154,7 @@ const listings: Listing[] = [
     bedrooms: 3,
   },
   {
-    id: "1",
+    id: "10",
     title: "Relaxing retreat at the heart of Yaba City",
     description:
       "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
@@ -168,7 +170,7 @@ const listings: Listing[] = [
     bedrooms: 3,
   },
   {
-    id: "1",
+    id: "11",
     title: "Relaxing retreat at the heart of Yaba City",
     description:
       "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
@@ -184,7 +186,7 @@ const listings: Listing[] = [
     bedrooms: 3,
   },
   {
-    id: "1",
+    id: "12",
     title: "Relaxing retreat at the heart of Yaba City",
     description:
       "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
@@ -200,7 +202,7 @@ const listings: Listing[] = [
     bedrooms: 3,
   },
   {
-    id: "1",
+    id: "13",
     title: "Relaxing retreat at the heart of Yaba City",
     description:
       "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
@@ -216,7 +218,7 @@ const listings: Listing[] = [
     bedrooms: 3,
   },
   {
-    id: "1",
+    id: "14",
     title: "Relaxing retreat at the heart of Yaba City",
     description:
       "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
@@ -232,7 +234,7 @@ const listings: Listing[] = [
     bedrooms: 3,
   },
   {
-    id: "1",
+    id: "15",
     title: "Relaxing retreat at the heart of Yaba City",
     description:
       "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
@@ -248,7 +250,7 @@ const listings: Listing[] = [
     bedrooms: 3,
   },
   {
-    id: "1",
+    id: "16",
     title: "Relaxing retreat at the heart of Yaba City",
     description:
       "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
@@ -264,7 +266,7 @@ const listings: Listing[] = [
     bedrooms: 3,
   },
   {
-    id: "1",
+    id: "17",
     title: "Relaxing retreat at the heart of Yaba City",
     description:
       "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
@@ -280,7 +282,7 @@ const listings: Listing[] = [
     bedrooms: 3,
   },
   {
-    id: "1",
+    id: "18",
     title: "Relaxing retreat at the heart of Yaba City",
     description:
       "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
@@ -296,7 +298,7 @@ const listings: Listing[] = [
     bedrooms: 3,
   },
   {
-    id: "1",
+    id: "19",
     title: "Relaxing retreat at the heart of Yaba City",
     description:
       "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
@@ -312,23 +314,7 @@ const listings: Listing[] = [
     bedrooms: 3,
   },
   {
-    id: "1",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "1",
+    id: "20",
     title: "Relaxing retreat at the heart of Yaba City",
     description:
       "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",

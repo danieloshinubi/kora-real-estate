@@ -59,20 +59,25 @@ export default function HomeHero() {
                 </li>
               ))}
             </ul>
-            <button className='bg-[#D2691E] w-full lg:w-auto text-white ml-auto mt-8 sm:mt-auto px-4 py-2 sm:rounded-full rounded-lg'>
+            <a href="/searchlisting">
+              <button className='bg-[#D2691E] w-full lg:w-auto text-white ml-auto mt-8 sm:mt-auto px-4 py-2 sm:rounded-full rounded-lg'>
               <span className='flex gap-2 justify-center mx-auto'>
                 <MdSearch className='text-2xl' />
                 <span className='hdden md:block'> Search</span>
               </span>
             </button>
+            </a>
+            
           </div>
         </div>
         <div className='absolute hidden lg:flex  bottom-8 left-0 w-full justify-center py-4 px-8 items-center'>
-          <button className='bg-[#D2691E] text-white px-6 py-4 rounded-full'>
-            <span className={`flex gap-2 ${cabin.className}`}>
-              <MdMap className='text-2xl' /> View Map
-            </span>
-          </button>
+          <a href="/feed">
+            <button className='bg-[#D2691E] text-white px-6 py-4 rounded-full'>
+              <span className={`flex gap-2 ${cabin.className}`}>
+                <MdMap className='text-2xl' /> View Map
+              </span>
+            </button>
+          </a>
         </div>
       </div>
     </div>

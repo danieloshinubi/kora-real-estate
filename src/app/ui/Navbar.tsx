@@ -102,9 +102,9 @@ const Navbar: React.FC<NavProps> = ({ user, theme }) => {
                 className='flex items-center gap-2'
                 onClick={() => setDropdownOpen((prev) => !prev)}
               >
-                <button className=' bg-orange-500 p-1 rounded-full'>
+                <div className=' bg-orange-500 p-1 rounded-full'>
                   <MdArrowDropDown className='text-gray-300' />
-                </button>
+                </div>
                 <Image
                   src='/avatar.png'
                   alt='User Avatar'

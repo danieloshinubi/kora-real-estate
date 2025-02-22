@@ -6,6 +6,7 @@ import PriceRangeFilter from "./PriceRangeFilter";
 import BedroomsFilter from "./BedroomsFilter";
 import Amenities from "./AmenityFilter";
 import ListingTypeFilter from "./ListingTypeFilter";
+import RatingsFilter from "./RatingFilter";
 
 const FilterPanel: React.FC = () => {
   const [bedrooms, setBedrooms] = useState(4);
@@ -55,28 +56,13 @@ const FilterPanel: React.FC = () => {
         amenitiesList={amenitiesList}
       />
       {/* Listing Types*/}
-      <ListingTypeFilter/>
+      <ListingTypeFilter />
+
       {/* Ratings */}
-      <div>
-        <span className='font-medium'>Ratings</span>
-        <div className='flex flex-col space-y-1'>
-          {[5, 4, 3, 2, 1].map((rating) => (
-            <label key={rating} className='flex items-center space-x-2'>
-              <input
-                type='radio'
-                name='rating'
-                className='radio radio-sm radio-primary'
-                checked={selectedRatings === rating}
-                onChange={() => setSelectedRatings(rating)}
-              />
-              <span className='flex items-center'>
-                {"★".repeat(rating)}
-                {"☆".repeat(5 - rating)}
-              </span>
-            </label>
-          ))}
-        </div>
-      </div>
+      <RatingsFilter
+        selectedRating={selectedRatings}
+        setSelectedRating={setSelectedRatings}
+      />
 
       {/* Apply Filters Button */}
       <button className='btn btn-primary w-full'>Apply Filters</button>

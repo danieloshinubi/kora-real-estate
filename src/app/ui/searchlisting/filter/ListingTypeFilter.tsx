@@ -24,9 +24,9 @@ const ListingTypeFilter: React.FC = () => {
 
       {/* Listing Type Buttons */}
       <div className="grid grid-cols-2 gap-3">
-        {listingTypes.map((type) => (
+        {listingTypes.map((type, index) => (
           <button
-            key={type}
+            key={index}
             className={`px-4 py-2 rounded-full text-sm font-medium transition ${
               selectedType === type ? "bg-[#2F4F4F]  text-white" : " text-[#2F4F4F] border border-[#2F4F4F]"
             } hover:bg-[#2F4F4F]  hover:text-white`}

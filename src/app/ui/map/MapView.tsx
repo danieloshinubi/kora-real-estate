@@ -32,14 +32,17 @@ interface Listing {
 
 interface MapViewProps {
   listings: Listing[];
+  size?: string;
 }
 
-const MapView: React.FC<MapViewProps> = ({ listings }) => {
+const MapView: React.FC<MapViewProps> = ({ listings, size }) => {
   const [hoveredListing, setHoveredListing] = useState<Listing | null>(null);
   const [cardPosition, setCardPosition] = useState<{
     x: number;
     y: number;
   } | null>(null);
+
+  const mapHeight = size ? size : "h-[500px]";
 
   // Custom Marker Component to handle hover events
   const CustomMarker = ({
@@ -62,6 +65,8 @@ const MapView: React.FC<MapViewProps> = ({ listings }) => {
       setCardPosition(null);
     };
 
+    
+
     return (
       <Marker
         position={position}
@@ -75,11 +80,11 @@ const MapView: React.FC<MapViewProps> = ({ listings }) => {
   };
 
   return (
-    <div className='relative'>
+    <div className={`relative ${mapHeight || "h-[500px]"} h-[700px]`}>
       <MapContainer
         center={[9.082, 8.6753]} // Default center
         zoom={3} // Default zoom level
-        className='h-[500px] w-full rounded-md'
+        className={`h-full w-full rounded-md`}
       >
         <TileLayer
           url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'

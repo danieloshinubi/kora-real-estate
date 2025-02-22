@@ -16,7 +16,7 @@ const SortDropdown: React.FC<SortDropdownProps> = ({ onSortChange }) => {
 
   return (
     <select
-      className="border border-gray-300 rounded p-2"
+      className="border text-[12px] border-[#8B3A2D] rounded-2xl mr-8"
       value={selected}
       onChange={handleChange}
     >

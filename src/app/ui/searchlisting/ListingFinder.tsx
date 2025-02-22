@@ -3,6 +3,7 @@ import FilterPanel from "./filter/FilterPanel";
 import ListingList from "./listings/ListingList";
 import MapView from "../map/MapView";
 import { Listing } from "./listingType";
+import SortDropdown from "./listings/SortDropDown";
 
 const listings: Listing[] = [
   {
@@ -98,6 +99,9 @@ const listings: Listing[] = [
 ];
 
 export default function ListingFinder() {
+  const onSortChange = (sortOption: string) => {
+    console.log(sortOption);
+  }
   return (
     <div className='flex w-full mt-16'>
       {/* Left Filter Panel */}
@@ -108,15 +112,20 @@ export default function ListingFinder() {
       {/* Main Content */}
       <div className='w-[55%]'>
         <div className='flex items-center justify-between mb-4'>
-          <h2 className='text-xl font-semibold'>Showing results</h2>
+          <div>
+            <h2 className='text-xl font-semibold'>Showing results</h2>
+            <p className='text-sm text-gray-600'>6 properties found</p>
+          </div>
+          
           {/* You can add a SortDropdown here if you like */}
+          <SortDropdown onSortChange={onSortChange}/>
         </div>
         <ListingList listings={listings} />
       </div>
 
       {/* Map Section */}
       <div className='w-1/4'>
-        <MapView listings={listings} />
+        <MapView listings={listings} size="h-900px" />
       </div>
     </div>
   );

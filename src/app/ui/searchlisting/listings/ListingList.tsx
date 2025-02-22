@@ -10,7 +10,7 @@ interface ListingListProps {
 
 const ListingList: React.FC<ListingListProps> = ({ listings }) => {
   return (
-    <div className="space-y-4 overflow-y-auto h-[600px]">
+    <div className="space-y-4 overflow-y-auto h-[1100px]">
       {listings.map((listing) => (
         <ListingCard key={listing.id} listing={listing} />
       ))}

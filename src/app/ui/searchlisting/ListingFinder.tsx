@@ -10,7 +10,8 @@ const listings: Listing[] = [
   {
     id: "1",
     title: "Relaxing retreat at the heart of Yaba City",
-    description: "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
     image: "/house3.jpg",
     price: 96000,
     currency: "NGN",
@@ -25,7 +26,8 @@ const listings: Listing[] = [
   {
     id: "1",
     title: "Relaxing retreat at the heart of Yaba City",
-    description: "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
     image: "/house3.jpg",
     price: 96000,
     currency: "NGN",
@@ -40,7 +42,8 @@ const listings: Listing[] = [
   {
     id: "1",
     title: "Relaxing retreat at the heart of Yaba City",
-    description: "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
     image: "/house3.jpg",
     price: 96000,
     currency: "NGN",
@@ -55,7 +58,8 @@ const listings: Listing[] = [
   {
     id: "1",
     title: "Relaxing retreat at the heart of Yaba City",
-    description: "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
     image: "/house3.jpg",
     price: 96000,
     currency: "NGN",
@@ -70,7 +74,8 @@ const listings: Listing[] = [
   {
     id: "1",
     title: "Relaxing retreat at the heart of Yaba City",
-    description: "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
     image: "/house3.jpg",
     price: 96000,
     currency: "NGN",
@@ -85,7 +90,248 @@ const listings: Listing[] = [
   {
     id: "1",
     title: "Relaxing retreat at the heart of Yaba City",
-    description: "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    image: "/house3.jpg",
+    price: 96000,
+    currency: "NGN",
+    category: "House",
+    rating: 4.5,
+    location: "Yaba City",
+    latitude: 6.5244,
+    longitude: 3.3792,
+    bathrooms: 2,
+    bedrooms: 3,
+  },
+  {
+    id: "1",
+    title: "Relaxing retreat at the heart of Yaba City",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    image: "/house3.jpg",
+    price: 96000,
+    currency: "NGN",
+    category: "House",
+    rating: 4.5,
+    location: "Yaba City",
+    latitude: 6.5244,
+    longitude: 3.3792,
+    bathrooms: 2,
+    bedrooms: 3,
+  },
+  {
+    id: "1",
+    title: "Relaxing retreat at the heart of Yaba City",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    image: "/house3.jpg",
+    price: 96000,
+    currency: "NGN",
+    category: "House",
+    rating: 4.5,
+    location: "Yaba City",
+    latitude: 6.5244,
+    longitude: 3.3792,
+    bathrooms: 2,
+    bedrooms: 3,
+  },
+  {
+    id: "1",
+    title: "Relaxing retreat at the heart of Yaba City",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    image: "/house3.jpg",
+    price: 96000,
+    currency: "NGN",
+    category: "House",
+    rating: 4.5,
+    location: "Yaba City",
+    latitude: 6.5244,
+    longitude: 3.3792,
+    bathrooms: 2,
+    bedrooms: 3,
+  },
+  {
+    id: "1",
+    title: "Relaxing retreat at the heart of Yaba City",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    image: "/house3.jpg",
+    price: 96000,
+    currency: "NGN",
+    category: "House",
+    rating: 4.5,
+    location: "Yaba City",
+    latitude: 6.5244,
+    longitude: 3.3792,
+    bathrooms: 2,
+    bedrooms: 3,
+  },
+  {
+    id: "1",
+    title: "Relaxing retreat at the heart of Yaba City",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    image: "/house3.jpg",
+    price: 96000,
+    currency: "NGN",
+    category: "House",
+    rating: 4.5,
+    location: "Yaba City",
+    latitude: 6.5244,
+    longitude: 3.3792,
+    bathrooms: 2,
+    bedrooms: 3,
+  },
+  {
+    id: "1",
+    title: "Relaxing retreat at the heart of Yaba City",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    image: "/house3.jpg",
+    price: 96000,
+    currency: "NGN",
+    category: "House",
+    rating: 4.5,
+    location: "Yaba City",
+    latitude: 6.5244,
+    longitude: 3.3792,
+    bathrooms: 2,
+    bedrooms: 3,
+  },
+  {
+    id: "1",
+    title: "Relaxing retreat at the heart of Yaba City",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    image: "/house3.jpg",
+    price: 96000,
+    currency: "NGN",
+    category: "House",
+    rating: 4.5,
+    location: "Yaba City",
+    latitude: 6.5244,
+    longitude: 3.3792,
+    bathrooms: 2,
+    bedrooms: 3,
+  },
+  {
+    id: "1",
+    title: "Relaxing retreat at the heart of Yaba City",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    image: "/house3.jpg",
+    price: 96000,
+    currency: "NGN",
+    category: "House",
+    rating: 4.5,
+    location: "Yaba City",
+    latitude: 6.5244,
+    longitude: 3.3792,
+    bathrooms: 2,
+    bedrooms: 3,
+  },
+  {
+    id: "1",
+    title: "Relaxing retreat at the heart of Yaba City",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    image: "/house3.jpg",
+    price: 96000,
+    currency: "NGN",
+    category: "House",
+    rating: 4.5,
+    location: "Yaba City",
+    latitude: 6.5244,
+    longitude: 3.3792,
+    bathrooms: 2,
+    bedrooms: 3,
+  },
+  {
+    id: "1",
+    title: "Relaxing retreat at the heart of Yaba City",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    image: "/house3.jpg",
+    price: 96000,
+    currency: "NGN",
+    category: "House",
+    rating: 4.5,
+    location: "Yaba City",
+    latitude: 6.5244,
+    longitude: 3.3792,
+    bathrooms: 2,
+    bedrooms: 3,
+  },
+  {
+    id: "1",
+    title: "Relaxing retreat at the heart of Yaba City",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    image: "/house3.jpg",
+    price: 96000,
+    currency: "NGN",
+    category: "House",
+    rating: 4.5,
+    location: "Yaba City",
+    latitude: 6.5244,
+    longitude: 3.3792,
+    bathrooms: 2,
+    bedrooms: 3,
+  },
+  {
+    id: "1",
+    title: "Relaxing retreat at the heart of Yaba City",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    image: "/house3.jpg",
+    price: 96000,
+    currency: "NGN",
+    category: "House",
+    rating: 4.5,
+    location: "Yaba City",
+    latitude: 6.5244,
+    longitude: 3.3792,
+    bathrooms: 2,
+    bedrooms: 3,
+  },
+  {
+    id: "1",
+    title: "Relaxing retreat at the heart of Yaba City",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    image: "/house3.jpg",
+    price: 96000,
+    currency: "NGN",
+    category: "House",
+    rating: 4.5,
+    location: "Yaba City",
+    latitude: 6.5244,
+    longitude: 3.3792,
+    bathrooms: 2,
+    bedrooms: 3,
+  },
+  {
+    id: "1",
+    title: "Relaxing retreat at the heart of Yaba City",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+    image: "/house3.jpg",
+    price: 96000,
+    currency: "NGN",
+    category: "House",
+    rating: 4.5,
+    location: "Yaba City",
+    latitude: 6.5244,
+    longitude: 3.3792,
+    bathrooms: 2,
+    bedrooms: 3,
+  },
+  {
+    id: "1",
+    title: "Relaxing retreat at the heart of Yaba City",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
     image: "/house3.jpg",
     price: 96000,
     currency: "NGN",
@@ -102,7 +348,7 @@ const listings: Listing[] = [
 export default function ListingFinder() {
   const onSortChange = (sortOption: string) => {
     console.log(sortOption);
-  }
+  };
   return (
     <div className='flex w-full mt-16'>
       {/* Left Filter Panel */}
@@ -115,18 +361,20 @@ export default function ListingFinder() {
         <div className='flex items-center justify-between mb-4'>
           <div>
             <h2 className='text-[18px]'>Showing results</h2>
-            <p className={`${cabin.className} text-sm`}>300+ listings for “Wedding Location”</p>
+            <p className={`${cabin.className} text-sm`}>
+              300+ listings for “Wedding Location”
+            </p>
           </div>
-          
+
           {/* You can add a SortDropdown here if you like */}
-          <SortDropdown onSortChange={onSortChange}/>
+          <SortDropdown onSortChange={onSortChange} />
         </div>
         <ListingList listings={listings} />
       </div>
 
       {/* Map Section */}
       <div className='w-1/4'>
-        <MapView listings={listings} size="h-900px" />
+        <MapView listings={listings} size='h-900px' />
       </div>
     </div>
   );

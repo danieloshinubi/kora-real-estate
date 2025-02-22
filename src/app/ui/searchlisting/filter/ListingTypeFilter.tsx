@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import { inknutAntiqua } from "../../fonts";
 
 const listingTypes = [
   "House",
   "Villa",
   "Apartment",
   "Condo",
-  "Beach House",
   "Pent House",
   "Duplex",
 ];
@@ -18,18 +18,18 @@ const ListingTypeFilter: React.FC = () => {
   };
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-6 border-b pb-8">
       {/* Title */}
-      <h3 className="font-semibold text-lg">Listing Type</h3>
+      <h3 className={`${inknutAntiqua.className} text-[14px]`}>Listing Type</h3>
 
       {/* Listing Type Buttons */}
       <div className="grid grid-cols-2 gap-3">
         {listingTypes.map((type) => (
           <button
             key={type}
-            className={`px-4 py-2 rounded-full text-white text-sm font-medium transition ${
-              selectedType === type ? "bg-green-900" : "bg-green-800"
-            } hover:bg-green-900`}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+              selectedType === type ? "bg-[#2F4F4F]  text-white" : " text-[#2F4F4F] border border-[#2F4F4F]"
+            } hover:bg-[#2F4F4F]  hover:text-white`}
             onClick={() => handleSelect(type)}
           >
             {type}

@@ -1,19 +1,24 @@
-// types/listing.ts
-
 export interface Listing {
-    id: string;
-    title: string;
-    description: string;
-    image: string;
-    price: number;
-    currency: string;
-    category: string;
-    rating: number;
-    location: string;
-    latitude: number;
+  _id: string;
+  name: string;
+  description: string;
+  listingImg: { _id: string; fileUrl: string }[];
+  price: number;
+  rating: number;
+  location: {
     longitude: number;
-    bathrooms: number;
-    bedrooms: number;
-    // add more fields as needed
-  }
-  
+    latitude: number;
+  };
+  amenities: {
+    _id: string;
+    name: string;
+    icon: {
+      _id: string;
+      fileUrl: string;
+    };
+  }[];
+  propertyType: {
+    _id: string;
+    name: string;
+  };
+}

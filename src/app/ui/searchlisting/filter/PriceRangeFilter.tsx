@@ -38,6 +38,7 @@ const PriceRangeFilter: React.FC<PriceRangeFilterProps> = ({
           renderThumb={({ props }) => (
             <div
               {...props}
+              key={props.key}
               className='w-6 h-6 bg-[#2F4F4F] border-2 border-primary rounded-full shadow-md focus:outline-none'
               style={{ ...props.style }}
             />

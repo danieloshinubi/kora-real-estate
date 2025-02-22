@@ -1,10 +1,10 @@
 import React from "react";
 import FilterPanel from "./filter/FilterPanel";
 import ListingList from "./listings/ListingList";
-import MapView from "../map/MapView";
 import { Listing } from "./listingType";
 import SortDropdown from "./listings/SortDropDown";
 import { cabin } from "../fonts";
+import SearchMapView from "./SearchMapView";
 
 const listings: Listing[] = [
   {
@@ -18,8 +18,8 @@ const listings: Listing[] = [
     category: "House",
     rating: 4.5,
     location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
+    latitude: 7.7332, 
+    longitude: 8.5333,
     bathrooms: 2,
     bedrooms: 3,
   },
@@ -34,8 +34,8 @@ const listings: Listing[] = [
     category: "House",
     rating: 4.5,
     location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
+    latitude: 8.3830,
+    longitude: 8.5167,
     bathrooms: 2,
     bedrooms: 3,
   },
@@ -50,8 +50,8 @@ const listings: Listing[] = [
     category: "House",
     rating: 4.5,
     location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
+    latitude: 7.1665,
+    longitude: 8.1332,
     bathrooms: 2,
     bedrooms: 3,
   },
@@ -66,8 +66,8 @@ const listings: Listing[] = [
     category: "House",
     rating: 4.5,
     location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
+    latitude: 8.5001,
+    longitude: 9.0003,
     bathrooms: 2,
     bedrooms: 3,
   },
@@ -82,8 +82,8 @@ const listings: Listing[] = [
     category: "House",
     rating: 4.5,
     location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
+    latitude: 8.0334,
+    longitude: 8.3666,
     bathrooms: 2,
     bedrooms: 3,
   },
@@ -374,7 +374,7 @@ export default function ListingFinder() {
 
       {/* Map Section */}
       <div className='w-1/4'>
-        <MapView listings={listings} size='h-900px' />
+        <SearchMapView listings={listings} size='h-900px' />
       </div>
     </div>
   );

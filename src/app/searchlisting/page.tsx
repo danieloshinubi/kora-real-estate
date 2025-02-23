@@ -1,10 +1,10 @@
 "use client";
-import { useSearchParams } from "next/navigation";
+// import { useSearchParams } from "next/navigation";
 import { useUser } from "../context/UserContext";
 import Navbar from "../ui/Navbar";
 import Footer from "../ui/components/Footer";
 import ListingFinder from "../ui/searchlisting/ListingFinder";
-import SearchComponent from "../ui/searchlisting/SearchComponent";
+// import SearchComponent from "../ui/searchlisting/SearchComponent";
 
 // import { houseListings } from "../utils/MapHouseListing";
 

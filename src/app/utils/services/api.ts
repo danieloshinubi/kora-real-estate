@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { Listing } from "@/types/listingtype";
 import { UserDetails, UserProfileInfo } from "@/app/ui/signUp/SignUpForm";
 export type FetchedPropertyType = {
   name: string;
@@ -116,6 +117,11 @@ export const api = createApi({
         method: "DELETE",
       }),
     }),
+
+    //Listing Endpoints
+    getListings: builder.query<Listing[], void>({
+      query: () => "/listings",
+    }),
   }),
 });
 
@@ -131,4 +137,5 @@ export const {
   useGetPropertyTypesQuery,
   useCreatePropertyTypeMutation,
   useDeletePropertyTypeMutation,
+  useGetListingsQuery,
 } = api;

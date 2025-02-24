@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import cards from "@/app/utils/PropertyListings";
 import PropertyCard from "./PropertyCard";
 import { cabin } from "../fonts";
 import { MdArrowDownward, MdArrowUpward } from "react-icons/md";
+import { useGetListingsQuery } from "@/app/utils/services/api"; 
+import { Listing } from "@/types/listingtype";
 
-// Header component
+// Header component remains the same
 const Header = () => (
   <div>
     <h1 className='text-[18px] sm:text-[20px] lg:text-[24px] font-semibold'>Discover Recent Listings</h1>
@@ -12,70 +13,88 @@ const Header = () => (
   </div>
 );
 
-// PropertyGrid component
+// Updated PropertyGrid interface and component
 interface PropertyGridProps {
   visibleCount: number;
+  listings: Listing[]; // Use proper type from your API response
 }
 
-const PropertyGrid: React.FC<PropertyGridProps> = ({ visibleCount }) => (
+const PropertyGrid: React.FC<PropertyGridProps> = ({ visibleCount, listings }) => (
   <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6'>
-    {cards.slice(0, visibleCount).map((card) => (
+    {listings.slice(0, visibleCount).map((listing) => (
       <PropertyCard
-        key={card.title}
-        image={card.image}
-        category={card.category}
-        rating={card.rating}
-        title={card.title}
-        location={card.location}
-        bedrooms={card.bedrooms}
-        bathrooms={card.bathrooms}
-        price={card.price}
+        key={listing._id}
+        image={listing.listingImg[0].fileUrl}
+        propertyType={listing.propertyType.name}
+        rating={ 5.0}
+        title={listing.name}
+        location={`${listing.location?.latitude}, ${listing.location?.longitude}`}
+        bedrooms={3} // Update with actual data from API
+        bathrooms={2} // Update with actual data from API
+        price={listing.price}
       />
     ))}
   </div>
 );
 
-// ShowMoreButton component
+// Updated ShowMoreButton interface
 interface ShowMoreButtonProps {
   visibleCount: number;
+  totalListings: number;
   handleSeeMore: () => void;
   handleSeeLess: () => void;
 }
 
-const ShowMoreButton: React.FC<ShowMoreButtonProps> = ({ visibleCount, handleSeeMore, handleSeeLess }) => (
-  visibleCount < cards.length ? (
+const ShowMoreButton: React.FC<ShowMoreButtonProps> = ({ 
+  visibleCount, 
+  totalListings,
+  handleSeeMore, 
+  handleSeeLess 
+}) => (
+  visibleCount < totalListings ? (
     <div className="text-center mt-6 w-full flex justify-center items-center">
-      <button onClick={handleSeeMore} className=" text-orange-500">
+      <button onClick={handleSeeMore} className="text-orange-500">
         Show More Options
       </button>
       <MdArrowDownward className="text-orange-500 text-[2xl]" />
     </div>
   ) : (
-    <div className="text-center mt-6 flex justify-center items-center">
-      <button onClick={handleSeeLess} className=" text-orange-500">
-        Show Lesser Options
-      </button>
-      <MdArrowUpward className="text-orange-500 text-[2xl]" />
-    </div>
+    totalListings > 8 && (
+      <div className="text-center mt-6 flex justify-center items-center">
+        <button onClick={handleSeeLess} className="text-orange-500">
+          Show Lesser Options
+        </button>
+        <MdArrowUpward className="text-orange-500 text-[2xl]" />
+      </div>
+    )
   )
 );
 
 export default function HouseListingSection() {
   const [visibleCount, setVisibleCount] = useState<number>(8);
+  const { data: listings = [], isLoading, error } = useGetListingsQuery();
 
   const handleSeeMore = () => {
     setVisibleCount((prevCount) => prevCount + 8);
   };
+
   const handleSeeLess = () => {
     setVisibleCount(8);
   };
 
+  if (isLoading) return <div className="py-24 pt-64 sm:pt-24">Loading listings...</div>;
+  if (error) return <div className="py-24 pt-64 sm:pt-24">Error loading listings</div>;
+
   return (
-    <div className="py-24  pt-64 sm:pt-24">
+    <div className="py-24 pt-64 sm:pt-24">
       <Header />
-      <PropertyGrid visibleCount={visibleCount} />
-      <ShowMoreButton 
+      <PropertyGrid 
         visibleCount={visibleCount} 
+        listings={listings} 
+      />
+      <ShowMoreButton 
+        visibleCount={visibleCount}
+        totalListings={listings.length}
         handleSeeMore={handleSeeMore} 
         handleSeeLess={handleSeeLess} 
       />

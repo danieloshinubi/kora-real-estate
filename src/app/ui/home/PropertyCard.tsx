@@ -6,7 +6,7 @@ import Link from "next/link";
 
 interface CardProps {
   image: string;
-  category: string;
+  propertyType: string;
   rating: number;
   title: string;
   location: string;
@@ -17,7 +17,7 @@ interface CardProps {
 
 const PropertyCard: React.FC<CardProps> = ({
   image,
-  category,
+  propertyType,
   rating,
   title,
   location,
@@ -56,12 +56,12 @@ const PropertyCard: React.FC<CardProps> = ({
 
         {/* Content Section */}
         <div className='py-4'>
-          {/* Category and Rating */}
+          {/* propertyType and Rating */}
           <div className='flex justify-between items-center'>
             <span
               className={`px-3 py-1 bg-gray-800 text-white rounded-full text-[12px] ${cabin.className}`}
             >
-              {category}
+              {propertyType}
             </span>
             <div className='flex items-center space-x-1'>
               <span

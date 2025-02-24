@@ -162,24 +162,3 @@
 // ];
 
 // export default cards;
-
-
-// components/PropertyListings.tsx
-"use client";
-import { useEffect } from "react";
-import { useGetListingsQuery } from "./services/api";
-
-// Define Listing Type (adjust based on your backend response)
-export type Listing = {
-  _id: string;
-  name: string;
-  description: string;
-  price: number;
-  amenities: string[];
-  listingImg: string;
-  propertyType: string;
-  location: {
-    latitude: number;
-    longitude: number;
-  };
-};

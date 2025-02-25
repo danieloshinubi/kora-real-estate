@@ -6,7 +6,7 @@ export const collections = [
     collectionProperties: [
       {
         image: "/dubai.jpeg",
-        category: "Luxury",
+        propertyType: "Luxury",
         rating: 9.1,
         title: "Luxury Apartment in Dubai",
         location: "Dubai, UAE",
@@ -16,7 +16,7 @@ export const collections = [
       },
       {
         image: "/high-rise.jpeg",
-        category: "Modern",
+        propertyType: "Modern",
         rating: 8.7,
         title: "High-Rise Condo",
         location: "New York, USA",
@@ -26,7 +26,7 @@ export const collections = [
       },
       {
         image: "/living-room2.jpeg",
-        category: "Cozy",
+        propertyType: "Cozy",
         rating: 8.5,
         title: "Cozy Living Room",
         location: "Paris, France",
@@ -36,7 +36,7 @@ export const collections = [
       },
       {
         image: "/living-room.jpeg",
-        category: "Spacious",
+        propertyType: "Spacious",
         rating: 8.9,
         title: "Spacious Living Room",
         location: "Berlin, Germany",
@@ -53,7 +53,7 @@ export const collections = [
     collectionProperties: [
       {
         image: "/condo.jpg",
-        category: "Luxury",
+        propertyType: "Luxury",
         rating: 9.0,
         title: "Luxury Condo",
         location: "Los Angeles, USA",
@@ -63,7 +63,7 @@ export const collections = [
       },
       {
         image: "/duplex.jpg",
-        category: "Modern",
+        propertyType: "Modern",
         rating: 8.6,
         title: "Modern Duplex",
         location: "Toronto, Canada",
@@ -73,7 +73,7 @@ export const collections = [
       },
       {
         image: "/estate.jpg",
-        category: "Estate",
+        propertyType: "Estate",
         rating: 9.2,
         title: "Sprawling Estate",
         location: "Cape Town, South Africa",
@@ -83,7 +83,7 @@ export const collections = [
       },
       {
         image: "/villa.jpg",
-        category: "Villa",
+        propertyType: "Villa",
         rating: 8.8,
         title: "Beachside Villa",
         location: "Malibu, USA",
@@ -100,7 +100,7 @@ export const collections = [
     collectionProperties: [
       {
         image: "/apartment.jpg",
-        category: "Urban",
+        propertyType: "Urban",
         rating: 8.4,
         title: "Urban Apartment",
         location: "Tokyo, Japan",
@@ -110,7 +110,7 @@ export const collections = [
       },
       {
         image: "/bed.jpeg",
-        category: "Cozy",
+        propertyType: "Cozy",
         rating: 8.2,
         title: "Cozy Bedroom",
         location: "Amsterdam, Netherlands",
@@ -120,7 +120,7 @@ export const collections = [
       },
       {
         image: "/skyscraper.jpg",
-        category: "Modern",
+        propertyType: "Modern",
         rating: 8.9,
         title: "Modern Skyscraper",
         location: "Shanghai, China",
@@ -130,7 +130,7 @@ export const collections = [
       },
       {
         image: "/street.jpg",
-        category: "Historic",
+        propertyType: "Historic",
         rating: 8.1,
         title: "Historic Street View",
         location: "Rome, Italy",

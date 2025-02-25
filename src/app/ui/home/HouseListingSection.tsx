@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import PropertyCard from "./PropertyCard";
 import { cabin } from "../fonts";
 import { MdArrowDownward, MdArrowUpward } from "react-icons/md";
-import { useGetListingsQuery } from "@/app/utils/services/api"; 
+import { useGetListingsQuery } from "@/app/utils/services/api";
 import { Listing } from "@/types/listingtype";
 
 // Header component remains the same
 const Header = () => (
   <div>
-    <h1 className='text-[18px] sm:text-[20px] lg:text-[24px] font-semibold'>Discover Recent Listings</h1>
-    <p className={`text-gray-600 ${cabin.className}`}>Lorem ipsum dolor sit amet consectetur.</p>
+    <h1 className='text-[18px] sm:text-[20px] lg:text-[24px] font-semibold'>
+      Discover Recent Listings
+    </h1>
+    <p className={`text-gray-600 ${cabin.className}`}>
+      Lorem ipsum dolor sit amet consectetur.
+    </p>
   </div>
 );
 
@@ -19,14 +23,17 @@ interface PropertyGridProps {
   listings: Listing[]; // Use proper type from your API response
 }
 
-const PropertyGrid: React.FC<PropertyGridProps> = ({ visibleCount, listings }) => (
+const PropertyGrid: React.FC<PropertyGridProps> = ({
+  visibleCount,
+  listings,
+}) => (
   <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6'>
     {listings.slice(0, visibleCount).map((listing) => (
       <PropertyCard
         key={listing._id}
         image={listing.listingImg[0].fileUrl}
         propertyType={listing.propertyType.name}
-        rating={ 5.0}
+        rating={5.0}
         title={listing.name}
         location={`${listing.location?.latitude}, ${listing.location?.longitude}`}
         bedrooms={3} // Update with actual data from API
@@ -45,30 +52,29 @@ interface ShowMoreButtonProps {
   handleSeeLess: () => void;
 }
 
-const ShowMoreButton: React.FC<ShowMoreButtonProps> = ({ 
-  visibleCount, 
+const ShowMoreButton: React.FC<ShowMoreButtonProps> = ({
+  visibleCount,
   totalListings,
-  handleSeeMore, 
-  handleSeeLess 
-}) => (
+  handleSeeMore,
+  handleSeeLess,
+}) =>
   visibleCount < totalListings ? (
-    <div className="text-center mt-6 w-full flex justify-center items-center">
-      <button onClick={handleSeeMore} className="text-orange-500">
+    <div className='text-center mt-6 w-full flex justify-center items-center'>
+      <button onClick={handleSeeMore} className='text-orange-500'>
         Show More Options
       </button>
-      <MdArrowDownward className="text-orange-500 text-[2xl]" />
+      <MdArrowDownward className='text-orange-500 text-[2xl]' />
     </div>
   ) : (
     totalListings > 8 && (
-      <div className="text-center mt-6 flex justify-center items-center">
-        <button onClick={handleSeeLess} className="text-orange-500">
+      <div className='text-center mt-6 flex justify-center items-center'>
+        <button onClick={handleSeeLess} className='text-orange-500'>
           Show Lesser Options
         </button>
-        <MdArrowUpward className="text-orange-500 text-[2xl]" />
+        <MdArrowUpward className='text-orange-500 text-[2xl]' />
       </div>
     )
-  )
-);
+  );
 
 export default function HouseListingSection() {
   const [visibleCount, setVisibleCount] = useState<number>(8);
@@ -82,21 +88,39 @@ export default function HouseListingSection() {
     setVisibleCount(8);
   };
 
-  if (isLoading) return <div className="py-24 pt-64 sm:pt-24">Loading listings...</div>;
-  if (error) return <div className="py-24 pt-64 sm:pt-24">Error loading listings</div>;
+  if (isLoading)
+    return (
+      <div className='py-24 pt-64 sm:pt-24'>
+        <Header />
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6'>
+          {[...Array(8)].map((_, index) => (
+            <PropertyCard
+              key={index}
+              image='/square.png'
+              propertyType='.....'
+              rating={0}
+              title='...........'
+              location='............'
+              bedrooms={3}
+              bathrooms={2}
+              price={1000}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  if (error)
+    return <div className='py-24 pt-64 sm:pt-24'>Error loading listings</div>;
 
   return (
-    <div className="py-24 pt-64 sm:pt-24">
+    <div className='py-24 pt-64 sm:pt-24'>
       <Header />
-      <PropertyGrid 
-        visibleCount={visibleCount} 
-        listings={listings} 
-      />
-      <ShowMoreButton 
+      <PropertyGrid visibleCount={visibleCount} listings={listings} />
+      <ShowMoreButton
         visibleCount={visibleCount}
         totalListings={listings.length}
-        handleSeeMore={handleSeeMore} 
-        handleSeeLess={handleSeeLess} 
+        handleSeeMore={handleSeeMore}
+        handleSeeLess={handleSeeLess}
       />
     </div>
   );

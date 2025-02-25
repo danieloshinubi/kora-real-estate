@@ -72,7 +72,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
           console.error("Error fetching user profile:", error);
         }
       } else {
-        console.log("No user id found");
+        console.log(" ");
       }
     };
 

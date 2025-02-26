@@ -26,7 +26,7 @@ export default function ListingPage({ propertyId }: ListingPageProps) {
         title={listing.name || "Title Here"}
         rating={listing.rating || 0}
       />
-      <ImageGallery />
+      <ImageGallery listingImg={listing.listingImg}/>
       <Tabs />
       <div className='grid sm:grid-cols-1 md:grid-cols-3 gap-6 mt-6'>
         <div className='sm:col-span-1 md:col-span-2 space-y-6'>

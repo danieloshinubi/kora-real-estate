@@ -37,7 +37,7 @@ export default function ListingPage({ propertyId }: ListingPageProps) {
           <BedroomDetails />
           <AmenitiesList  amenitiesList={listing.amenities}/>
         </div>
-        <PriceCard />
+        <PriceCard price={listing.price} />
       </div>
       <NearbyLocations />
       <PropertyOwner />

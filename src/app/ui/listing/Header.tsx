@@ -9,7 +9,7 @@ export default function Header({ title, rating }: HeaderProps) {
   const roundedRating = Math.ceil(rating); // Round up the rating
 
   return (
-    <div className=''>
+    <div className='' id="Overview">
       <h1 className='text-[20px] md:text-3xl text-[#8B3A2D] font-semibold'>
         {title}
       </h1>

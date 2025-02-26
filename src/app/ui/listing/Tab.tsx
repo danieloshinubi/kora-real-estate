@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Tabs() {
-    const [activeTab, setActiveTab] = useState<string>("Overview");
-    return (
-      <div className="hidden md:flex space-x-4 mt-4 border-b">
-        {["Overview", "Location", "Comments", "FAQs"].map((tab, index) => (
-          <button
+  const [activeTab, setActiveTab] = useState<string>("Overview");
+
+  useEffect(() => {
+    window.location.hash = `#${activeTab}`;
+  }, [activeTab]);
+
+  return (
+    <div className='hidden md:flex space-x-4 mt-4 border-b'>
+      {["Overview","Amenities", "Location", "Comments", "FAQs"].map((tab, index) => (
+        <button
           key={index}
           className={`lg:px-4 py-2 text-[12px] lg:text-[16px] ${
             activeTab === tab
@@ -16,8 +21,7 @@ export default function Tabs() {
         >
           {tab}
         </button>
-        ))}
-      </div>
-    );
-  }
-  
+      ))}
+    </div>
+  );
+}

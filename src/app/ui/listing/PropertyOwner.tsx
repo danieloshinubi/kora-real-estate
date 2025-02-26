@@ -3,7 +3,7 @@ import { cabin } from "../fonts";
 
 export default function PropertyOwner() {
   return (
-    <section className="max-w-5xl mx-auto mt-16 px-4 mb-64 ">
+    <section className="max-w-5xl mx-auto mt-16 px-4 mb-64 " id="Comments">
       <div className="flex flex-col md:flex-row md:items-start md:justify-between">
         {/* Left Section */}
         <div className="md:w-1/3 mb-6 md:mb-0">

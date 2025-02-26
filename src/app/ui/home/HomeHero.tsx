@@ -32,7 +32,7 @@ const SearchCriteria = [
   },
   { criteria: "Price", placeholder: "Choose Range", stateKey: "price" },
   {
-    criteria: "Listing Type",
+    criteria: "Property Type",
     placeholder: "Select Type",
     stateKey: "listingType",
   },

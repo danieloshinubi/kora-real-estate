@@ -7,8 +7,7 @@ export default function SectionHeader() {
         Find spaces that suit your style
       </h1>
       <p className={`text-gray-600 ${cabin.className} text-[16px] text-left lg:text-center`}>
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout.
+      Discover a collection of thoughtfully curated properties that reflect your unique taste and meet your every need.
       </p>
     </div>
   );

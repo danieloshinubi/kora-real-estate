@@ -11,10 +11,7 @@ const ReviewHeader = () => (
       Customer Reviews
     </h2>
     <p className={`text-gray-500 mt-2 text-[16px] ${cabin.className}`}>
-      Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper
-      nunc blandit at ac luctus. Viverra diam in sit ultrices in et proin lorem
-      ipsum. Feugiat etiam scelerisque aliquet vitae mauris ornare quis eget
-      tincidunt. Sapien aliquet aliquet ut curabitur. Aliquet leo arcu tellus.
+    Hear from our satisfied clients! Explore real stories and testimonials from homeowners, investors, and renters who have found their perfect spaces with us.
     </p>
     <button
       className={`${cabin.className} bg-[#D2691E] text-white py-[10px] px-[18px] mt-12 rounded-[6px] w-full max-w-[204px]`}

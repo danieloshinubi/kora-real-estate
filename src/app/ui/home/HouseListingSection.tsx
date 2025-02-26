@@ -12,7 +12,7 @@ const Header = () => (
       Discover Recent Listings
     </h1>
     <p className={`text-gray-600 ${cabin.className}`}>
-      Lorem ipsum dolor sit amet consectetur.
+    Find your next home or investment opportunity among our handpicked, up-to-date properties.
     </p>
   </div>
 );

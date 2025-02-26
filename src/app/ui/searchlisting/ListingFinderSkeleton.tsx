@@ -4,24 +4,15 @@ import ListingList from "./listings/ListingList";
 import { Listing } from "./listingType";
 import SortDropdown from "./listings/SortDropDown";
 import { cabin } from "../fonts";
-import { useGetListingsQuery } from "@/app/utils/services/api";
-import ListingFinderSkeleton from "./ListingFinderSkeleton";
-// import dynamic from "next/dynamic";
-// import { listings } from "./PropertyList";
+import { listings } from "./PropertyList";
 
-// const SearchMapView = dynamic(() => import("./SearchMapView"), { ssr: false });
 
-const ListingFinder: React.FC = ({}) => {
+const ListingFinderSkeleton: React.FC = ({}) => {
   const onSortChange = (sortOption: string) => {
     console.log(sortOption);
   };
-  const { data: listings = [], isLoading, error } = useGetListingsQuery();
 
   const [filteredListings, setFilteredListings] = useState<Listing[]>(listings);
-
-  if (isLoading) return <ListingFinderSkeleton />;
-
-  if (error) return <ListingFinderSkeleton />;
 
   return (
     <div className='flex w-full mt-16'>
@@ -40,7 +31,7 @@ const ListingFinder: React.FC = ({}) => {
           <div>
             <h2 className='text-[18px]'>Showing results</h2>
             <p className={`${cabin.className} text-sm`}>
-              {`${listings.length}+ listings for “Wedding Location`}
+              {`${listings.length + 1}+ listings for “Wedding Location`}
             </p>
           </div>
 
@@ -58,4 +49,4 @@ const ListingFinder: React.FC = ({}) => {
   );
 };
 
-export default ListingFinder;
+export default ListingFinderSkeleton;

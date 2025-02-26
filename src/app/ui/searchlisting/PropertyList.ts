@@ -1,7 +1,6 @@
 import { Listing } from "./listingType";
 
-const commonImageUrl =
-  "https://res.cloudinary.com/dvv4wwuk1/image/upload/v1738108663/Kora%20Service/Listing/koxsdxbpu4cj7hmc6fso.jpg";
+const commonImageUrl = "/square.png";
 const bedUrl =
   "https://res.cloudinary.com/dvv4wwuk1/image/upload/v1738101271/Kora%20Service/AmenityIcon/rahaiputovkupwhjmp5t.png";
 
@@ -12,8 +11,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "1",
-    name: "Four Seasons Hotel",
-    description: "It is a big hotel",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -47,8 +46,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "2",
-    name: "Four Seasons Hotel",
-    description: "It is a big hotel",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -82,8 +81,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "3",
-    name: "Luxury Villa",
-    description: "A luxurious villa with modern amenities",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -117,8 +116,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "4",
-    name: "Cozy Cottage",
-    description: "A cozy cottage in a serene environment",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -152,8 +151,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "5",
-    name: "Modern Apartment",
-    description: "A modern apartment in the city center",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -187,8 +186,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "6",
-    name: "Beach House",
-    description: "A beautiful beach house with ocean view",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -222,8 +221,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "7",
-    name: "Mountain Cabin",
-    description: "A cozy cabin in the mountains",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -257,8 +256,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "8",
-    name: "Downtown Loft",
-    description: "A stylish loft in downtown",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -292,8 +291,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "9",
-    name: "Suburban House",
-    description: "A spacious house in the suburbs",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -327,8 +326,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "10",
-    name: "Penthouse Suite",
-    description: "A luxurious penthouse suite",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -362,8 +361,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "11",
-    name: "Country Farmhouse",
-    description: "A charming farmhouse in the countryside",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -397,8 +396,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "12",
-    name: "Urban Studio",
-    description: "A compact studio in the urban area",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -432,8 +431,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "13",
-    name: "Historic Mansion",
-    description: "A historic mansion with antique furnishings",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -467,8 +466,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "14",
-    name: "Eco-Friendly Home",
-    description: "An eco-friendly home with solar panels",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -502,8 +501,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "15",
-    name: "Luxury Condo",
-    description: "A luxury condo with high-end amenities",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -537,8 +536,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "16",
-    name: "Rustic Barn",
-    description: "A rustic barn converted into a home",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -572,8 +571,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "17",
-    name: "Seaside Bungalow",
-    description: "A charming bungalow by the sea",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -607,8 +606,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "18",
-    name: "City Penthouse",
-    description: "A luxurious penthouse in the city",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -642,8 +641,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "19",
-    name: "Countryside Villa",
-    description: "A beautiful villa in the countryside",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -677,8 +676,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "20",
-    name: "Modern Loft",
-    description: "A modern loft with open floor plan",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -712,8 +711,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "21",
-    name: "Luxury Townhouse",
-    description: "A luxury townhouse with private garden",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -747,8 +746,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "22",
-    name: "Charming Cottage",
-    description: "A charming cottage with a beautiful garden",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -782,8 +781,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "23",
-    name: "Modern Studio",
-    description: "A modern studio with all amenities",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -817,8 +816,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "24",
-    name: "Luxury Apartment",
-    description: "A luxury apartment with city view",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -852,8 +851,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "25",
-    name: "Beachfront Villa",
-    description: "A luxurious villa on the beachfront",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -887,8 +886,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "26",
-    name: "Urban Loft",
-    description: "A stylish loft in the urban area",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",
@@ -922,8 +921,8 @@ export const listings: Listing[] = [
       latitude: 6.543976,
     },
     _id: "27",
-    name: "Mountain Retreat",
-    description: "A peaceful retreat in the mountains",
+    name: "",
+    description: "",
     amenities: [
       {
         _id: "6799521254953fa2f52b75a4",

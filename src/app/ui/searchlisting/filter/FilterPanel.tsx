@@ -17,9 +17,9 @@ const FilterPanel: React.FC<Props> = ({ listings, setFilteredListings }) => {
   const searchParams = useSearchParams();
 
   // Extract price parameter from URL
-  const priceParams = searchParams.get("price") || "₦0 - ₦1,000,000";
-  const listingTypeParams = searchParams.get("listingType") || "";
-  const locationParams = searchParams.get("location") || "";
+  const priceParams = searchParams?.get("price") || "₦0 - ₦1,000,000";
+  const listingTypeParams = searchParams?.get("listingType") || "";
+  const locationParams = searchParams?.get("location") || "";
 
   // Function to convert price string to number range
   const parsePriceRange = (price: string): [number, number] => {

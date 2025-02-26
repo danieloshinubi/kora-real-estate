@@ -6,6 +6,7 @@ import Link from "next/link";
 
 interface CardProps {
   image: string;
+  _id: string;
   propertyType: string;
   rating: number;
   title: string;
@@ -17,6 +18,7 @@ interface CardProps {
 
 const PropertyCard: React.FC<CardProps> = ({
   image,
+  _id,
   propertyType,
   rating,
   title,
@@ -32,7 +34,7 @@ const PropertyCard: React.FC<CardProps> = ({
   }
 
   return (
-    <Link href={`/propertyinfo/${title.toLowerCase().replaceAll(" ", "-")}`}>
+    <Link href={`/propertyinfo/${_id}`} passHref>
       <div className=' bg-white overflow-hidden'>
         {/* Image Section */}
         <div className='relative'>

@@ -6,6 +6,7 @@ export const collections = [
     collectionProperties: [
       {
         image: "/dubai.jpeg",
+        _id: "1",
         propertyType: "Luxury",
         rating: 9.1,
         title: "Luxury Apartment in Dubai",
@@ -16,6 +17,7 @@ export const collections = [
       },
       {
         image: "/high-rise.jpeg",
+        _id: "2",
         propertyType: "Modern",
         rating: 8.7,
         title: "High-Rise Condo",
@@ -26,6 +28,7 @@ export const collections = [
       },
       {
         image: "/living-room2.jpeg",
+        _id: "2",
         propertyType: "Cozy",
         rating: 8.5,
         title: "Cozy Living Room",
@@ -36,6 +39,7 @@ export const collections = [
       },
       {
         image: "/living-room.jpeg",
+        _id: "4",
         propertyType: "Spacious",
         rating: 8.9,
         title: "Spacious Living Room",
@@ -53,6 +57,7 @@ export const collections = [
     collectionProperties: [
       {
         image: "/condo.jpg",
+        _id: "1",
         propertyType: "Luxury",
         rating: 9.0,
         title: "Luxury Condo",
@@ -63,6 +68,7 @@ export const collections = [
       },
       {
         image: "/duplex.jpg",
+        _id: "1",
         propertyType: "Modern",
         rating: 8.6,
         title: "Modern Duplex",
@@ -73,6 +79,7 @@ export const collections = [
       },
       {
         image: "/estate.jpg",
+        _id: "1",
         propertyType: "Estate",
         rating: 9.2,
         title: "Sprawling Estate",
@@ -83,6 +90,7 @@ export const collections = [
       },
       {
         image: "/villa.jpg",
+        _id: "1",
         propertyType: "Villa",
         rating: 8.8,
         title: "Beachside Villa",
@@ -100,6 +108,7 @@ export const collections = [
     collectionProperties: [
       {
         image: "/apartment.jpg",
+        _id: "1",
         propertyType: "Urban",
         rating: 8.4,
         title: "Urban Apartment",
@@ -110,6 +119,7 @@ export const collections = [
       },
       {
         image: "/bed.jpeg",
+        _id: "1",
         propertyType: "Cozy",
         rating: 8.2,
         title: "Cozy Bedroom",
@@ -120,6 +130,7 @@ export const collections = [
       },
       {
         image: "/skyscraper.jpg",
+        _id: "1",
         propertyType: "Modern",
         rating: 8.9,
         title: "Modern Skyscraper",
@@ -130,6 +141,7 @@ export const collections = [
       },
       {
         image: "/street.jpg",
+        _id: "1",
         propertyType: "Historic",
         rating: 8.1,
         title: "Historic Street View",

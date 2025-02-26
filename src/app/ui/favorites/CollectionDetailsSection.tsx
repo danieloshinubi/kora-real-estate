@@ -8,6 +8,7 @@ interface CollectionDetailsProp {
     savedListings: number;
     collectionProperties: {
       image: string;
+      _id: string;
       propertyType: string;
       rating: number;
       title: string;

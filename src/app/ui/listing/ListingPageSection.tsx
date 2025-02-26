@@ -7,11 +7,25 @@ import BedroomDetails from "./BedroomDetails";
 import AmenitiesList from "./AmenitiesList";
 import NearbyLocations from "./NearbyLocations";
 import PropertyOwner from "./PropertyOwner";
+import { useGetListingsQuery } from "@/app/utils/services/api";
 
-export default function ListingPage() {
+type ListingPageProps = {
+  propertyId: string;
+};
+
+export default function ListingPage({ propertyId }: ListingPageProps) {
+  const { data: listings = [], isLoading, error } = useGetListingsQuery();
+
+  const listing = listings.find((listing) => listing._id === propertyId);
+
+  if (isLoading || error || !listing) return <div>Property not found</div>;
+
   return (
     <div className='container mx-auto md:p-4'>
-      <Header />
+      <Header
+        title={listing.name || "Title Here"}
+        rating={listing.rating || 0}
+      />
       <ImageGallery />
       <Tabs />
       <div className='grid sm:grid-cols-1 md:grid-cols-3 gap-6 mt-6'>

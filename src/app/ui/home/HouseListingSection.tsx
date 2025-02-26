@@ -31,6 +31,7 @@ const PropertyGrid: React.FC<PropertyGridProps> = ({
     {listings.slice(0, visibleCount).map((listing) => (
       <PropertyCard
         key={listing._id}
+        _id={listing._id}
         image={listing.listingImg[0].fileUrl}
         propertyType={listing.propertyType.name}
         rating={5.0}
@@ -98,6 +99,7 @@ export default function HouseListingSection() {
               key={index}
               image='/square.png'
               propertyType='.....'
+              _id="index"
               rating={0}
               title='...........'
               location='............'

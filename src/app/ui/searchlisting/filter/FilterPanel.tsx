@@ -7,6 +7,7 @@ import ListingTypeFilter from "./ListingTypeFilter";
 import RatingsFilter from "./RatingFilter";
 import { Listing } from "../listingType";
 import { HiOutlineXMark } from "react-icons/hi2";
+import StateFilter from "./StateFilter";
 
 interface Props {
   listings: Listing[];
@@ -114,21 +115,27 @@ const FilterPanel: React.FC<Props> = ({ listings, setFilteredListings }) => {
     applyFilters();
   }, [locationParams, listingTypeParams, priceParams]);
 
+  const [selectedState, setSelectedState] = useState<string | null>(null);
+
   return (
     <div
       className={`${cabin.className} space-y-6 bg-white rounded-lg text-[14px]`}
     >
-      <div className="flex items-center justify-between">
+      <div className='flex items-center justify-between'>
         <h2 className={`${inknutAntiqua.className}`}>Filters</h2>
         <div
           onClick={clearFilters}
-          className="flex items-center cursor-pointer text-red-500"
+          className='flex items-center cursor-pointer text-red-500'
         >
           <HiOutlineXMark size={20} style={{ paddingRight: "5px" }} />
           Clear filter
         </div>
       </div>
 
+      <StateFilter
+        selectedState={selectedState}
+        setSelectedState={setSelectedState}
+      />
 
       {/* Price Range */}
       <PriceRangeFilter priceRange={priceRange} setPriceRange={setPriceRange} />
@@ -153,7 +160,7 @@ const FilterPanel: React.FC<Props> = ({ listings, setFilteredListings }) => {
       />
 
       {/* Apply Filters Button */}
-      <button onClick={applyFilters} className="btn btn-primary w-full">
+      <button onClick={applyFilters} className='btn btn-primary w-full'>
         Apply Filters
       </button>
     </div>

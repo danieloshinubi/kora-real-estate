@@ -3,6 +3,12 @@ import Image from "next/image";
 import { cabin } from "../fonts";
 import { FaHeart } from "react-icons/fa6";
 import Link from "next/link";
+import { useUser } from "@/app/context/UserContext";
+import {
+  useAddFavoriteMutation,
+  useRemoveFavoritesMutation,
+} from "@/app/utils/services/api";
+import { useRouter } from "next/navigation";
 
 interface CardProps {
   image: string;
@@ -28,10 +34,56 @@ const PropertyCard: React.FC<CardProps> = ({
   price,
 }) => {
   const [favorite, setFavorite] = React.useState(false);
+  const [addFavorite] = useAddFavoriteMutation();
+  const [removeFavorite] = useRemoveFavoritesMutation();
+
+  const { user } = useUser();
+  const router = useRouter();
+
+  const addToFavorite = async () => {
+    if (user) {
+      // Add to favorite
+      try {
+        const { data } = await addFavorite({ userId: user.id, listingId: _id });
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      // Redirect to login
+      router.push("/login");
+    }
+  };
+
+  const removeFromFavorite = async () => {
+    if (user) {
+      //Remove to favorite
+      try {
+        const { data } = await removeFavorite({
+          userId: user.id,
+          listingId: _id,
+        });
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      // Redirect to login
+      router.push("/login");
+    }
+  };
 
   const toggleFavorite = () => {
-    setFavorite(!favorite);
-  }
+    if (user) {
+      if (!favorite) {
+        setFavorite(true);
+        addToFavorite();
+      } else {
+        setFavorite(false);
+        removeFromFavorite();
+      }
+    }
+  };
 
   return (
     <Link href={`/propertyinfo/${_id}`} passHref>
@@ -44,11 +96,10 @@ const PropertyCard: React.FC<CardProps> = ({
               alt={title}
               fill
               className='object-cover rounded-lg'
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
             />
           </div>
           <button className='absolute top-3 right-3 p-2'>
-
             <FaHeart
               className={`${favorite ? "text-[#D2691E]" : "text-white"} text-2xl`}
               onClick={toggleFavorite}

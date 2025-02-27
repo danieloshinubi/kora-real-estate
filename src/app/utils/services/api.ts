@@ -122,6 +122,28 @@ export const api = createApi({
     getListings: builder.query<Listing[], void>({
       query: () => "/listings",
     }),
+
+    //Favorites endpoints
+    getFavorites: builder.query<{ favorites: Listing[] }, void>({
+      query: () => "/favorites",
+    }),
+
+    addFavorite: builder.mutation<{ message: string }, { userId:string, listingId: string }>({
+      query: (favorite) => ({
+        url: "/favorites",
+        method: "POST",
+        body: favorite,
+      }),
+    }),
+
+    removeFavorites: builder.mutation<{ message: string }, { userId:string, listingId: string }>({
+      query: (favorite) => ({
+        url: "/favorites",
+        method: "POST",
+        body: favorite,
+      }),
+    }),
+
   }),
 });
 
@@ -138,4 +160,7 @@ export const {
   useCreatePropertyTypeMutation,
   useDeletePropertyTypeMutation,
   useGetListingsQuery,
+  useGetFavoritesQuery,
+  useAddFavoriteMutation,
+  useRemoveFavoritesMutation,
 } = api;

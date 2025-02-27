@@ -5,7 +5,12 @@ import { UserProfileInfo } from "../ui/signUp/SignUpForm";
 type User = {
   id: string;
   email: string;
-  roles: string[];
+  phoneNo: string;
+  roles: {
+    User: string;
+  };
+  isVerified: boolean;
+  accountDisabled: boolean;
 } | null;
 
 const UserContext = createContext<{

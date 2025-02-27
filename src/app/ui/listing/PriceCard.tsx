@@ -1,25 +1,39 @@
+import { useUser } from "@/app/context/UserContext";
 import { cabin } from "../fonts";
+import MyFlutterwaveButton from "../payment/FlutterwaveButton";
 
 type PriceCardProps = {
   price: number;
+  propertyName: string;
 };
 
-export default function PriceCard({ price }: PriceCardProps) {
+export default function PriceCard({ price, propertyName }: PriceCardProps) {
   const formattedPrice = new Intl.NumberFormat("en-NG", {
     style: "currency",
     currency: "NGN",
     minimumFractionDigits: 0,
   }).format(price);
 
+  const { user } = useUser();
+
   return (
-    <div className='bg-white md:pt-[30px] md:px-[20px] max-h-[512px] md:max-h-[412px] md:shadow-lg md:rounded-[20px]'>
+    <div className='bg-white md:pt-[30px] md:px-[20px] max-h-[512px] md:max-h-[412px] md:shadow-2xl md:rounded-[20px]'>
       <h2 className='text-[18px] font-bold'>Listing Price</h2>
       <p className='text-gray-700 text-[18px]'>{formattedPrice}</p>
-      <button
-        className={`${cabin.className} bg-[#D2691E] text-white px-4 py-2 rounded-md mt-4 w-full`}
-      >
-        Purchase Now
-      </button>
+      {user ? (
+        <MyFlutterwaveButton
+          amount={price}
+          currency='NGN'
+          email={user.email}
+          phoneNumber={user.phoneNo}
+          name='Customer Name'
+          propertyName={propertyName}
+        />
+      ) : (
+        <button
+          className={`${cabin.className} bg-[#D2691E] text-white px-4 py-2 rounded-md mt-4 w-full`}
+        >Purchase Now</button>
+      )}
       <ul
         className={`${cabin.className} md:space-y-4 text-[18px] list-none py-4 lg:py-12 border-b-[0.5px]`}
       >

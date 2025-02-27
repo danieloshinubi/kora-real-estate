@@ -8,6 +8,7 @@ import AmenitiesList from "./AmenitiesList";
 import NearbyLocations from "./NearbyLocations";
 import PropertyOwner from "./PropertyOwner";
 import { useGetListingsQuery } from "@/app/utils/services/api";
+import ListingPageSkeleton from "./Skeleton/ListingPageSkeleton";
 
 type ListingPageProps = {
   propertyId: string;
@@ -18,7 +19,10 @@ export default function ListingPage({ propertyId }: ListingPageProps) {
 
   const listing = listings.find((listing) => listing._id === propertyId);
 
-  if (isLoading || error || !listing) return <div>Property not found</div>;
+  if (isLoading || error || !listing)
+    return (
+      <ListingPageSkeleton/>
+    );
 
   return (
     <div className='container mx-auto md:p-4'>
@@ -35,7 +39,7 @@ export default function ListingPage({ propertyId }: ListingPageProps) {
             propertyType={listing.propertyType}
           />
           <BedroomDetails />
-          <AmenitiesList  amenitiesList={listing.amenities}/>
+          <AmenitiesList amenitiesList={listing.amenities} />
         </div>
         <PriceCard price={listing.price} propertyName={listing.name} />
       </div>
@@ -44,3 +48,5 @@ export default function ListingPage({ propertyId }: ListingPageProps) {
     </div>
   );
 }
+
+

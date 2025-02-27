@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Listing } from "../listingType";
 import { FaHeart, FaStar } from "react-icons/fa6";
 import { cabin } from "../../fonts";
+import Link from "next/link";
 
 interface ListingCardProps {
   listing: Listing;
@@ -13,6 +14,7 @@ interface ListingCardProps {
 const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
   const {
     name,
+    _id,
     description,
     listingImg,
     propertyType,
@@ -59,6 +61,7 @@ const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
   }, [location.latitude, location.longitude]);
 
   return (
+    <Link href={`/listing/${_id}`} passHref>
     <div className="relative grid grid-cols-3 rounded-md overflow-hidden  bg-white">
       {/* Image (left column) */}
       <div className="relative col-span-1 w-full">
@@ -144,6 +147,7 @@ const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 

@@ -1,11 +1,12 @@
-import { FaBed, FaShower} from "react-icons/fa6";
+import { FaBed, FaShower } from "react-icons/fa6";
 import { cabin, inknutAntiqua } from "../../fonts";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import Tabs from "../Tab";
-import NearbyLocations from "../NearbyLocations";
 import PropertyOwner from "../PropertyOwner";
 import BathroomDetails from "../BedroomDetails";
+import Image from "next/image";
+import { locations } from "../NearbyLocations";
 
 export function HeaderSkeleton() {
   return (
@@ -20,14 +21,22 @@ export function ImageGallerySkeleton() {
     <div className='grid grid-cols-1 md:grid-cols-2 gap-2 text-[#7f7c7c] mt-4 w-full rounded-lg'>
       {/* Large Image */}
       <div className='relative col-span-1 h-full'>
-        <Skeleton baseColor='#7f7c7c' highlightColor='#b0aeae' height={"100%"} />
+        <Skeleton
+          baseColor='#7f7c7c'
+          highlightColor='#b0aeae'
+          height={"100%"}
+        />
       </div>
 
       {/* Right Section with Four Images */}
       <div className='hidden md:grid md:grid-cols-2 gap-y-1 gap-x-2 col-span-1'>
         {[...Array(4).fill("*")].map((imgUrl, i) => (
           <div className='relative h-[177px]' key={i}>
-            <Skeleton baseColor='#7f7c7c' highlightColor='#b0aeae' height={"100%"}/>
+            <Skeleton
+              baseColor='#7f7c7c'
+              highlightColor='#b0aeae'
+              height={"100%"}
+            />
           </div>
         ))}
       </div>
@@ -130,6 +139,65 @@ export function AmenitiesListSkeleton() {
   );
 }
 
+export function NearbyLocationsSkeleton() {
+  return (
+    <section className='max-w-6xl mx-auto py-8'>
+      {/* Top heading (optional) */}
+      <h2 className='text-[#8B3A2D] text-xl font-semibold'>Location</h2>
+      <h3 className={`${cabin.className} text-[24px] md:text-[36px] mb-6`}>
+        Nearby Popular Locations
+      </h3>
+
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+        {/* Left Section - List of Locations */}
+        <div className='max-h-[500px] overflow-y-auto custom-scrollbar pr-2'>
+          {locations.map((loc, index) => (
+            <div
+              key={index}
+              className='mb-4 border-2 border-[#8B3A2D] rounded-md p-1'
+            >
+              {/* Inner border for the "double border" effect */}
+              <div className='border-2 border-[#8B3A2D] rounded-md sm:flex overflow-hidden'>
+                {/* Image Section */}
+                <div className='relative sm:w-1/3 min-h-[200px]'>
+                  <Image
+                    src={loc.image}
+                    alt={loc.name}
+                    fill
+                    className='object-cover grayscale'
+                  />
+                </div>
+
+                {/* Text Section */}
+                <div className='w-2/3 p-4'>
+                  <span
+                    className={`bg-[#8B3A2D] text-white text-xs px-2 py-1 rounded-md inline-block ${cabin.className}`}
+                  >
+                    {loc.distance}
+                  </span>
+                  <h4 className='text-lg font-bold mt-2'>{loc.name}</h4>
+                  <p className={`text-sm text-gray-600 ${cabin.className}`}>
+                    {loc.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Right Section - Map */}
+        <div className='h-[500px] w-full rounded-md overflow-hidden shadow-lg'>
+          <Skeleton
+            baseColor='#7f7c7c'
+            highlightColor='#b0aeae'
+            height={"100%"}
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function ListingPageSkeleton() {
   return (
     <div>
@@ -145,7 +213,7 @@ export default function ListingPageSkeleton() {
           </div>
           <PriceCardSkeleton />
         </div>
-        <NearbyLocations />
+        <NearbyLocationsSkeleton />
         <PropertyOwner />
       </div>
     </div>

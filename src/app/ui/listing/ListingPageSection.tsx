@@ -8,7 +8,9 @@ import AmenitiesList from "./AmenitiesList";
 import NearbyLocations from "./NearbyLocations";
 import PropertyOwner from "./PropertyOwner";
 import { useGetListingsQuery } from "@/app/utils/services/api";
-import ListingPageSkeleton from "./Skeleton/ListingPageSkeleton";
+import ListingPageSkeleton, {
+  NearbyLocationsSkeleton,
+} from "./Skeleton/ListingPageSkeleton";
 
 type ListingPageProps = {
   propertyId: string;
@@ -19,10 +21,7 @@ export default function ListingPage({ propertyId }: ListingPageProps) {
 
   const listing = listings.find((listing) => listing._id === propertyId);
 
-  if (isLoading || error || !listing)
-    return (
-      <ListingPageSkeleton/>
-    );
+  if (isLoading || error || !listing) return <ListingPageSkeleton />;
 
   return (
     <div className='container mx-auto md:p-4'>
@@ -43,10 +42,12 @@ export default function ListingPage({ propertyId }: ListingPageProps) {
         </div>
         <PriceCard price={listing.price} propertyName={listing.name} />
       </div>
-      <NearbyLocations />
+      {listing ? (
+        <NearbyLocations houseLocation={listing.location} />
+      ) : (
+        <NearbyLocationsSkeleton />
+      )}
       <PropertyOwner />
     </div>
   );
 }
-
-

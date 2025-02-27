@@ -14,7 +14,7 @@ export type Location = {
   city: string;
 };
 
-const locations: Location[] = [
+export const locations: Location[] = [
   {
     name: "Dominos Pizza",
     distance: "0.4 Kilometers",
@@ -89,7 +89,13 @@ const locations: Location[] = [
   },
 ];
 
-export default function NearbyLocations() {
+type NearbyLocationsProps = {
+  houseLocation: {
+    latitude: number;
+    longitude: number;
+  };
+};
+export default function NearbyLocations({houseLocation}: NearbyLocationsProps) {
   return (
     <section className='max-w-6xl mx-auto py-8'>
       {/* Top heading (optional) */}
@@ -133,7 +139,7 @@ export default function NearbyLocations() {
 
         {/* Right Section - Map */}
         <div className='h-[500px] w-full rounded-md overflow-hidden shadow-lg'>
-          <Map locations={locations} />
+          <Map location={houseLocation} />
         </div>
       </div>
     </section>

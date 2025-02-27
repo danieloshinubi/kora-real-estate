@@ -11,10 +11,8 @@ type MyFlutterwaveButtonProps = {
   name: string;
   propertyName: string;
 };
- 
-const {FLUTTERWAVE_PUBLIC_KEY} = process.env;
 
-console.log(FLUTTERWAVE_PUBLIC_KEY);
+const FLUTTERWAVE_PUBLIC_KEY = process.env.NEXT_PUBLIC_FLUTTERWAVE_PUBLIC_KEY;
 
 export default function MyFlutterwaveButton({
   amount,
@@ -37,7 +35,7 @@ export default function MyFlutterwaveButton({
     },
     customizations: {
       title: "KORA Real Estate",
-      description:  propertyName,
+      description: propertyName,
       logo: "/kora-logo.png",
     },
   };
@@ -54,10 +52,10 @@ export default function MyFlutterwaveButton({
   };
 
   return (
-    <button
+    <div
       className={`${cabin.className} bg-[#D2691E] text-white px-4 py-2 rounded-md mt-4 w-full`}
     >
-      <FlutterWaveButton {...fwConfig} />
-    </button>
+      <FlutterWaveButton {...fwConfig} className='w-full' />
+    </div>
   );
 }

@@ -10,7 +10,6 @@ type ImageGalleryProps = {
 };
 
 export default function ImageGallery({ listingImg }: ImageGalleryProps) {
-  console.log(listingImg);
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-2 mt-4 w-full rounded-lg'>
       {/* Large Image */}
@@ -19,6 +18,7 @@ export default function ImageGallery({ listingImg }: ImageGalleryProps) {
           src={`${listingImg[1].fileUrl}`}
           alt='Main'
           fill
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
           className='w-full h-full object-cover rounded-l-lg '
         />
       </div>
@@ -31,6 +31,7 @@ export default function ImageGallery({ listingImg }: ImageGalleryProps) {
               src={imgUrl}
               alt='Gallery'
               fill
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
               className={`w-full h-full object-cover ${i !== 0 && i !== 2 ? (i === 1 ? "rounded-tr-lg" : "rounded-br-lg") : "rounded-none"}`}
             />
           </div>
@@ -38,7 +39,7 @@ export default function ImageGallery({ listingImg }: ImageGalleryProps) {
       </div>
 
       <div className='md:hidden'>
-        <Carousel>
+        <Carousel showThumbs={false} infiniteLoop>
           <div className='relative h-[257px]'>
             <Image
               src='/lodge.jpg'

@@ -73,7 +73,7 @@ export function PriceCardSkeleton() {
   return (
     <div className='bg-white md:pt-[30px] md:px-[20px] max-h-[512px] md:max-h-[412px] md:shadow-2xl md:rounded-[20px]'>
       <h2 className='text-[18px] font-bold'>Listing Price</h2>
-      <Skeleton baseColor='#7f7c7c' highlightColor='#b0aeae' height={20} />
+      <p className='text-gray-700 text-[18px]'>0.000</p>
 
       <button
         className={`${cabin.className} bg-[#D2691E] text-white px-4 py-2 rounded-md mt-4 w-full`}

@@ -129,6 +129,7 @@ const FilterPanel: React.FC<Props> = ({ listings, setFilteredListings }) => {
         </div>
       </div>
 
+
       {/* Price Range */}
       <PriceRangeFilter priceRange={priceRange} setPriceRange={setPriceRange} />
 

@@ -14,11 +14,11 @@ export default function Header({ title, rating }: HeaderProps) {
         {title}
       </h1>
       <p className='text-yellow-500 mt-2 flex'>
-        <div className='flex items-center'>
+        <span className='flex items-center'>
           {[...Array(roundedRating)].map((_, i) => (
             <FaStar key={i} />
           ))}
-        </div>
+        </span>
 
         <span className={`${cabin.className} text-black`}>
           {" "}

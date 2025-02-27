@@ -1,4 +1,6 @@
+"use client";
 import { useUser } from "@/app/context/UserContext";
+import { usePathname, useRouter } from "next/navigation";
 import { cabin } from "../fonts";
 import MyFlutterwaveButton from "../payment/FlutterwaveButton";
 
@@ -15,6 +17,14 @@ export default function PriceCard({ price, propertyName }: PriceCardProps) {
   }).format(price);
 
   const { user } = useUser();
+  const router = useRouter();
+  const pathName = usePathname();
+
+  const handlePurchaseClick = () => {
+    if (!user) {
+      router.push(`/login?redirect=${encodeURIComponent(pathName as string)}`);
+    }
+  };
 
   return (
     <div className='bg-white md:pt-[30px] md:px-[20px] max-h-[512px] md:max-h-[412px] md:shadow-2xl md:rounded-[20px]'>
@@ -31,8 +41,11 @@ export default function PriceCard({ price, propertyName }: PriceCardProps) {
         />
       ) : (
         <button
+          onClick={handlePurchaseClick}
           className={`${cabin.className} bg-[#D2691E] text-white px-4 py-2 rounded-md mt-4 w-full`}
-        >Purchase Now</button>
+        >
+          Sign In to Purchase
+        </button>
       )}
       <ul
         className={`${cabin.className} md:space-y-4 text-[18px] list-none py-4 lg:py-12 border-b-[0.5px]`}

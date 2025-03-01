@@ -29,7 +29,12 @@ export const api = createApi({
         user: {
           id: string;
           email: string;
-          roles: string[];
+          phoneNo: string;
+          roles: {
+            User: string;
+          };
+          isVerified: boolean;
+          accountDisabled: boolean;
         };
       },
       { email: string; password: string }
@@ -128,7 +133,10 @@ export const api = createApi({
       query: () => "/favorites",
     }),
 
-    addFavorite: builder.mutation<{ message: string }, { userId:string, listingId: string }>({
+    addFavorite: builder.mutation<
+      { message: string },
+      { userId: string; listingId: string }
+    >({
       query: (favorite) => ({
         url: "/favorites",
         method: "POST",
@@ -136,14 +144,16 @@ export const api = createApi({
       }),
     }),
 
-    removeFavorites: builder.mutation<{ message: string }, { userId:string, listingId: string }>({
+    removeFavorites: builder.mutation<
+      { message: string },
+      { userId: string; listingId: string }
+    >({
       query: (favorite) => ({
         url: "/favorites",
         method: "POST",
         body: favorite,
       }),
     }),
-
   }),
 });
 

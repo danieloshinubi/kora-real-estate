@@ -8,10 +8,6 @@ import { useGetListingsQuery } from "@/app/utils/services/api";
 import ListingFinderSkeleton from "./ListingFinderSkeleton";
 import Image from "next/image";
 import FilterPanelSkeleton from "./filter/FilterPanelSkeleton";
-// import dynamic from "next/dynamic";
-// import { listings } from "./PropertyList";
-
-// const SearchMapView = dynamic(() => import("./SearchMapView"), { ssr: false });
 
 const ListingFinder: React.FC = ({}) => {
   const onSortChange = (sortOption: string) => {
@@ -32,7 +28,6 @@ const ListingFinder: React.FC = ({}) => {
         <Suspense fallback={<FilterPanelSkeleton />}>
           <FilterPanel
             listings={listings}
-            // filteredListings={filteredListings}
             setFilteredListings={setFilteredListings}
           />
         </Suspense>

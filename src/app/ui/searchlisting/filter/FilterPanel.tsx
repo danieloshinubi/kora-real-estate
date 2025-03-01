@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { cabin, inknutAntiqua } from "../../fonts";
 import PriceRangeFilter from "./PriceRangeFilter";
@@ -8,13 +8,17 @@ import RatingsFilter from "./RatingFilter";
 import { Listing } from "../listingType";
 import { HiOutlineXMark } from "react-icons/hi2";
 import StateFilter from "./StateFilter";
+import FilterPanelSkeleton from "./FilterPanelSkeleton";
 
 interface Props {
   listings: Listing[];
   setFilteredListings: (filteredListings: Listing[]) => void;
 }
 
-const FilterPanel: React.FC<Props> = ({ listings, setFilteredListings }) => {
+const FilterPanelContent: React.FC<Props> = ({
+  listings,
+  setFilteredListings,
+}) => {
   const searchParams = useSearchParams();
 
   // Extract price parameter from URL
@@ -164,6 +168,17 @@ const FilterPanel: React.FC<Props> = ({ listings, setFilteredListings }) => {
         Apply Filters
       </button>
     </div>
+  );
+};
+
+const FilterPanel: React.FC<Props> = ({ listings, setFilteredListings }) => {
+  return (
+    <Suspense fallback={<FilterPanelSkeleton />}>
+      <FilterPanelContent
+        listings={listings}
+        setFilteredListings={setFilteredListings}
+      />
+    </Suspense>
   );
 };
 

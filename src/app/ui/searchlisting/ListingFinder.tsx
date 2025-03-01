@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import FilterPanel from "./filter/FilterPanel";
 import ListingList from "./listings/ListingList";
 import { Listing } from "./listingType";
@@ -7,6 +7,7 @@ import { cabin } from "../fonts";
 import { useGetListingsQuery } from "@/app/utils/services/api";
 import ListingFinderSkeleton from "./ListingFinderSkeleton";
 import Image from "next/image";
+import FilterPanelSkeleton from "./filter/FilterPanelSkeleton";
 // import dynamic from "next/dynamic";
 // import { listings } from "./PropertyList";
 
@@ -28,11 +29,13 @@ const ListingFinder: React.FC = ({}) => {
     <div className='flex w-full mt-16'>
       {/* Left Filter Panel */}
       <div className='w-[20%]'>
-        <FilterPanel
-          listings={listings}
-          // filteredListings={filteredListings}
-          setFilteredListings={setFilteredListings}
-        />
+        <Suspense fallback={<FilterPanelSkeleton />}>
+          <FilterPanel
+            listings={listings}
+            // filteredListings={filteredListings}
+            setFilteredListings={setFilteredListings}
+          />
+        </Suspense>
       </div>
 
       {/* Main Content */}

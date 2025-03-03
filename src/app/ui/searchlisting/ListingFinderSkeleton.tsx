@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import FilterPanel from "./filter/FilterPanel";
-import ListingList from "./listings/ListingList";
 import { Listing } from "./listingType";
 import SortDropdown from "./listings/SortDropDown";
 import { cabin } from "../fonts";
 import { listings } from "./PropertyList";
-
+import ListingCardSkeleton from "./listings/ListingCardSkeleton";
 
 const ListingFinderSkeleton: React.FC = ({}) => {
   const onSortChange = (sortOption: string) => {
@@ -38,7 +37,11 @@ const ListingFinderSkeleton: React.FC = ({}) => {
           {/* You can add a SortDropdown here if you like */}
           <SortDropdown onSortChange={onSortChange} />
         </div>
-        <ListingList listings={filteredListings} />
+        <div className='flex flex-col gap-y-4 space-y-4 overflow-y-auto h-[1100px]'>
+          {filteredListings.slice(0,5).map((listing) => (
+            <ListingCardSkeleton key={listing._id} />
+          ))}
+        </div>
       </div>
 
       {/* Map Section */}

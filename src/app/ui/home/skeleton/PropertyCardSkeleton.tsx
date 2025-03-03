@@ -11,7 +11,7 @@ const PropertyCardSkeleton: React.FC = () => {
       </div>
 
       {/* Content Section */}
-      <div className='py-4 px-3'>
+      <div className='py-4'>
         {/* Property Type and Rating */}
         <div className='flex justify-between items-center mb-2'>
           <Skeleton width={80} height={20} />

@@ -6,6 +6,13 @@ export type FetchedPropertyType = {
   _id: string;
 };
 
+export type UserFavorite = {
+  data: {
+    user: string;
+    listing: string[];
+  };
+};
+
 export const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl: "https://kora-service.onrender.com" }),
@@ -129,8 +136,11 @@ export const api = createApi({
     }),
 
     //Favorites endpoints
-    getFavorites: builder.query<{ favorites: Listing[] }, void>({
-      query: () => "/favorites",
+    getFavorites: builder.query<
+      { favorites: UserFavorite },
+      { userId: string }
+    >({
+      query: ({ userId }) => `/favorites/${userId}`,
     }),
 
     addFavorite: builder.mutation<
@@ -154,6 +164,25 @@ export const api = createApi({
         body: favorite,
       }),
     }),
+
+    //Transaction Endpoints
+    createTransaction: builder.mutation<
+      { message: string },
+      { userId: string; listingId: string; amount: number }
+    >({
+      query: (transaction) => ({
+        url: "/transaction",
+        method: "POST",
+        body: transaction,
+      }),
+    }),
+
+    getTransaction: builder.query<
+      { transaction: JSON },
+      { userId: string; listingId: string }
+    >({
+      query: ({ userId, listingId }) => `/transaction/${userId}/${listingId}`,
+    }),
   }),
 });
 
@@ -173,4 +202,6 @@ export const {
   useGetFavoritesQuery,
   useAddFavoriteMutation,
   useRemoveFavoritesMutation,
+  useCreateTransactionMutation,
+  useGetTransactionQuery,
 } = api;

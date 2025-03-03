@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { inknutAntiqua } from "@/app/ui/fonts";
 import { Providers } from "./utils/Providers";
-
 import { UserProvider } from "./context/UserContext";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Kora Real Estate Management Application",
-  description: "Welcome to KORA – Your Gateway to Smart Real Estate Management, Effortlessly manage properties, streamline transactions, and find the perfect spaces—all in one powerful platform.",
+  description:
+    "Welcome to KORA – Your Gateway to Smart Real Estate Management, Effortlessly manage properties, streamline transactions, and find the perfect spaces—all in one powerful platform.",
 };
 
 export default function RootLayout({
@@ -17,6 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
+      <head>
+        <link rel='icon' href='/house-marker.png' type='image/png' />
+      </head>
       <body className={`${inknutAntiqua.variable} antialiased`}>
         <Providers>
           <UserProvider>{children}</UserProvider>

@@ -4,6 +4,7 @@ import { cabin } from "../fonts";
 import { MdArrowDownward, MdArrowUpward } from "react-icons/md";
 import { useGetListingsQuery } from "@/app/utils/services/api";
 import { Listing } from "@/types/listingtype";
+import PropertyCardSkeleton from "./skeleton/PropertyCardSkeleton";
 
 // Header component remains the same
 const Header = () => (
@@ -12,7 +13,8 @@ const Header = () => (
       Discover Recent Listings
     </h1>
     <p className={`text-gray-600 ${cabin.className}`}>
-    Find your next home or investment opportunity among our handpicked, up-to-date properties.
+      Find your next home or investment opportunity among our handpicked,
+      up-to-date properties.
     </p>
   </div>
 );
@@ -95,24 +97,25 @@ export default function HouseListingSection() {
         <Header />
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6'>
           {[...Array(8)].map((_, index) => (
-            <PropertyCard
-              key={index}
-              image='/square.png'
-              propertyType='.....'
-              _id="index"
-              rating={0}
-              title='...........'
-              location='............'
-              bedrooms={3}
-              bathrooms={2}
-              price={1000}
-            />
+            <PropertyCardSkeleton key={index} />
           ))}
         </div>
       </div>
     );
   if (error)
-    return <div className='py-24 pt-64 sm:pt-24'>Error loading listings</div>;
+    return (
+      <div className='py-24 pt-64 sm:pt-24'>
+        <Header />
+        <p className='text-red-500'>
+          An error occurred while fetching the listings. Check your network and Please try again later.
+        </p>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6'>
+          {[...Array(8)].map((_, index) => (
+            <PropertyCardSkeleton key={index} />
+          ))}
+        </div>
+      </div>
+    );
 
   return (
     <div className='py-24 pt-64 sm:pt-24'>

@@ -57,6 +57,7 @@ const FilterPanelContent: React.FC<Props> = ({
   const [selectedType, setSelectedType] = useState<string | null>(
     listingTypeParams ? listingTypeParams : null
   );
+  const [selectedState, setSelectedState] = useState<string | null>(null);
 
   // Ensure state updates if URL changes
   useEffect(() => {
@@ -80,28 +81,63 @@ const FilterPanelContent: React.FC<Props> = ({
     );
   };
 
-  const applyFilters = () => {
-    const filtered = listings.filter((item) => {
-      const matchesPrice =
-        item.price >= priceRange[0] && item.price <= priceRange[1];
+  // async function getStateFromCoordinates(lat: number, lon: number, retries = 3) {
+  //   try {
+  //     const response = await fetch(`/api/get-location?lat=${lat}&lon=${lon}`);
+  //     const data = await response.json();
+  
+  //     return data.address?.state || "Unknown";
+  //   } catch (error) {
+  //     console.error("Error fetching address:", error);
+  //     if (retries > 0) {
+  //       console.log(`Retrying... (${3 - retries + 1})`);
+  //       await new Promise((resolve) => setTimeout(resolve, 1000));
+  //       return getStateFromCoordinates(lat, lon, retries - 1);
+  //     }
+  //     return "Unknown";
+  //   }
+  // }
 
-      const matchesAmenities =
-        selectedAmenities.length === 0 ||
-        selectedAmenities.every((amenity) =>
-          item.amenities?.some((a) => a.name === amenity)
+  const applyFilters = async () => {
+    const filtered = await Promise.all(
+      listings.map(async (item) => {
+        const matchesPrice =
+          item.price >= priceRange[0] && item.price <= priceRange[1];
+  
+        const matchesAmenities =
+          selectedAmenities.length === 0 ||
+          selectedAmenities.every((amenity) =>
+            item.amenities?.some((a) => a.name === amenity)
+          );
+  
+        const matchesRating =
+          selectedRatings === null || item.rating === selectedRatings;
+  
+        const matchesType =
+          selectedType === null || item.propertyType.name === selectedType;
+  
+        // Get state based on coordinates
+        // const state = await getStateFromCoordinates(item.location.latitude, item.location.longitude);
+  
+        // const matchesLocation =
+        //   selectedState === null || state === selectedState + " State";
+  
+        return (
+          matchesPrice &&
+          matchesAmenities &&
+          matchesRating &&
+          matchesType
+          // && matchesLocation
         );
-
-      const matchesRating =
-        selectedRatings === null || item.rating === selectedRatings;
-
-      const matchesType =
-        selectedType === null || item.propertyType.name === selectedType;
-
-      return matchesPrice && matchesAmenities && matchesRating && matchesType;
-    });
-
-    setFilteredListings(filtered);
+      })
+    );
+  
+    // Filter only items that match all criteria
+    const finalFiltered = listings.filter((item, index) => filtered[index]);
+  
+    setFilteredListings(finalFiltered);
   };
+  
 
   const clearFilters = () => {
     setPriceRange([0, 1000000]);
@@ -118,8 +154,6 @@ const FilterPanelContent: React.FC<Props> = ({
   useEffect(() => {
     applyFilters();
   }, [locationParams, listingTypeParams, priceParams]);
-
-  const [selectedState, setSelectedState] = useState<string | null>(null);
 
   return (
     <div

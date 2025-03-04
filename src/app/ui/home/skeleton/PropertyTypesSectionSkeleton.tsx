@@ -15,9 +15,6 @@ export default function PropertyTypesSectionSkeleton() {
               height='100%'
               className='object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out'
             />
-
-            {/* Overlay */}
-            <div className='absolute inset-0 bg-black/50 group-hover:bg-black/30 transition duration-300' />
             {/* Title */}
             <div className='absolute bottom-4 left-4 text-white text-lg font-semibold'>
               .......

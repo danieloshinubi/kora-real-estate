@@ -114,7 +114,7 @@ const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
   }, [location.latitude, location.longitude]);
 
   return (
-    <Link href={`/listing/${_id}`} passHref>
+    <Link href={`/propertyinfo/${_id}`} passHref>
       <div className='relative grid grid-cols-3 rounded-md overflow-hidden  bg-white'>
         {/* Image (left column) */}
         <div className='relative col-span-1 w-full'>

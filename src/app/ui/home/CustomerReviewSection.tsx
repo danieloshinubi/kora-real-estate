@@ -1,7 +1,6 @@
 import React from "react";
 import { cabin } from "../fonts";
 import { useState } from "react";
-
 import TestimonialCard from "../components/TestimonialCard";
 import { MdChevronLeft } from "react-icons/md";
 
@@ -11,7 +10,9 @@ const ReviewHeader = () => (
       Customer Reviews
     </h2>
     <p className={`text-gray-500 mt-2 text-[16px] ${cabin.className}`}>
-    Hear from our satisfied clients! Explore real stories and testimonials from homeowners, investors, and renters who have found their perfect spaces with us.
+      Hear from our satisfied clients! Explore real stories and testimonials
+      from homeowners, investors, and renters who have found their perfect
+      spaces with us.
     </p>
     <button
       className={`${cabin.className} bg-[#D2691E] text-white py-[10px] px-[18px] mt-12 rounded-[6px] w-full max-w-[204px]`}
@@ -54,15 +55,18 @@ const ReviewNavigation = ({ nextSlice }: ReviewNavigationProps) => (
 
 export default function CustomerReviewSection() {
   const [slice, setSlice] = useState([0, 2]);
+  const arrayLength = 4; // Replace with the actual length of your reviews array
 
   const nextSlice = (num: number) => {
-    const newSlice = [...slice];
-    const arrayLength = 4; // Replace with the actual length of your reviews array
+    let newSlice = [
+      (slice[0] + num + arrayLength) % arrayLength,
+      (slice[1] + num + arrayLength) % arrayLength,
+    ];
 
-    newSlice[0] = ((newSlice[0] + num) % arrayLength) - 2;
-    newSlice[1] = (newSlice[1] + num) % arrayLength;
+    if (newSlice[0] > newSlice[1]) {
+      newSlice = [0, 2];
+    }
 
-    console.log(newSlice);
     setSlice(newSlice);
   };
 

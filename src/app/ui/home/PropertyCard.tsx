@@ -25,12 +25,12 @@ interface CardProps {
 
 interface address {
   city: string;
-  country: string;
+  state: string;
   country_code: string;
   town: string;
   county: string;
   postcode: string;
-  state: string;
+  country: string;
 }
 
 const PropertyCard: React.FC<CardProps> = ({
@@ -96,8 +96,8 @@ const PropertyCard: React.FC<CardProps> = ({
     }
   };
 
-  const [country, setCountry] = useState<string>("");
-  console.log(country);
+  const [state, setState] = useState<string>("");
+  console.log(state);
 
   const [address, setAddress] = useState<address | null>(null);
 
@@ -114,12 +114,12 @@ const PropertyCard: React.FC<CardProps> = ({
       const data = await response.json();
       setAddress(data.address || "Address not found");
 
-      // Extract country from the address components
-      const country = data.address?.country || "Country not found";
-      setCountry(country);
+      // Extract state from the address components
+      const state = data.address?.state || "state not found";
+      setState(state);
     } catch (error) {
       console.error("Error fetching address:", error);
-      setCountry("Error fetching country");
+      setState("Error fetching state");
     }
   }
 

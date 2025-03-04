@@ -81,8 +81,8 @@ const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
     }
   };
 
-  const [country, setCountry] = useState<string>("");
-  console.log(country);
+  const [state, setState] = useState<string>("");
+  console.log(state);
   
   const [address, setAddress] = useState<string>("Loading...");
 
@@ -100,12 +100,12 @@ const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
       const data = await response.json();
       setAddress(data.display_name || "Address not found");
 
-      // Extract country from the address components
-      const country = data.address?.country || "Country not found";
-      setCountry(country);
+      // Extract state from the address components
+      const state = data.address?.state || "state not found";
+      setState(state);
     } catch (error) {
       console.error("Error fetching address:", error);
-      setCountry("Error fetching country");
+      setState("Error fetching state");
     }
   }
 

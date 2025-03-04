@@ -9,6 +9,7 @@ import Footer from "@/app/ui/components/Footer";
 import Link from "next/link";
 import { cabin } from "@/app/ui/fonts";
 import { FaChevronLeft } from "react-icons/fa6";
+import withAuth from "@/app/ui/hoc/withAuth";
 
 const CollectionPage = () => {
   const { user } = useUser();
@@ -28,7 +29,9 @@ const CollectionPage = () => {
 
       <div className='relative container mx-auto px-6 lg:px-24 w-full'>
         <Link href='/favourites' passHref>
-          <div className={`${cabin.className} text-[16px] mt-32 px-6 flex items-center`}>
+          <div
+            className={`${cabin.className} text-[16px] mt-32 px-6 flex items-center`}
+          >
             <FaChevronLeft />
 
             <h2 className=''>Favorites</h2>
@@ -42,4 +45,4 @@ const CollectionPage = () => {
   );
 };
 
-export default CollectionPage;
+export default withAuth(CollectionPage);

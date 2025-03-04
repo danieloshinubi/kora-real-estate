@@ -15,7 +15,12 @@ const NavLinks = [
 type User = {
   id: string;
   email: string;
-  roles: string[];
+  phoneNo: string;
+  roles: {
+    User: string;
+  };
+  isVerified: boolean;
+  accountDisabled: boolean;
 };
 
 type NavProps = {

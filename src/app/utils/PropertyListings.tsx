@@ -1,204 +1,196 @@
 const cards = [
   {
-    image: "/house1.jpg",
-    category: "House",
-    rating: 9.8,
-    title: "Relaxing retreat at the heart of Yuba City",
-    location: "Lagos, State.",
-    bedrooms: 3,
-    bathrooms: 4,
-    price: 100000,
+    "name": "Westview Heights",
+    "description": "A modern apartment with city views in the heart of Lagos.",
+    "amenities": [
+      "6799521254953fa2f52b75a4", 
+      "67bda3aefe71004d6d12735a", 
+      "67bda461fe71004d6d12735e"
+    ],
+    "propertyType": "6760217215b3836cd2756057",
+    "location": {
+      "longitude": 3.3792,
+      "latitude": 6.5244
+    },
+    "price": 250000,
+    "listingImg": [
+      "/house1.jpg",
+      "/house1.jpg"
+    ],
+    "rating": 4.5
   },
   {
-    image: "/house2.jpg",
-    category: "Apartment",
-    rating: 8.5,
-    title: "Modern apartment with city view",
-    location: "Abuja, State.",
-    bedrooms: 2,
-    bathrooms: 2,
-    price: 80000,
+    "name": "Abuja Duplex Retreat",
+    "description": "Spacious duplex in a serene neighborhood, perfect for families.",
+    "amenities": [
+      "6799521254953fa2f52b75a4",
+      "679972cff71f8a2d9f79628e"
+    ],
+    "propertyType": "6760218415b3836cd275605a",
+    "location": {
+      "longitude": 7.3986,
+      "latitude": 9.0765
+    },
+    "price": 450000,
+    "listingImg": [
+      "/house2.jpg"
+    ],
+    "rating": 4.0
   },
   {
-    image: "/house3.jpg",
-    category: "Cottage",
-    rating: 9.2,
-    title: "Cozy cottage near the beach",
-    location: "Calabar, State.",
-    bedrooms: 4,
-    bathrooms: 3,
-    price: 120000,
+    "name": "Kano Residential Haven",
+    "description": "Comfortable residential home located near major city attractions.",
+    "amenities": [
+      "67bda327fe71004d6d127350",
+      "67bda4f2fe71004d6d127362"
+    ],
+    "propertyType": "677989a8d9f94ec82502563b",
+    "location": {
+      "longitude": 8.5920,
+      "latitude": 12.0022
+    },
+    "price": 150000,
+    "listingImg": [
+      "/house3.jpg",
+      "/house3.jpg"
+    ],
+    "rating": 3.8
   },
   {
-    image: "/house4.jpg",
-    category: "Villa",
-    rating: 9.9,
-    title: "Luxurious villa with private pool",
-    location: "Lekki, Lagos.",
-    bedrooms: 5,
-    bathrooms: 6,
-    price: 250000,
+    "name": "Port Harcourt Family House",
+    "description": "A lovely house with ample space, close to the waterfront.",
+    "amenities": [
+      "6799521254953fa2f52b75a4",
+      "67bda3aefe71004d6d12735a",
+      "67bda461fe71004d6d12735e"
+    ],
+    "propertyType": "677e5180c13019b903318541",
+    "location": {
+      "longitude": 7.0336,
+      "latitude": 4.8242
+    },
+    "price": 350000,
+    "listingImg": [
+      "/house4.jpg"
+    ],
+    "rating": 4.2
   },
   {
-    image: "/house5.jpg",
-    category: "Studio",
-    rating: 8.0,
-    title: "Compact studio in the city center",
-    location: "Ikeja, Lagos.",
-    bedrooms: 1,
-    bathrooms: 1,
-    price: 50000,
+    "name": "Ibadan Bungalow Bliss",
+    "description": "Cozy bungalow surrounded by lush greenery in Ibadan.",
+    "amenities": [
+      "679972cff71f8a2d9f79628e",
+      "67bda327fe71004d6d127350",
+      "67bda383fe71004d6d127356"
+    ],
+    "propertyType": "677e5199c13019b903318544",
+    "location": {
+      "longitude": 3.9470,
+      "latitude": 7.3775
+    },
+    "price": 200000,
+    "listingImg": [
+      "/house5.jpg",
+      "/house5.jpg"
+    ],
+    "rating": 4.1
   },
   {
-    image: "/house6.jpg",
-    category: "Bungalow",
-    rating: 7.5,
-    title: "Simple bungalow in the countryside",
-    location: "Ibadan, Oyo.",
-    bedrooms: 2,
-    bathrooms: 1,
-    price: 40000,
+    "name": "Enugu Detached Delight",
+    "description": "A spacious detached house with modern amenities and quiet surroundings.",
+    "amenities": [
+      "6799521254953fa2f52b75a4",
+      "67bda3aefe71004d6d12735a",
+      "67bda4f2fe71004d6d127362"
+    ],
+    "propertyType": "677e51a6c13019b903318547",
+    "location": {
+      "longitude": 7.4942,
+      "latitude": 6.4402
+    },
+    "price": 600000,
+    "listingImg": [
+      "/condo.jpg"
+    ],
+    "rating": 4.7
   },
   {
-    image: "/house7.jpg",
-    category: "Mansion",
-    rating: 9.7,
-    title: "Exclusive mansion with large garden",
-    location: "Victoria Island, Lagos.",
-    bedrooms: 6,
-    bathrooms: 8,
-    price: 500000,
+    "name": "Benin City Terraced Home",
+    "description": "A modern terraced house close to major city landmarks.",
+    "amenities": [
+      "679972cff71f8a2d9f79628e",
+      "67bda461fe71004d6d12735e"
+    ],
+    "propertyType": "677e51b0c13019b90331854a",
+    "location": {
+      "longitude": 5.6003,
+      "latitude": 6.3373
+    },
+    "price": 300000,
+    "listingImg": [
+      "/house3.jpg",
+      "/house6.jpg"
+    ],
+    "rating": 4.0
   },
   {
-    image: "/house8.jpg",
-    category: "Penthouse",
-    rating: 8.9,
-    title: "Modern penthouse with ocean view",
-    location: "Banana Island, Lagos.",
-    bedrooms: 3,
-    bathrooms: 4,
-    price: 300000,
+    "name": "Warri Studio Apartment",
+    "description": "A compact studio apartment ideal for single professionals or couples.",
+    "amenities": [
+      "67bda327fe71004d6d127350",
+      "67bda3aefe71004d6d12735a"
+    ],
+    "propertyType": "677e51bec13019b90331854d",
+    "location": {
+      "longitude": 5.7932,
+      "latitude": 5.5544
+    },
+    "price": 120000,
+    "listingImg": [
+      "/house4.jpg"
+    ],
+    "rating": 3.9
   },
   {
-    image: "/house9.jpg",
-    category: "Cabin",
-    rating: 8.3,
-    title: "Rustic cabin in the mountains",
-    location: "Jos, Plateau.",
-    bedrooms: 3,
-    bathrooms: 2,
-    price: 70000,
+    "name": "Kaduna Penthouse Suite",
+    "description": "Enjoy panoramic city views from this luxurious penthouse in Kaduna.",
+    "amenities": [
+      "6799521254953fa2f52b75a4",
+      "67bda4f2fe71004d6d127362",
+      "67bda461fe71004d6d12735e"
+    ],
+    "propertyType": "677e51d6c13019b903318551",
+    "location": {
+      "longitude": 7.4165,
+      "latitude": 10.5105
+    },
+    "price": 800000,
+    "listingImg": [
+      "/house9.jpg",
+      "/house5.jpg"
+    ],
+    "rating": 4.8
   },
   {
-    image: "/house1.jpg",
-    category: "Duplex",
-    rating: 8.7,
-    title: "Spacious duplex with private garden",
-    location: "Surulere, Lagos.",
-    bedrooms: 4,
-    bathrooms: 5,
-    price: 150000,
-  },
-  {
-    image: "/house2.jpg",
-    category: "Houseboat",
-    rating: 9.0,
-    title: "Floating houseboat on the river",
-    location: "Port Harcourt, Rivers.",
-    bedrooms: 2,
-    bathrooms: 2,
-    price: 120000,
-  },
-  {
-    image: "/house3.jpg",
-    category: "Condo",
-    rating: 8.2,
-    title: "Luxury condo in the business district",
-    location: "Ikeja, Lagos.",
-    bedrooms: 3,
-    bathrooms: 3,
-    price: 200000,
-  },
-  {
-    image: "/house4.jpg",
-    category: "Farmhouse",
-    rating: 7.8,
-    title: "Peaceful farmhouse surrounded by greenery",
-    location: "Abeokuta, Ogun.",
-    bedrooms: 4,
-    bathrooms: 3,
-    price: 60000,
-  },
-  {
-    image: "/house5.jpg",
-    category: "Loft",
-    rating: 8.6,
-    title: "Trendy loft in a vibrant neighborhood",
-    location: "Yaba, Lagos.",
-    bedrooms: 2,
-    bathrooms: 2,
-    price: 90000,
-  },
-  {
-    image: "/house6.jpg",
-    category: "Chalet",
-    rating: 9.3,
-    title: "Beautiful chalet with mountain views",
-    location: "Obudu, Cross River.",
-    bedrooms: 3,
-    bathrooms: 2,
-    price: 100000,
-  },
-  {
-    image: "/house7.jpg",
-    category: "Terrace",
-    rating: 7.9,
-    title: "Charming terrace house with balcony",
-    location: "Benin City, Edo.",
-    bedrooms: 3,
-    bathrooms: 3,
-    price: 80000,
-  },
-  {
-    image: "/house8.jpg",
-    category: "Townhouse",
-    rating: 8.4,
-    title: "Family-friendly townhouse in a gated estate",
-    location: "Owerri, Imo.",
-    bedrooms: 4,
-    bathrooms: 4,
-    price: 140000,
-  },
-  {
-    image: "/house9.jpg",
-    category: "Tiny House",
-    rating: 8.1,
-    title: "Cozy tiny house with smart design",
-    location: "Enugu, Enugu.",
-    bedrooms: 1,
-    bathrooms: 1,
-    price: 45000,
-  },
-  {
-    image: "/house1.jpg",
-    category: "Castle",
-    rating: 9.5,
-    title: "Historic castle with breathtaking views",
-    location: "Kano, Kano.",
-    bedrooms: 10,
-    bathrooms: 12,
-    price: 1000000,
-  },
-  {
-    image: "/house2.jpg",
-    category: "RV",
-    rating: 7.6,
-    title: "Fully equipped RV for road trips",
-    location: "Ilorin, Kwara.",
-    bedrooms: 1,
-    bathrooms: 1,
-    price: 35000,
-  },
-];
+    "name": "Jos Condo Oasis",
+    "description": "A modern condo in the serene city of Jos with breathtaking mountain views.",
+    "amenities": [
+      "67bda383fe71004d6d127356",
+      "67bda3aefe71004d6d12735a",
+      "67bda461fe71004d6d12735e"
+    ],
+    "propertyType": "67bda0e3fe71004d6d127349",
+    "location": {
+      "longitude": 8.8583,
+      "latitude": 9.8965
+    },
+    "price": 400000,
+    "listingImg": [
+      "/house1.jpg"
+    ],
+    "rating": 4.6
+  }
+]
+;
 
 export default cards;

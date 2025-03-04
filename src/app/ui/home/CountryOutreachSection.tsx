@@ -29,7 +29,7 @@ const CountryOutreachSection: React.FC = () => {
         Country Outreach
       </h2>
       <p className={`text-gray-500 mt-2 text-[16px] ${cabin.className}`}>
-        Lorem ipsum dolor sit amet consectetur.
+      Expanding real estate opportunities across borders with seamless connections.
       </p>
       <Tabs
         regions={regions}

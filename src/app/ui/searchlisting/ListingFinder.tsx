@@ -1,345 +1,36 @@
-import React from "react";
+import React, { Suspense, useState } from "react";
 import FilterPanel from "./filter/FilterPanel";
 import ListingList from "./listings/ListingList";
 import { Listing } from "./listingType";
 import SortDropdown from "./listings/SortDropDown";
 import { cabin } from "../fonts";
-import dynamic from "next/dynamic";
+import { useGetListingsQuery } from "@/app/utils/services/api";
+import ListingFinderSkeleton from "./ListingFinderSkeleton";
+import Image from "next/image";
+import FilterPanelSkeleton from "./filter/FilterPanelSkeleton";
 
-const SearchMapView = dynamic(() => import("./SearchMapView"), { ssr: false });
-
-const listings: Listing[] = [
-  {
-    id: "1",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 7.7332,
-    longitude: 8.5333,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "2",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 8.383,
-    longitude: 8.5167,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "3",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 7.1665,
-    longitude: 8.1332,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "4",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 8.5001,
-    longitude: 9.0003,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "5",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 8.0334,
-    longitude: 8.3666,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "6",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "7",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "8",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "9",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "10",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "11",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "12",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "13",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "14",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "15",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "16",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "17",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "18",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "19",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-  {
-    id: "20",
-    title: "Relaxing retreat at the heart of Yaba City",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
-    image: "/house3.jpg",
-    price: 96000,
-    currency: "NGN",
-    category: "House",
-    rating: 4.5,
-    location: "Yaba City",
-    latitude: 6.5244,
-    longitude: 3.3792,
-    bathrooms: 2,
-    bedrooms: 3,
-  },
-];
-
-export default function ListingFinder() {
+const ListingFinder: React.FC = ({}) => {
   const onSortChange = (sortOption: string) => {
     console.log(sortOption);
   };
+  const { data: listings = [], isLoading, error } = useGetListingsQuery();
+
+  const [filteredListings, setFilteredListings] = useState<Listing[]>(listings);
+
+  if (isLoading) return <ListingFinderSkeleton />;
+
+  if (error) return <ListingFinderSkeleton />;
+
   return (
     <div className='flex w-full mt-16'>
       {/* Left Filter Panel */}
       <div className='w-[20%]'>
-        <FilterPanel />
+        <Suspense fallback={<FilterPanelSkeleton />}>
+          <FilterPanel
+            listings={listings}
+            setFilteredListings={setFilteredListings}
+          />
+        </Suspense>
       </div>
 
       {/* Main Content */}
@@ -348,20 +39,33 @@ export default function ListingFinder() {
           <div>
             <h2 className='text-[18px]'>Showing results</h2>
             <p className={`${cabin.className} text-sm`}>
-              300+ listings for “Wedding Location”
+              {`${filteredListings.length}+ listings for “Wedding Location`}
             </p>
           </div>
 
           {/* You can add a SortDropdown here if you like */}
           <SortDropdown onSortChange={onSortChange} />
         </div>
-        <ListingList listings={listings} />
+        {filteredListings.length === 0 ? (
+          <div className='flex w-full items-center justify-center'>
+            <Image
+              src={"/no-listing@2x.png"}
+              width={458}
+              height={520}
+              alt='no-result'
+            />
+          </div>
+        ) : (
+          <ListingList listings={filteredListings} />
+        )}
       </div>
 
       {/* Map Section */}
       <div className='w-1/4'>
-        <SearchMapView listings={listings} size='h-900px' />
+        {/* <SearchMapView listings={listings} size="h-900px" /> */}
       </div>
     </div>
   );
-}
+};
+
+export default ListingFinder;

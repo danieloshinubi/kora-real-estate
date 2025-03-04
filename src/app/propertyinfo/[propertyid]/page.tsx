@@ -12,9 +12,7 @@ import ListingPage from '@/app/ui/listing/ListingPageSection';
 export default function ListingDetailPage() {
   const { user } = useUser();
   const params = useParams(); // Get route params
-  const propertyId = params?.propertyId
-
-  console.log(propertyId)
+  const propertyId = params?.propertyid; // Ensure the parameter name matches the dynamic route folder name
 
   return (
     <div className=''>
@@ -23,17 +21,19 @@ export default function ListingDetailPage() {
       </div>
 
       <div className='relative container mx-auto px-6 lg:px-24 w-full'>
-        <Link href='/favourites' passHref>
-          <div className={`${cabin.className} text-[16px] mt-24 md:mt-32 md:px-6 flex items-center`}>
+        <Link href='/' passHref>
+          <div
+            className={`${cabin.className} text-[16px] mt-24 md:mt-32 md:px-6 flex items-center`}
+          >
             <FaChevronLeft />
 
-            <h2 className=''>Listings</h2>
+            <h2 className=''>Back to Home Page</h2>
           </div>
         </Link>
-        <ListingPage />
+        <ListingPage propertyId={propertyId as string} />
       </div>
 
       <Footer />
     </div>
-  )
+  );
 }

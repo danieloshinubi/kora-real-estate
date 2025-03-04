@@ -1,5 +1,6 @@
 import React from "react";
 import PropertyCard from "../home/PropertyCard";
+import { Location } from "@/types/listingtype";
 
 interface CollectionDetailsProp {
   collection: {
@@ -8,10 +9,11 @@ interface CollectionDetailsProp {
     savedListings: number;
     collectionProperties: {
       image: string;
-      category: string;
+      _id: string;
+      propertyType: string;
       rating: number;
       title: string;
-      location: string;
+      location: Location;
       bedrooms: number;
       bathrooms: number;
       price: number;

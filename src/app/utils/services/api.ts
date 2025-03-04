@@ -1,8 +1,16 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { Listing } from "@/types/listingtype";
 import { UserDetails, UserProfileInfo } from "@/app/ui/signUp/SignUpForm";
 export type FetchedPropertyType = {
   name: string;
   _id: string;
+};
+
+export type UserFavorite = {
+  data: {
+    user: string;
+    listing: string[];
+  };
 };
 
 export const api = createApi({
@@ -28,7 +36,12 @@ export const api = createApi({
         user: {
           id: string;
           email: string;
-          roles: string[];
+          phoneNo: string;
+          roles: {
+            User: string;
+          };
+          isVerified: boolean;
+          accountDisabled: boolean;
         };
       },
       { email: string; password: string }
@@ -116,6 +129,60 @@ export const api = createApi({
         method: "DELETE",
       }),
     }),
+
+    //Listing Endpoints
+    getListings: builder.query<Listing[], void>({
+      query: () => "/listings",
+    }),
+
+    //Favorites endpoints
+    getFavorites: builder.query<
+      { favorites: UserFavorite },
+      { userId: string }
+    >({
+      query: ({ userId }) => `/favorites/${userId}`,
+    }),
+
+    addFavorite: builder.mutation<
+      { message: string },
+      { userId: string; listingId: string }
+    >({
+      query: (favorite) => ({
+        url: "/favorites",
+        method: "POST",
+        body: favorite,
+      }),
+    }),
+
+    removeFavorites: builder.mutation<
+      { message: string },
+      { userId: string; listingId: string }
+    >({
+      query: (favorite) => ({
+        url: "/favorites",
+        method: "POST",
+        body: favorite,
+      }),
+    }),
+
+    //Transaction Endpoints
+    createTransaction: builder.mutation<
+      { message: string },
+      { userId: string; listingId: string; amount: number }
+    >({
+      query: (transaction) => ({
+        url: "/transaction",
+        method: "POST",
+        body: transaction,
+      }),
+    }),
+
+    getTransaction: builder.query<
+      { transaction: JSON },
+      { userId: string; listingId: string }
+    >({
+      query: ({ userId, listingId }) => `/transaction/${userId}/${listingId}`,
+    }),
   }),
 });
 
@@ -131,4 +198,10 @@ export const {
   useGetPropertyTypesQuery,
   useCreatePropertyTypeMutation,
   useDeletePropertyTypeMutation,
+  useGetListingsQuery,
+  useGetFavoritesQuery,
+  useAddFavoriteMutation,
+  useRemoveFavoritesMutation,
+  useCreateTransactionMutation,
+  useGetTransactionQuery,
 } = api;

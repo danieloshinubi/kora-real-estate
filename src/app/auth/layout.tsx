@@ -11,7 +11,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </div>
       <div className='absolute bottom-0 right-0 hidden lg:block'>
-        <Image src='/design.png' height={200} width={200} alt='design' className="w-auto"/>
+        <Image
+          src='/design.png'
+          height={200}
+          width={200}
+          alt='design'
+          className='w-auto'
+        />
       </div>
     </div>
   );

@@ -1,23 +1,27 @@
 import { cabin, inknutAntiqua } from "../fonts";
 
-export default function AboutSection() {
+type AboutSectionProps = {
+  description: string;
+  propertyType: {
+    _id: string;
+    name: string;
+  };
+}
+
+export default function AboutSection({description, propertyType}: AboutSectionProps) {
   return (
-    <div className={`${cabin.className} flex flex-col gap-4 md:gap-6 py-6 pt-0 md:py-12`}>
+    <div className={`${cabin.className} flex flex-col gap-4 md:gap-6 py-6 pt-0 md:py-12`} id="Location">
       {/* Header */}
       <div className="sm:flex justify-between items-start">
         <h2 className={`${inknutAntiqua.className}  text-[20px] md:text-[24px] mb-4 font-semibold text-[#8B3A2D]`}>About this location</h2>
         <span className="bg-gray-700 text-white text-sm px-3 py-1 rounded-full">
-          Pent House
+          {propertyType.name}
         </span>
       </div>
 
       {/* Description */}
       <p className="text-gray-600 mt-2 text-[14px]">
-        Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc 
-        blandit at ac luctus. Viverra diam in sit ultrices in et proin lorem ipsum. Feugiat 
-        etiam scelerisque aliquet vitae mauris ornare quis eget tincidunt. Sapien aliquet 
-        aliquet ut curabitur. Aliquet leo arcu tellus. Lorem ipsum dolor sit amet consectetur. 
-        Tempus semper suspendisse.
+        {description}
       </p>
 
       {/* Show More Button */}

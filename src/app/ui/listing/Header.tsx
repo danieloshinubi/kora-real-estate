@@ -1,20 +1,29 @@
 import { FaStar } from "react-icons/fa6";
 import { cabin } from "../fonts";
 
-export default function Header() {
+type HeaderProps = {
+  title: string;
+  rating: number;
+};
+export default function Header({ title, rating }: HeaderProps) {
+  const roundedRating = Math.ceil(rating); // Round up the rating
+
   return (
-    <div className=''>
+    <div className='' id="Overview">
       <h1 className='text-[20px] md:text-3xl text-[#8B3A2D] font-semibold'>
-        Relaxing retreat at the heart of Yuba City.
+        {title}
       </h1>
       <p className='text-yellow-500 mt-2 flex'>
-        <div className='flex items-center'>
-          {[...Array(5)].map((_, i) => (
+        <span className='flex items-center'>
+          {[...Array(roundedRating)].map((_, i) => (
             <FaStar key={i} />
           ))}
-        </div>
+        </span>
 
-        <span className={`${cabin.className} text-black`}> 5 star</span>
+        <span className={`${cabin.className} text-black`}>
+          {" "}
+          {roundedRating} star
+        </span>
       </p>
     </div>
   );

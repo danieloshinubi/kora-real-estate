@@ -7,37 +7,41 @@ const testimonials = [
   {
     id: 1,
     name: "Name Lastname",
+    title: "Phenomenal website!",
     role: "Realtor",
     avatar: "/review-man.jpeg", // Replace with actual image URL
     quote:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+      "Finding my dream home was effortless with this platform. The listings were detailed, and the support team was incredibly helpful throughout the process!",
     rating: 9.8,
   },
   {
     id: 2,
     name: "Name Lastname",
+    title: "Phenomenal website!",
     role: "Realtor",
     avatar: "/review-woman.jpeg", // Replace with actual image URL
     quote:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+      "Finding my dream home was effortless with this platform. The listings were detailed, and the support team was incredibly helpful throughout the process!",
     rating: 9.8,
   },
   {
     id: 3,
     name: "Name Lastname",
+    title: "Phenomenal website!",
     role: "Real Guy",
     avatar: "/review-woman.jpeg", // Replace with actual image URL
     quote:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+      "A seamless experience from start to finish! I found a great rental property within days, and the customer service was top-notch.",
     rating: 9.8,
   },
   {
     id: 4,
     name: "Name Lastname",
+    title: "Phenomenal website!",
     role: "Realest Nigga",
     avatar: "/review-woman.jpeg", // Replace with actual image URL
     quote:
-      "Lorem ipsum dolor sit amet consectetur. Tempus semper suspendisse semper nunc blandit at ac luctus.",
+      "A seamless experience from start to finish! I found a great rental property within days, and the customer service was top-notch.",
     rating: 9.8,
   },
 ];
@@ -75,7 +79,7 @@ const TestimonialCard = ({ slice }: TestimonialCardProps) => {
           <div className='border-t-[1px] my-3 border-black'></div>
           <div className='flex flex-col gap-2'>
             <h3 className='text-[18px] font-semibold'>
-              Lorem ipsum dolor sit amet consectetur.
+              {testimonial.title}
             </h3>
             <p className='italic text-gray-600 text-[16px] leading-[23px]'>{`"${testimonial.quote}"`}</p>
           </div>

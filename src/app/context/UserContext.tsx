@@ -5,7 +5,12 @@ import { UserProfileInfo } from "../ui/signUp/SignUpForm";
 type User = {
   id: string;
   email: string;
-  roles: string[];
+  phoneNo: string;
+  roles: {
+    User: string;
+  };
+  isVerified: boolean;
+  accountDisabled: boolean;
 } | null;
 
 const UserContext = createContext<{
@@ -72,7 +77,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
           console.error("Error fetching user profile:", error);
         }
       } else {
-        console.log("No user id found");
+        console.log(" ");
       }
     };
 

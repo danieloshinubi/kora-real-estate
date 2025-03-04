@@ -51,7 +51,7 @@ function Bathroom({ imageSrc, altText, title, description }: BathroomProps) {
 
 export default function BathroomDetails() {
   return (
-    <div className='max-w-3xl mx-auto flex flex-col space-y-6 pb-12'>
+    <div className='max-w-3xl mx-auto flex flex-col space-y-6 pb-12' id="Amenities">
       {/* Title */}
       <h2
         className={`${inknutAntiqua.className} text-[20px] md:text-[24px] font-semibold text-[#8B3A2D]`}

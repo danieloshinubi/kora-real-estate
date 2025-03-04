@@ -1,23 +1,42 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { cabin } from "../fonts";
 import { FaHeart } from "react-icons/fa6";
 import Link from "next/link";
+import { useUser } from "@/app/context/UserContext";
+import {
+  useAddFavoriteMutation,
+  useRemoveFavoritesMutation,
+} from "@/app/utils/services/api";
+import { useRouter } from "next/navigation";
+import { Location } from "@/types/listingtype";
 
 interface CardProps {
   image: string;
-  category: string;
+  _id: string;
+  propertyType: string;
   rating: number;
   title: string;
-  location: string;
+  location: Location;
   bedrooms: number;
   bathrooms: number;
   price: number;
 }
 
+interface address {
+  city: string;
+  state: string;
+  country_code: string;
+  town: string;
+  county: string;
+  postcode: string;
+  country: string;
+}
+
 const PropertyCard: React.FC<CardProps> = ({
   image,
-  category,
+  _id,
+  propertyType,
   rating,
   title,
   location,
@@ -25,14 +44,91 @@ const PropertyCard: React.FC<CardProps> = ({
   bathrooms,
   price,
 }) => {
-  const [favorite, setFavorite] = React.useState(false);
+  const [favorite, setFavorite] = useState(false);
+  const [addFavorite] = useAddFavoriteMutation();
+  const [removeFavorite] = useRemoveFavoritesMutation();
+
+  const { user } = useUser();
+  const router = useRouter();
+
+  const addToFavorite = async () => {
+    if (user) {
+      // Add to favorite
+      try {
+        const { data } = await addFavorite({ userId: user.id, listingId: _id });
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      // Redirect to login
+      router.push("/login");
+    }
+  };
+
+  const removeFromFavorite = async () => {
+    if (user) {
+      //Remove to favorite
+      try {
+        const { data } = await removeFavorite({
+          userId: user.id,
+          listingId: _id,
+        });
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      // Redirect to login
+      router.push("/login");
+    }
+  };
 
   const toggleFavorite = () => {
-    setFavorite(!favorite);
+    if (user) {
+      if (!favorite) {
+        setFavorite(true);
+        addToFavorite();
+      } else {
+        setFavorite(false);
+        removeFromFavorite();
+      }
+    }
+  };
+
+  const [state, setState] = useState<string>("");
+  console.log(state);
+
+  const [address, setAddress] = useState<address | null>(null);
+
+  async function getAddress(lat: number, lon: number) {
+    try {
+      const response = await fetch(
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`,
+        {
+          headers: {
+            "User-Agent": "KORA-REAL-ESTATE/1.0 (olusanyajolaoluwa@gmail.com)", // Replace with your app name and email
+          },
+        }
+      );
+      const data = await response.json();
+      setAddress(data.address || "Address not found");
+
+      // Extract state from the address components
+      const state = data.address?.state || "state not found";
+      setState(state);
+    } catch (error) {
+      console.error("Error fetching address:", error);
+      setState("Error fetching state");
+    }
   }
 
+  useEffect(() => {
+    getAddress(location.latitude, location.longitude);
+  }, [location.latitude, location.longitude]);
+
   return (
-    <Link href={`/propertyinfo/${title.toLowerCase().replaceAll(" ", "-")}`}>
+    <Link href={`/propertyinfo/${_id}`} passHref>
       <div className=' bg-white overflow-hidden'>
         {/* Image Section */}
         <div className='relative'>
@@ -42,11 +138,10 @@ const PropertyCard: React.FC<CardProps> = ({
               alt={title}
               fill
               className='object-cover rounded-lg'
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
             />
           </div>
           <button className='absolute top-3 right-3 p-2'>
-
             <FaHeart
               className={`${favorite ? "text-[#D2691E]" : "text-white"} text-2xl`}
               onClick={toggleFavorite}
@@ -56,12 +151,12 @@ const PropertyCard: React.FC<CardProps> = ({
 
         {/* Content Section */}
         <div className='py-4'>
-          {/* Category and Rating */}
+          {/* propertyType and Rating */}
           <div className='flex justify-between items-center'>
             <span
               className={`px-3 py-1 bg-gray-800 text-white rounded-full text-[12px] ${cabin.className}`}
             >
-              {category}
+              {propertyType}
             </span>
             <div className='flex items-center space-x-1'>
               <span
@@ -85,7 +180,8 @@ const PropertyCard: React.FC<CardProps> = ({
             {title}
           </h3>
           <p className={`text-[14px] ${cabin.className} text-gray-500`}>
-            {location}
+            {address?.county || address?.town || address?.city || ""},{" "}
+            {address?.state || ""}
           </p>
 
           {/* Features */}

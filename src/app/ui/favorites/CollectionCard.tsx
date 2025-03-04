@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { cabin } from "../fonts";
+import { Location } from "@/types/listingtype";
 
 interface CollectionCardProps {
   id: string;
@@ -12,7 +13,7 @@ interface CollectionCardProps {
     propertyType: string,
     rating: number,
     title: string,
-    location: string,
+    location: Location,
     bedrooms: number,
     bathrooms: number,
     price: number,

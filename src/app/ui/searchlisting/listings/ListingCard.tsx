@@ -83,6 +83,7 @@ const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
 
   const [country, setCountry] = useState<string>("");
   console.log(country);
+  
   const [address, setAddress] = useState<string>("Loading...");
 
   // function to get address by longitude and latitude

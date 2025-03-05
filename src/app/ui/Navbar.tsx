@@ -26,7 +26,7 @@ type User = {
 type NavProps = {
   user: User | null;
   theme?: "light" | "dark";
-  setShowCalculator: (show: boolean) => void;
+  setShowCalculator?: (show: boolean) => void;
 };
 
 const Navbar: React.FC<NavProps> = ({ user, theme, setShowCalculator }) => {
@@ -74,7 +74,7 @@ const Navbar: React.FC<NavProps> = ({ user, theme, setShowCalculator }) => {
 
         {/* Right Section: Buttons and Avatar */}
         <div className='flex items-center gap-4 lg:gap-8 justify-between mr-4'>
-          {pathName === "/" &&
+          {(pathName === "/" && setShowCalculator) &&
             (theme === "dark" ? (
               <button
                 className='hidden lg:block px-4 py-2 text-[12px] border-[1px] border-[#8B3A2D] text-[#8B3A2D] rounded-full hover:bg-[#8B3A2D] hover:text-white'

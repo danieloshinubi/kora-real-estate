@@ -26,9 +26,10 @@ type User = {
 type NavProps = {
   user: User | null;
   theme?: "light" | "dark";
+  setShowCalculator: (show: boolean) => void;
 };
 
-const Navbar: React.FC<NavProps> = ({ user, theme }) => {
+const Navbar: React.FC<NavProps> = ({ user, theme, setShowCalculator }) => {
   const pathName = usePathname();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -73,6 +74,23 @@ const Navbar: React.FC<NavProps> = ({ user, theme }) => {
 
         {/* Right Section: Buttons and Avatar */}
         <div className='flex items-center gap-4 lg:gap-8 justify-between mr-4'>
+          {pathName === "/" &&
+            (theme === "dark" ? (
+              <button
+                className='hidden lg:block px-4 py-2 text-[12px] border-[1px] border-[#8B3A2D] text-[#8B3A2D] rounded-full hover:bg-[#8B3A2D] hover:text-white'
+                onClick={() => setShowCalculator(true)}
+              >
+                Affordability Calculator
+              </button>
+            ) : (
+              <button
+                onClick={() => setShowCalculator(true)}
+                className='hidden lg:block px-4 py-2 border-[1px] text-[12px] border-[#F5DEB3] text-[#F5DEB3] rounded-full hover:bg-[#F5DEB3] hover:text-white'
+              >
+                Affordability Calculator
+              </button>
+            ))}
+
           {!user ? (
             <div className='hidden lg:flex gap-6 justify-center text-[14px]'>
               <a

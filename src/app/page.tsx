@@ -12,20 +12,25 @@ import FinalSection from "./ui/home/FinalSection";
 import CountryOutreachSection from "./ui/home/CountryOutreachSection";
 
 import Footer from "./ui/components/Footer";
+import { useState } from "react";
+import AffordabilityCalculator from "./ui/home/AffordabilityCalculator";
 
 export default function Home() {
+  //get the user profile and store it
   // const { user, userProfileData } = useUser();
-  const { user } = useUser();
-
   // console.log("From Home:", userProfileData)
 
-  
-  //get the user profile and store it
+  const { user } = useUser();
+
+  const [showCalculator, setShowCalculator] = useState(false);
 
   return (
     <div className=''>
-      <Navbar user={user}/>
+      <Navbar user={user} setShowCalculator={setShowCalculator} />
       <HomeHero />
+      {showCalculator && (
+        <AffordabilityCalculator onClose={() => setShowCalculator(false)} />
+      )}
       <div className='container mx-auto px-4 sm:px-8 md:px-12 lg:px-24'>
         <HouseListingSection />
         <PropertyTypesSection />
